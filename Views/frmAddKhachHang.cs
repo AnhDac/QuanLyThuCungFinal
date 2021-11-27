@@ -14,15 +14,18 @@ namespace QuanLyThuCung.Views
     public partial class frmAddKhachHang : Form
     {
         ThuCungEntities db = new ThuCungEntities();
+        public Panel panelTimKiem;
         public frmAddKhachHang()
         {
             InitializeComponent();
+            this.panelTimKiem = new Panel();
         }
 
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+          
         }
 
         private void btnLưu_Click(object sender, EventArgs e)

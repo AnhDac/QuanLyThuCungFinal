@@ -227,7 +227,7 @@ namespace QuanLyThuCung
             if (result != null)
             {
                 this.iduser = result.IDUser;          
-                tbPassword.Text = "";
+                tbPassword.Text = "12345678";
                 tbUsername.Text = "";
                 PhanQuyenUser(this.iduser);
                 frmHome frm = new frmHome();
@@ -241,6 +241,13 @@ namespace QuanLyThuCung
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnDangKi_Click(object sender, EventArgs e)
+        {
+            frmAddKhachHang frm = new frmAddKhachHang();
+            DisableButton();
+            OpenChildForm(frm);
         }
 
         private void btnLater_Click(object sender, EventArgs e)
@@ -310,9 +317,7 @@ namespace QuanLyThuCung
             panelTimKiemThuCungMain.Show();
         }
 
-        private void btnTaoMoi_Click(object sender, EventArgs e)
-        {
 
-        }
+       
     }
 }

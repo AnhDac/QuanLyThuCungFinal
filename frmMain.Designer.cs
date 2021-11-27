@@ -53,13 +53,14 @@ namespace QuanLyThuCung
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLater = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
+            this.btnDangKi = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -393,6 +394,7 @@ namespace QuanLyThuCung
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.btnLater);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -406,13 +408,13 @@ namespace QuanLyThuCung
             this.panel3.Location = new System.Drawing.Point(365, 68);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(411, 524);
+            this.panel3.Size = new System.Drawing.Size(435, 588);
             this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel4.Controls.Add(this.btnLater);
+            this.panel4.Controls.Add(this.btnDangKi);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.btnLogin);
             this.panel4.Controls.Add(this.label3);
@@ -422,34 +424,34 @@ namespace QuanLyThuCung
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(5, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(401, 514);
+            this.panel4.Size = new System.Drawing.Size(425, 578);
             this.panel4.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.CadetBlue;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, -5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(395, 307);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // btnLater
             // 
             this.btnLater.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLater.Location = new System.Drawing.Point(284, 456);
+            this.btnLater.Location = new System.Drawing.Point(1000, 33);
             this.btnLater.Name = "btnLater";
-            this.btnLater.Size = new System.Drawing.Size(114, 58);
+            this.btnLater.Size = new System.Drawing.Size(145, 50);
             this.btnLater.TabIndex = 24;
             this.btnLater.Text = "Bỏ Qua";
             this.btnLater.UseVisualStyleBackColor = true;
             this.btnLater.Click += new System.EventHandler(this.btnLater_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.CadetBlue;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(19, -5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(388, 317);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(8, 456);
+            this.btnLogin.Location = new System.Drawing.Point(19, 464);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(132, 55);
             this.btnLogin.TabIndex = 23;
@@ -504,6 +506,17 @@ namespace QuanLyThuCung
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(244, 33);
             this.tbUsername.TabIndex = 19;
+            // 
+            // btnDangKi
+            // 
+            this.btnDangKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangKi.Location = new System.Drawing.Point(256, 464);
+            this.btnDangKi.Name = "btnDangKi";
+            this.btnDangKi.Size = new System.Drawing.Size(132, 55);
+            this.btnDangKi.TabIndex = 25;
+            this.btnDangKi.Text = "Đăng Kí";
+            this.btnDangKi.UseVisualStyleBackColor = true;
+            this.btnDangKi.Click += new System.EventHandler(this.btnDangKi_Click);
             // 
             // frmMain
             // 
@@ -565,5 +578,6 @@ namespace QuanLyThuCung
         private System.Windows.Forms.TextBox tbTimThuCungMain;
         private FontAwesome.Sharp.IconButton btnTimThuCungMain;
         private System.Windows.Forms.ComboBox cbbTimThuCungMain;
+        private System.Windows.Forms.Button btnDangKi;
     }
 }
