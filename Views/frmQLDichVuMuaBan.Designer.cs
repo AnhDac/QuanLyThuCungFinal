@@ -113,6 +113,7 @@ namespace QuanLyThuCung.Views
             this.label4 = new System.Windows.Forms.Label();
             this.txtDV_IDSer = new System.Windows.Forms.TextBox();
             this.tabShowDichVuChamSoc = new System.Windows.Forms.TabPage();
+            this.btnMuaDichVu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -125,7 +126,6 @@ namespace QuanLyThuCung.Views
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.dgvDichVuDaMua = new System.Windows.Forms.DataGridView();
-            this.btnMuaDichVu = new System.Windows.Forms.Button();
             this.tabContracSell.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractSell)).BeginInit();
@@ -992,6 +992,17 @@ namespace QuanLyThuCung.Views
             this.tabShowDichVuChamSoc.TabIndex = 3;
             this.tabShowDichVuChamSoc.Text = "Dich Vu ";
             // 
+            // btnMuaDichVu
+            // 
+            this.btnMuaDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMuaDichVu.Location = new System.Drawing.Point(789, 454);
+            this.btnMuaDichVu.Name = "btnMuaDichVu";
+            this.btnMuaDichVu.Size = new System.Drawing.Size(126, 42);
+            this.btnMuaDichVu.TabIndex = 38;
+            this.btnMuaDichVu.Text = "Mua";
+            this.btnMuaDichVu.UseVisualStyleBackColor = true;
+            this.btnMuaDichVu.Click += new System.EventHandler(this.btnMuaDichVu_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Teal;
@@ -1070,6 +1081,7 @@ namespace QuanLyThuCung.Views
             this.dgvShowDVChamSoc.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvShowDVChamSoc.RowTemplate.Height = 30;
             this.dgvShowDVChamSoc.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShowDVChamSoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowDVChamSoc.Size = new System.Drawing.Size(492, 224);
             this.dgvShowDVChamSoc.TabIndex = 8;
             // 
@@ -1183,16 +1195,6 @@ namespace QuanLyThuCung.Views
             this.dgvDichVuDaMua.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDichVuDaMua.Size = new System.Drawing.Size(714, 224);
             this.dgvDichVuDaMua.TabIndex = 13;
-            // 
-            // btnMuaDichVu
-            // 
-            this.btnMuaDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuaDichVu.Location = new System.Drawing.Point(789, 454);
-            this.btnMuaDichVu.Name = "btnMuaDichVu";
-            this.btnMuaDichVu.Size = new System.Drawing.Size(126, 42);
-            this.btnMuaDichVu.TabIndex = 38;
-            this.btnMuaDichVu.Text = "Mua";
-            this.btnMuaDichVu.UseVisualStyleBackColor = true;
             // 
             // frmQLDichVuMuaBan
             // 

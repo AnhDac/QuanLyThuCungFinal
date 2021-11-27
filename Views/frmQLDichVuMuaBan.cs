@@ -94,6 +94,11 @@ namespace QuanLyThuCung.Views
             var result = db.usp_GetDataDichVu().ToList();
             dgvShowDVChamSoc.DataSource = result.ToList();
         }
+        private void btnMuaDichVu_Click(object sender, EventArgs e)
+        {
+            int idservic = Convert.ToInt32(dgvShowDVChamSoc.CurrentRow.Cells[0].Value.ToString().Trim());
+            
+        }
 
         #endregion
 
@@ -495,5 +500,6 @@ namespace QuanLyThuCung.Views
 
         #endregion
 
+     
     }
 }
