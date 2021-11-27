@@ -27,6 +27,7 @@ namespace QuanLyThuCung.Views
         {
             InitializeComponent();
             this.iduser = iduser;
+
         }
 
         private void frmQLThuCung_Load(object sender, EventArgs e)
