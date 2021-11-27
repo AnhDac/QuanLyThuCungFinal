@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ab8d7f08719d44ef99fc9c849fd3f034" Name="Diagram1">
+        <EntityTypeShape EntityType="CNPMModel.Contract_Sell" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Contract_Ser" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Customer" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Employee" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Pet" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Servic" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Species" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Supplier" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.User" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.WarrantyType" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.view_HDDichVu" Width="1.5" PointX="4.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="CNPMModel.FK_IDCus_ConSell_IDCus_Custom" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDEmp_ConSell_IDEmp_Emp" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDPet_ContractSell_IDPet_Pet" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDWarr_ContractSell_IDWarr_Warr" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDCus_ConSer_IDCus_Custom" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDEmp_ConSer_IDEmp_Emp" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDSer_ConSer_IDSer_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDSpec_Pet_IDSpec_Spec" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK_IDSup_Pet_IDSup_Sup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

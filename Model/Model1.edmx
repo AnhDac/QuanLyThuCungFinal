@@ -1,0 +1,1612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CNPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contract_Sell">
+          <Key>
+            <PropertyRef Name="ID_ConSell" />
+          </Key>
+          <Property Name="ID_ConSell" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Emp" Type="int" />
+          <Property Name="ID_Cus" Type="int" />
+          <Property Name="ID_Pet" Type="int" />
+          <Property Name="CateInsurance" Type="int" />
+          <Property Name="DateSell" Type="date" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Contract_Ser">
+          <Key>
+            <PropertyRef Name="ID_ConSer" />
+          </Key>
+          <Property Name="ID_ConSer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Emp" Type="int" />
+          <Property Name="ID_Cus" Type="int" />
+          <Property Name="DateBuy" Type="date" />
+          <Property Name="ID_Ser" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID_Cus" />
+          </Key>
+          <Property Name="ID_Cus" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_Emp" />
+          </Key>
+          <Property Name="ID_Emp" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="DateStart" Type="date" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="ID_Pet" />
+          </Key>
+          <Property Name="ID_Pet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Spec" Type="int" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="PriceImport" Type="int" />
+          <Property Name="ID_Sup" Type="int" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="Servic">
+          <Key>
+            <PropertyRef Name="ID_Ser" />
+          </Key>
+          <Property Name="ID_Ser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Species">
+          <Key>
+            <PropertyRef Name="ID_Spec" />
+          </Key>
+          <Property Name="ID_Spec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID_Sup" />
+          </Key>
+          <Property Name="ID_Sup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassWord" Type="varchar" MaxLength="30" />
+          <Property Name="Permission" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WarrantyType">
+          <Key>
+            <PropertyRef Name="ID_Warr" />
+          </Key>
+          <Property Name="ID_Warr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Months" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNPM.dbo.view_HDDichVu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_HDDichVu">
+          <Key>
+            <PropertyRef Name="ID_ConSer" />
+          </Key>
+          <Property Name="ID_ConSer" Type="int" Nullable="false" />
+          <Property Name="ID_Emp" Type="int" />
+          <Property Name="ID_Cus" Type="int" />
+          <Property Name="DateBuy" Type="date" />
+          <Property Name="ID_Ser" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <Association Name="FK_IDCus_ConSell_IDCus_Custom">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID_Cus" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Cus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDCus_ConSer_IDCus_Custom">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID_Cus" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Cus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDEmp_ConSell_IDEmp_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Emp" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDEmp_ConSer_IDEmp_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Emp" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDPet_ContractSell_IDPet_Pet">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="ID_Pet" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Pet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSer_ConSer_IDSer_Service">
+          <End Role="Servic" Type="Self.Servic" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servic">
+              <PropertyRef Name="ID_Ser" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Ser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSpec_Pet_IDSpec_Spec">
+          <End Role="Species" Type="Self.Species" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Species">
+              <PropertyRef Name="ID_Spec" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="ID_Spec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSup_Pet_IDSup_Sup">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID_Sup" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="ID_Sup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDWarr_ContractSell_IDWarr_Warr">
+          <End Role="WarrantyType" Type="Self.WarrantyType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WarrantyType">
+              <PropertyRef Name="ID_Warr" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="CateInsurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="timKiemHDBanThuCung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="day" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="timKiemHDDV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="day" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetContractSellTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetContractSerTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetDanhSachDichVuDaMua" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idkh" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetDataBaoHanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataDichVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataHDBanDV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataHDBanThuCung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataNhaCungCap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetDataUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetLoaiThuCung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetProfitContractSellTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_GetSumSalaryOfEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="total" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_GetThuCung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetThuCungChuaBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetThuCungChuaBanTheoGioiTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sex" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetThuCungChuaBanTheoLoai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tenloai" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetThuCungChuaBanTheoTuoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="age" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetThuCungDaMua" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idkh" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetTotalMoneyTransactionContractSellTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_GetTotalMoneyTransactionContractSerTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_TimDVTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimKHTheoSDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimKHTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimKHTheoTuoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="age" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TimNVTheoLuong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="salary" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TimNVTheoSDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimNVTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimNVTheoTuoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="age" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TimTCTheoGioiTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sex" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimTCTheoLoai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="loai" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TimTCTheoTuoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tuoi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TimUserTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_TimUserTheoUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="CNPMModelStoreContainer">
+          <EntitySet Name="Contract_Sell" EntityType="Self.Contract_Sell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract_Ser" EntityType="Self.Contract_Ser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servic" EntityType="Self.Servic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WarrantyType" EntityType="Self.WarrantyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="view_HDDichVu" EntityType="Self.view_HDDichVu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_HDDichVu].[ID_ConSer] AS [ID_ConSer], 
+    [view_HDDichVu].[ID_Emp] AS [ID_Emp], 
+    [view_HDDichVu].[ID_Cus] AS [ID_Cus], 
+    [view_HDDichVu].[DateBuy] AS [DateBuy], 
+    [view_HDDichVu].[ID_Ser] AS [ID_Ser], 
+    [view_HDDichVu].[Name] AS [Name], 
+    [view_HDDichVu].[Price] AS [Price]
+    FROM [dbo].[view_HDDichVu] AS [view_HDDichVu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_IDCus_ConSell_IDCus_Custom" Association="Self.FK_IDCus_ConSell_IDCus_Custom">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDCus_ConSer_IDCus_Custom" Association="Self.FK_IDCus_ConSer_IDCus_Custom">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDEmp_ConSell_IDEmp_Emp" Association="Self.FK_IDEmp_ConSell_IDEmp_Emp">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDEmp_ConSer_IDEmp_Emp" Association="Self.FK_IDEmp_ConSer_IDEmp_Emp">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDPet_ContractSell_IDPet_Pet" Association="Self.FK_IDPet_ContractSell_IDPet_Pet">
+            <End Role="Pet" EntitySet="Pet" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSer_ConSer_IDSer_Service" Association="Self.FK_IDSer_ConSer_IDSer_Service">
+            <End Role="Servic" EntitySet="Servic" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSpec_Pet_IDSpec_Spec" Association="Self.FK_IDSpec_Pet_IDSpec_Spec">
+            <End Role="Species" EntitySet="Species" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSup_Pet_IDSup_Sup" Association="Self.FK_IDSup_Pet_IDSup_Sup">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDWarr_ContractSell_IDWarr_Warr" Association="Self.FK_IDWarr_ContractSell_IDWarr_Warr">
+            <End Role="WarrantyType" EntitySet="WarrantyType" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CNPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contract_Sell">
+          <Key>
+            <PropertyRef Name="ID_ConSell" />
+          </Key>
+          <Property Name="ID_ConSell" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Emp" Type="Int32" />
+          <Property Name="ID_Cus" Type="Int32" />
+          <Property Name="ID_Pet" Type="Int32" />
+          <Property Name="CateInsurance" Type="Int32" />
+          <Property Name="DateSell" Type="DateTime" Precision="0" />
+          <Property Name="Price" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_IDCus_ConSell_IDCus_Custom" FromRole="Contract_Sell" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_IDEmp_ConSell_IDEmp_Emp" FromRole="Contract_Sell" ToRole="Employee" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK_IDPet_ContractSell_IDPet_Pet" FromRole="Contract_Sell" ToRole="Pet" />
+          <NavigationProperty Name="WarrantyType" Relationship="Self.FK_IDWarr_ContractSell_IDWarr_Warr" FromRole="Contract_Sell" ToRole="WarrantyType" />
+        </EntityType>
+        <EntityType Name="Contract_Ser">
+          <Key>
+            <PropertyRef Name="ID_ConSer" />
+          </Key>
+          <Property Name="ID_ConSer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Emp" Type="Int32" />
+          <Property Name="ID_Cus" Type="Int32" />
+          <Property Name="DateBuy" Type="DateTime" Precision="0" />
+          <Property Name="ID_Ser" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_IDCus_ConSer_IDCus_Custom" FromRole="Contract_Ser" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_IDEmp_ConSer_IDEmp_Emp" FromRole="Contract_Ser" ToRole="Employee" />
+          <NavigationProperty Name="Servic" Relationship="Self.FK_IDSer_ConSer_IDSer_Service" FromRole="Contract_Ser" ToRole="Servic" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID_Cus" />
+          </Key>
+          <Property Name="ID_Cus" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Contract_Sell" Relationship="Self.FK_IDCus_ConSell_IDCus_Custom" FromRole="Customer" ToRole="Contract_Sell" />
+          <NavigationProperty Name="Contract_Ser" Relationship="Self.FK_IDCus_ConSer_IDCus_Custom" FromRole="Customer" ToRole="Contract_Ser" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_Emp" />
+          </Key>
+          <Property Name="ID_Emp" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Contract_Sell" Relationship="Self.FK_IDEmp_ConSell_IDEmp_Emp" FromRole="Employee" ToRole="Contract_Sell" />
+          <NavigationProperty Name="Contract_Ser" Relationship="Self.FK_IDEmp_ConSer_IDEmp_Emp" FromRole="Employee" ToRole="Contract_Ser" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="ID_Pet" />
+          </Key>
+          <Property Name="ID_Pet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Spec" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PriceImport" Type="Int32" />
+          <Property Name="ID_Sup" Type="Int32" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Contract_Sell" Relationship="Self.FK_IDPet_ContractSell_IDPet_Pet" FromRole="Pet" ToRole="Contract_Sell" />
+          <NavigationProperty Name="Species" Relationship="Self.FK_IDSpec_Pet_IDSpec_Spec" FromRole="Pet" ToRole="Species" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_IDSup_Pet_IDSup_Sup" FromRole="Pet" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Servic">
+          <Key>
+            <PropertyRef Name="ID_Ser" />
+          </Key>
+          <Property Name="ID_Ser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <NavigationProperty Name="Contract_Ser" Relationship="Self.FK_IDSer_ConSer_IDSer_Service" FromRole="Servic" ToRole="Contract_Ser" />
+        </EntityType>
+        <EntityType Name="Species">
+          <Key>
+            <PropertyRef Name="ID_Spec" />
+          </Key>
+          <Property Name="ID_Spec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pets" Relationship="Self.FK_IDSpec_Pet_IDSpec_Spec" FromRole="Species" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID_Sup" />
+          </Key>
+          <Property Name="ID_Sup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pets" Relationship="Self.FK_IDSup_Pet_IDSup_Sup" FromRole="Supplier" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Permission" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WarrantyType">
+          <Key>
+            <PropertyRef Name="ID_Warr" />
+          </Key>
+          <Property Name="ID_Warr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Months" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contract_Sell" Relationship="Self.FK_IDWarr_ContractSell_IDWarr_Warr" FromRole="WarrantyType" ToRole="Contract_Sell" />
+        </EntityType>
+        <EntityType Name="view_HDDichVu">
+          <Key>
+            <PropertyRef Name="ID_ConSer" />
+          </Key>
+          <Property Name="ID_ConSer" Type="Int32" Nullable="false" />
+          <Property Name="ID_Emp" Type="Int32" />
+          <Property Name="ID_Cus" Type="Int32" />
+          <Property Name="DateBuy" Type="DateTime" Precision="0" />
+          <Property Name="ID_Ser" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_IDCus_ConSell_IDCus_Custom">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID_Cus" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Cus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDEmp_ConSell_IDEmp_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Emp" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDPet_ContractSell_IDPet_Pet">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="ID_Pet" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="ID_Pet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDWarr_ContractSell_IDWarr_Warr">
+          <End Role="WarrantyType" Type="Self.WarrantyType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Sell" Type="Self.Contract_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WarrantyType">
+              <PropertyRef Name="ID_Warr" />
+            </Principal>
+            <Dependent Role="Contract_Sell">
+              <PropertyRef Name="CateInsurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDCus_ConSer_IDCus_Custom">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID_Cus" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Cus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDEmp_ConSer_IDEmp_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Emp" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSer_ConSer_IDSer_Service">
+          <End Role="Servic" Type="Self.Servic" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contract_Ser" Type="Self.Contract_Ser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servic">
+              <PropertyRef Name="ID_Ser" />
+            </Principal>
+            <Dependent Role="Contract_Ser">
+              <PropertyRef Name="ID_Ser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSpec_Pet_IDSpec_Spec">
+          <End Role="Species" Type="Self.Species" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Species">
+              <PropertyRef Name="ID_Spec" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="ID_Spec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDSup_Pet_IDSup_Sup">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID_Sup" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="ID_Sup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThuCungEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contract_Sell" EntityType="Self.Contract_Sell" />
+          <EntitySet Name="Contract_Ser" EntityType="Self.Contract_Ser" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Pets" EntityType="Self.Pet" />
+          <EntitySet Name="Servics" EntityType="Self.Servic" />
+          <EntitySet Name="Species" EntityType="Self.Species" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="WarrantyTypes" EntityType="Self.WarrantyType" />
+          <EntitySet Name="view_HDDichVu" EntityType="Self.view_HDDichVu" />
+          <AssociationSet Name="FK_IDCus_ConSell_IDCus_Custom" Association="Self.FK_IDCus_ConSell_IDCus_Custom">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDEmp_ConSell_IDEmp_Emp" Association="Self.FK_IDEmp_ConSell_IDEmp_Emp">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDPet_ContractSell_IDPet_Pet" Association="Self.FK_IDPet_ContractSell_IDPet_Pet">
+            <End Role="Pet" EntitySet="Pets" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDWarr_ContractSell_IDWarr_Warr" Association="Self.FK_IDWarr_ContractSell_IDWarr_Warr">
+            <End Role="WarrantyType" EntitySet="WarrantyTypes" />
+            <End Role="Contract_Sell" EntitySet="Contract_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDCus_ConSer_IDCus_Custom" Association="Self.FK_IDCus_ConSer_IDCus_Custom">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDEmp_ConSer_IDEmp_Emp" Association="Self.FK_IDEmp_ConSer_IDEmp_Emp">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSer_ConSer_IDSer_Service" Association="Self.FK_IDSer_ConSer_IDSer_Service">
+            <End Role="Servic" EntitySet="Servics" />
+            <End Role="Contract_Ser" EntitySet="Contract_Ser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSpec_Pet_IDSpec_Spec" Association="Self.FK_IDSpec_Pet_IDSpec_Spec">
+            <End Role="Species" EntitySet="Species" />
+            <End Role="Pet" EntitySet="Pets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDSup_Pet_IDSup_Sup" Association="Self.FK_IDSup_Pet_IDSup_Sup">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Pet" EntitySet="Pets" />
+          </AssociationSet>
+          <FunctionImport Name="timKiemHDBanThuCung" ReturnType="Collection(CNPMModel.timKiemHDBanThuCung_Result)">
+            <Parameter Name="day" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="timKiemHDDV" ReturnType="Collection(CNPMModel.timKiemHDDV_Result)">
+            <Parameter Name="day" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetContractSellTheoThangVaNam" ReturnType="Collection(CNPMModel.usp_GetContractSellTheoThangVaNam_Result)">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetContractSerTheoThangVaNam" ReturnType="Collection(CNPMModel.usp_GetContractSerTheoThangVaNam_Result)">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetDanhSachDichVuDaMua" ReturnType="Collection(CNPMModel.usp_GetDanhSachDichVuDaMua_Result)">
+            <Parameter Name="idkh" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetDataBaoHanh" ReturnType="Collection(CNPMModel.usp_GetDataBaoHanh_Result)" />
+          <FunctionImport Name="usp_GetDataCustomer" ReturnType="Collection(CNPMModel.usp_GetDataCustomer_Result)" />
+          <FunctionImport Name="usp_GetDataDichVu" ReturnType="Collection(CNPMModel.usp_GetDataDichVu_Result)" />
+          <FunctionImport Name="usp_GetDataHDBanDV" ReturnType="Collection(CNPMModel.usp_GetDataHDBanDV_Result)" />
+          <FunctionImport Name="usp_GetDataHDBanThuCung" ReturnType="Collection(CNPMModel.usp_GetDataHDBanThuCung_Result)" />
+          <FunctionImport Name="usp_GetDataNhaCungCap" ReturnType="Collection(CNPMModel.usp_GetDataNhaCungCap_Result)" />
+          <FunctionImport Name="usp_GetDataNV" ReturnType="Collection(CNPMModel.usp_GetDataNV_Result)" />
+          <FunctionImport Name="usp_GetDataUser" ReturnType="Collection(CNPMModel.usp_GetDataUser_Result)" />
+          <FunctionImport Name="usp_GetLoaiThuCung" ReturnType="Collection(CNPMModel.usp_GetLoaiThuCung_Result)" />
+          <FunctionImport Name="usp_GetProfitContractSellTheoThangVaNam">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetSumSalaryOfEmp">
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetThuCung" ReturnType="Collection(CNPMModel.usp_GetThuCung_Result)" />
+          <FunctionImport Name="usp_GetThuCungChuaBan" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBan_Result)" />
+          <FunctionImport Name="usp_GetThuCungChuaBanTheoGioiTinh" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoGioiTinh_Result)">
+            <Parameter Name="sex" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetThuCungChuaBanTheoLoai" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoLoai_Result)">
+            <Parameter Name="tenloai" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetThuCungChuaBanTheoTuoi" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoTuoi_Result)">
+            <Parameter Name="age" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetThuCungDaMua" ReturnType="Collection(CNPMModel.usp_GetThuCungDaMua_Result)">
+            <Parameter Name="idkh" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetTotalMoneyTransactionContractSellTheoThangVaNam">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetTotalMoneyTransactionContractSerTheoThangVaNam">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimDVTheoTen" ReturnType="Collection(CNPMModel.usp_TimDVTheoTen_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimKHTheoSDT" ReturnType="Collection(CNPMModel.usp_TimKHTheoSDT_Result)">
+            <Parameter Name="sdt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimKHTheoTen" ReturnType="Collection(CNPMModel.usp_TimKHTheoTen_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimKHTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimKHTheoTuoi_Result)">
+            <Parameter Name="age" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimNVTheoLuong" ReturnType="Collection(CNPMModel.usp_TimNVTheoLuong_Result)">
+            <Parameter Name="salary" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimNVTheoSDT" ReturnType="Collection(CNPMModel.usp_TimNVTheoSDT_Result)">
+            <Parameter Name="sdt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimNVTheoTen" ReturnType="Collection(CNPMModel.usp_TimNVTheoTen_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimNVTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimNVTheoTuoi_Result)">
+            <Parameter Name="age" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimTCTheoGioiTinh" ReturnType="Collection(CNPMModel.usp_TimTCTheoGioiTinh_Result)">
+            <Parameter Name="sex" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimTCTheoLoai" ReturnType="Collection(CNPMModel.usp_TimTCTheoLoai_Result)">
+            <Parameter Name="loai" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimTCTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimTCTheoTuoi_Result)">
+            <Parameter Name="tuoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimUserTheoTen" ReturnType="Collection(CNPMModel.usp_TimUserTheoTen_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TimUserTheoUsername" ReturnType="Collection(CNPMModel.usp_TimUserTheoUsername_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="timKiemHDBanThuCung_Result">
+          <Property Type="Int32" Name="ID_ConSell" Nullable="false" />
+          <Property Type="Int32" Name="ID_Emp" Nullable="true" />
+          <Property Type="Int32" Name="ID_Cus" Nullable="true" />
+          <Property Type="Int32" Name="ID_Pet" Nullable="true" />
+          <Property Type="Int32" Name="CateInsurance" Nullable="true" />
+          <Property Type="DateTime" Name="DateSell" Nullable="true" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="timKiemHDDV_Result">
+          <Property Type="Int32" Name="ID_ConSer" Nullable="false" />
+          <Property Type="Int32" Name="ID_Emp" Nullable="true" />
+          <Property Type="Int32" Name="ID_Cus" Nullable="true" />
+          <Property Type="DateTime" Name="DateBuy" Nullable="true" />
+          <Property Type="Int32" Name="ID_Ser" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetContractSellTheoThangVaNam_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Loại_Thú_Cưng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Loại_Bảo_Hành" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngày_Bán" Nullable="true" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetContractSerTheoThangVaNam_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngày_Mua" Nullable="true" />
+          <Property Type="String" Name="Tên_Dịch_Vụ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDanhSachDichVuDaMua_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngày_Mua" Nullable="true" />
+          <Property Type="String" Name="Tên_Dịch_Vụ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataBaoHanh_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tháng" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataCustomer_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataDichVu_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Dịch_Vụ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataHDBanDV_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDNV" Nullable="true" />
+          <Property Type="Int32" Name="IDKH" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Mua" Nullable="true" />
+          <Property Type="Int32" Name="IDDV" Nullable="true" />
+          <Property Type="String" Name="Tên_DV" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataHDBanThuCung_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Mã_NV" Nullable="true" />
+          <Property Type="Int32" Name="MãKH" Nullable="true" />
+          <Property Type="Int32" Name="Mã_Thú_Cưng" Nullable="true" />
+          <Property Type="Int32" Name="Mã_Bảo_Hành" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Mua" Nullable="true" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataNhaCungCap_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataNV_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Lương" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Vào_Làm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDataUser_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tài_Khoản" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mật_Khẩu" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Quyền" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="usp_GetLoaiThuCung_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCung_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCungChuaBan_Result">
+          <Property Type="Int32" Name="ID_Pet" Nullable="false" />
+          <Property Type="Int32" Name="ID_Spec" Nullable="true" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="PriceImport" Nullable="true" />
+          <Property Type="Int32" Name="ID_Sup" Nullable="true" />
+          <Property Type="Double" Name="Weight" Nullable="true" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCungChuaBanTheoGioiTinh_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCungChuaBanTheoLoai_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCungChuaBanTheoTuoi_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetThuCungDaMua_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Loại_Thú_Cưng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="String" Name="Nhà_Cung_Cấp" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimDVTheoTen_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Dịch_Vụ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Giá" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimKHTheoSDT_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimKHTheoTen_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimKHTheoTuoi_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Khách_Hàng" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimNVTheoLuong_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Lương" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Vào_Làm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimNVTheoSDT_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Lương" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Vào_Làm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimNVTheoTen_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Lương" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Vào_Làm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimNVTheoTuoi_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên_Nhân_Viên" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+          <Property Type="String" Name="Địa_Chỉ" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Lương" Nullable="true" />
+          <Property Type="DateTime" Name="Ngày_Vào_Làm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimTCTheoGioiTinh_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimTCTheoLoai_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimTCTheoTuoi_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDLoại" Nullable="true" />
+          <Property Type="String" Name="Giới_Tính" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Giá_Nhập" Nullable="true" />
+          <Property Type="Int32" Name="NCC" Nullable="true" />
+          <Property Type="Double" Name="Cân_Nặng" Nullable="true" />
+          <Property Type="Int32" Name="Tuổi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TimUserTheoTen_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tài_Khoản" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mật_Khẩu" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Quyền" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="usp_TimUserTheoUsername_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Tên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tài_Khoản" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mật_Khẩu" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Quyền" Nullable="false" MaxLength="15" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CNPMModelStoreContainer" CdmEntityContainer="ThuCungEntities">
+          <EntitySetMapping Name="Contract_Sell">
+            <EntityTypeMapping TypeName="CNPMModel.Contract_Sell">
+              <MappingFragment StoreEntitySet="Contract_Sell">
+                <ScalarProperty Name="ID_ConSell" ColumnName="ID_ConSell" />
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="CateInsurance" ColumnName="CateInsurance" />
+                <ScalarProperty Name="DateSell" ColumnName="DateSell" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract_Ser">
+            <EntityTypeMapping TypeName="CNPMModel.Contract_Ser">
+              <MappingFragment StoreEntitySet="Contract_Ser">
+                <ScalarProperty Name="ID_ConSer" ColumnName="ID_ConSer" />
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="DateBuy" ColumnName="DateBuy" />
+                <ScalarProperty Name="ID_Ser" ColumnName="ID_Ser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CNPMModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CNPMModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets">
+            <EntityTypeMapping TypeName="CNPMModel.Pet">
+              <MappingFragment StoreEntitySet="Pet">
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="ID_Spec" ColumnName="ID_Spec" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PriceImport" ColumnName="PriceImport" />
+                <ScalarProperty Name="ID_Sup" ColumnName="ID_Sup" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servics">
+            <EntityTypeMapping TypeName="CNPMModel.Servic">
+              <MappingFragment StoreEntitySet="Servic">
+                <ScalarProperty Name="ID_Ser" ColumnName="ID_Ser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Species">
+            <EntityTypeMapping TypeName="CNPMModel.Species">
+              <MappingFragment StoreEntitySet="Species">
+                <ScalarProperty Name="ID_Spec" ColumnName="ID_Spec" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="CNPMModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="ID_Sup" ColumnName="ID_Sup" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CNPMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarrantyTypes">
+            <EntityTypeMapping TypeName="CNPMModel.WarrantyType">
+              <MappingFragment StoreEntitySet="WarrantyType">
+                <ScalarProperty Name="ID_Warr" ColumnName="ID_Warr" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Months" ColumnName="Months" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_HDDichVu">
+            <EntityTypeMapping TypeName="CNPMModel.view_HDDichVu">
+              <MappingFragment StoreEntitySet="view_HDDichVu">
+                <ScalarProperty Name="ID_ConSer" ColumnName="ID_ConSer" />
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="DateBuy" ColumnName="DateBuy" />
+                <ScalarProperty Name="ID_Ser" ColumnName="ID_Ser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="timKiemHDBanThuCung" FunctionName="CNPMModel.Store.timKiemHDBanThuCung">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.timKiemHDBanThuCung_Result">
+                <ScalarProperty Name="ID_ConSell" ColumnName="ID_ConSell" />
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="CateInsurance" ColumnName="CateInsurance" />
+                <ScalarProperty Name="DateSell" ColumnName="DateSell" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="timKiemHDDV" FunctionName="CNPMModel.Store.timKiemHDDV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.timKiemHDDV_Result">
+                <ScalarProperty Name="ID_ConSer" ColumnName="ID_ConSer" />
+                <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+                <ScalarProperty Name="ID_Cus" ColumnName="ID_Cus" />
+                <ScalarProperty Name="DateBuy" ColumnName="DateBuy" />
+                <ScalarProperty Name="ID_Ser" ColumnName="ID_Ser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetContractSellTheoThangVaNam" FunctionName="CNPMModel.Store.usp_GetContractSellTheoThangVaNam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetContractSellTheoThangVaNam_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nhân_Viên" ColumnName="Nhân_Viên" />
+                <ScalarProperty Name="Khách_Hàng" ColumnName="Khách_Hàng" />
+                <ScalarProperty Name="Loại_Thú_Cưng" ColumnName="Loại_Thú_Cưng" />
+                <ScalarProperty Name="Loại_Bảo_Hành" ColumnName="Loại_Bảo_Hành" />
+                <ScalarProperty Name="Ngày_Bán" ColumnName="Ngày_Bán" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetContractSerTheoThangVaNam" FunctionName="CNPMModel.Store.usp_GetContractSerTheoThangVaNam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetContractSerTheoThangVaNam_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nhân_Viên" ColumnName="Nhân_Viên" />
+                <ScalarProperty Name="Khách_Hàng" ColumnName="Khách_Hàng" />
+                <ScalarProperty Name="Ngày_Mua" ColumnName="Ngày_Mua" />
+                <ScalarProperty Name="Tên_Dịch_Vụ" ColumnName="Tên_Dịch_Vụ" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDanhSachDichVuDaMua" FunctionName="CNPMModel.Store.usp_GetDanhSachDichVuDaMua">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDanhSachDichVuDaMua_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nhân_Viên" ColumnName="Nhân_Viên" />
+                <ScalarProperty Name="Khách_Hàng" ColumnName="Khách_Hàng" />
+                <ScalarProperty Name="Ngày_Mua" ColumnName="Ngày_Mua" />
+                <ScalarProperty Name="Tên_Dịch_Vụ" ColumnName="Tên_Dịch_Vụ" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataBaoHanh" FunctionName="CNPMModel.Store.usp_GetDataBaoHanh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataBaoHanh_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+                <ScalarProperty Name="Tháng" ColumnName="Tháng" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataCustomer" FunctionName="CNPMModel.Store.usp_GetDataCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataCustomer_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Khách_Hàng" ColumnName="Tên_Khách_Hàng" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataDichVu" FunctionName="CNPMModel.Store.usp_GetDataDichVu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataDichVu_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Dịch_Vụ" ColumnName="Tên_Dịch_Vụ" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataHDBanDV" FunctionName="CNPMModel.Store.usp_GetDataHDBanDV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataHDBanDV_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+                <ScalarProperty Name="Ngày_Mua" ColumnName="Ngày_Mua" />
+                <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+                <ScalarProperty Name="Tên_DV" ColumnName="Tên_DV" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataHDBanThuCung" FunctionName="CNPMModel.Store.usp_GetDataHDBanThuCung">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataHDBanThuCung_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mã_NV" ColumnName="Mã_NV" />
+                <ScalarProperty Name="MãKH" ColumnName="MãKH" />
+                <ScalarProperty Name="Mã_Thú_Cưng" ColumnName="Mã_Thú_Cưng" />
+                <ScalarProperty Name="Mã_Bảo_Hành" ColumnName="Mã_Bảo_Hành" />
+                <ScalarProperty Name="Ngày_Mua" ColumnName="Ngày_Mua" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataNhaCungCap" FunctionName="CNPMModel.Store.usp_GetDataNhaCungCap">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataNhaCungCap_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataNV" FunctionName="CNPMModel.Store.usp_GetDataNV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataNV_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Nhân_Viên" ColumnName="Tên_Nhân_Viên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+                <ScalarProperty Name="Lương" ColumnName="Lương" />
+                <ScalarProperty Name="Ngày_Vào_Làm" ColumnName="Ngày_Vào_Làm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDataUser" FunctionName="CNPMModel.Store.usp_GetDataUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetDataUser_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+                <ScalarProperty Name="Tài_Khoản" ColumnName="Tài_Khoản" />
+                <ScalarProperty Name="Mật_Khẩu" ColumnName="Mật_Khẩu" />
+                <ScalarProperty Name="Quyền" ColumnName="Quyền" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetLoaiThuCung" FunctionName="CNPMModel.Store.usp_GetLoaiThuCung">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetLoaiThuCung_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetProfitContractSellTheoThangVaNam" FunctionName="CNPMModel.Store.usp_GetProfitContractSellTheoThangVaNam" />
+          <FunctionImportMapping FunctionImportName="usp_GetSumSalaryOfEmp" FunctionName="CNPMModel.Store.usp_GetSumSalaryOfEmp" />
+          <FunctionImportMapping FunctionImportName="usp_GetThuCung" FunctionName="CNPMModel.Store.usp_GetThuCung">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCung_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetThuCungChuaBan" FunctionName="CNPMModel.Store.usp_GetThuCungChuaBan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCungChuaBan_Result">
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="ID_Spec" ColumnName="ID_Spec" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PriceImport" ColumnName="PriceImport" />
+                <ScalarProperty Name="ID_Sup" ColumnName="ID_Sup" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetThuCungChuaBanTheoGioiTinh" FunctionName="CNPMModel.Store.usp_GetThuCungChuaBanTheoGioiTinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCungChuaBanTheoGioiTinh_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetThuCungChuaBanTheoLoai" FunctionName="CNPMModel.Store.usp_GetThuCungChuaBanTheoLoai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCungChuaBanTheoLoai_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetThuCungChuaBanTheoTuoi" FunctionName="CNPMModel.Store.usp_GetThuCungChuaBanTheoTuoi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCungChuaBanTheoTuoi_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetThuCungDaMua" FunctionName="CNPMModel.Store.usp_GetThuCungDaMua">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_GetThuCungDaMua_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Loại_Thú_Cưng" ColumnName="Loại_Thú_Cưng" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="Nhà_Cung_Cấp" ColumnName="Nhà_Cung_Cấp" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetTotalMoneyTransactionContractSellTheoThangVaNam" FunctionName="CNPMModel.Store.usp_GetTotalMoneyTransactionContractSellTheoThangVaNam" />
+          <FunctionImportMapping FunctionImportName="usp_GetTotalMoneyTransactionContractSerTheoThangVaNam" FunctionName="CNPMModel.Store.usp_GetTotalMoneyTransactionContractSerTheoThangVaNam" />
+          <FunctionImportMapping FunctionImportName="usp_TimDVTheoTen" FunctionName="CNPMModel.Store.usp_TimDVTheoTen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimDVTheoTen_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Dịch_Vụ" ColumnName="Tên_Dịch_Vụ" />
+                <ScalarProperty Name="Giá" ColumnName="Giá" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimKHTheoSDT" FunctionName="CNPMModel.Store.usp_TimKHTheoSDT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimKHTheoSDT_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Khách_Hàng" ColumnName="Tên_Khách_Hàng" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimKHTheoTen" FunctionName="CNPMModel.Store.usp_TimKHTheoTen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimKHTheoTen_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Khách_Hàng" ColumnName="Tên_Khách_Hàng" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimKHTheoTuoi" FunctionName="CNPMModel.Store.usp_TimKHTheoTuoi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimKHTheoTuoi_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Khách_Hàng" ColumnName="Tên_Khách_Hàng" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimNVTheoLuong" FunctionName="CNPMModel.Store.usp_TimNVTheoLuong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimNVTheoLuong_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Nhân_Viên" ColumnName="Tên_Nhân_Viên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+                <ScalarProperty Name="Lương" ColumnName="Lương" />
+                <ScalarProperty Name="Ngày_Vào_Làm" ColumnName="Ngày_Vào_Làm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimNVTheoSDT" FunctionName="CNPMModel.Store.usp_TimNVTheoSDT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimNVTheoSDT_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Nhân_Viên" ColumnName="Tên_Nhân_Viên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+                <ScalarProperty Name="Lương" ColumnName="Lương" />
+                <ScalarProperty Name="Ngày_Vào_Làm" ColumnName="Ngày_Vào_Làm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimNVTheoTen" FunctionName="CNPMModel.Store.usp_TimNVTheoTen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimNVTheoTen_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Nhân_Viên" ColumnName="Tên_Nhân_Viên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+                <ScalarProperty Name="Lương" ColumnName="Lương" />
+                <ScalarProperty Name="Ngày_Vào_Làm" ColumnName="Ngày_Vào_Làm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimNVTheoTuoi" FunctionName="CNPMModel.Store.usp_TimNVTheoTuoi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimNVTheoTuoi_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên_Nhân_Viên" ColumnName="Tên_Nhân_Viên" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa_Chỉ" />
+                <ScalarProperty Name="Lương" ColumnName="Lương" />
+                <ScalarProperty Name="Ngày_Vào_Làm" ColumnName="Ngày_Vào_Làm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimTCTheoGioiTinh" FunctionName="CNPMModel.Store.usp_TimTCTheoGioiTinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimTCTheoGioiTinh_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimTCTheoLoai" FunctionName="CNPMModel.Store.usp_TimTCTheoLoai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimTCTheoLoai_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimTCTheoTuoi" FunctionName="CNPMModel.Store.usp_TimTCTheoTuoi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimTCTheoTuoi_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDLoại" ColumnName="IDLoại" />
+                <ScalarProperty Name="Giới_Tính" ColumnName="Giới_Tính" />
+                <ScalarProperty Name="Giá_Nhập" ColumnName="Giá_Nhập" />
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="Cân_Nặng" ColumnName="Cân_Nặng" />
+                <ScalarProperty Name="Tuổi" ColumnName="Tuổi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimUserTheoTen" FunctionName="CNPMModel.Store.usp_TimUserTheoTen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimUserTheoTen_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+                <ScalarProperty Name="Tài_Khoản" ColumnName="Tài_Khoản" />
+                <ScalarProperty Name="Mật_Khẩu" ColumnName="Mật_Khẩu" />
+                <ScalarProperty Name="Quyền" ColumnName="Quyền" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TimUserTheoUsername" FunctionName="CNPMModel.Store.usp_TimUserTheoUsername">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.usp_TimUserTheoUsername_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tên" ColumnName="Tên" />
+                <ScalarProperty Name="Tài_Khoản" ColumnName="Tài_Khoản" />
+                <ScalarProperty Name="Mật_Khẩu" ColumnName="Mật_Khẩu" />
+                <ScalarProperty Name="Quyền" ColumnName="Quyền" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
