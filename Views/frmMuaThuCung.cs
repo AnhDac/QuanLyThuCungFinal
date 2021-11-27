@@ -13,6 +13,7 @@ namespace QuanLyThuCung.Views
 {
     public partial class frmMuaThuCung : Form
     {
+        public int idnhanvien;
         public int idpet;
         public int iduser;
         public int pricepet=0;
@@ -27,6 +28,7 @@ namespace QuanLyThuCung.Views
         {
             InitializeComponent();
             btnMua = new Button();
+            this.idnhanvien = 1;//Default
         }
   
         private void frmMuaThuCung_Load(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace QuanLyThuCung.Views
                 {
                     Contract_Sell contract_sell = new Contract_Sell();
 
-                    contract_sell.ID_Emp = 1;//Default
+                    contract_sell.ID_Emp = this.idnhanvien;
                     contract_sell.ID_Cus = Convert.ToInt32(txtSell_IDCus.Text.ToString().Trim());
                     contract_sell.ID_Pet = Convert.ToInt32(txtSell_IDPet.Text.ToString().Trim());
 

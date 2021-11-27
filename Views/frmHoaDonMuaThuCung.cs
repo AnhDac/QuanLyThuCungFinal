@@ -19,6 +19,7 @@ namespace QuanLyThuCung.Views
         public string loaithucung = "";
         public int price = 0;
         public int sothangBaoHanh = 0;
+        public DateTime ngaymua;
         public Form frm;
 
         ThuCungEntities db = new ThuCungEntities();
@@ -27,6 +28,7 @@ namespace QuanLyThuCung.Views
         {
             InitializeComponent();
             frm = new Form();
+            ngaymua = DateTime.Now;//default
         }
 
         private void frmHoaDonMuaThuCung_Load(object sender, EventArgs e)
@@ -41,7 +43,8 @@ namespace QuanLyThuCung.Views
             txtIDPet.Text = this.idpet + "";
             txtPrice.Text = this.price + "";
             tbSoThanhBaoHanh.Text = this.sothangBaoHanh + "";
-            tbNgayMua.Text = DateTime.Now.ToString();
+            tbNgayMua.Text = this.ngaymua.ToString();
+            tbNgayXuatHoaDon.Text  = DateTime.Now.ToString();
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)

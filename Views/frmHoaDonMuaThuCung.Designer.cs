@@ -34,6 +34,11 @@ namespace QuanLyThuCung.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbNgayMua = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbLoaiThuCung = new System.Windows.Forms.TextBox();
+            this.tbSoThanhBaoHanh = new System.Windows.Forms.TextBox();
             this.lbThang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,11 +48,8 @@ namespace QuanLyThuCung.Views
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtIDPet = new System.Windows.Forms.TextBox();
             this.txtIDCus = new System.Windows.Forms.TextBox();
-            this.tbSoThanhBaoHanh = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbLoaiThuCung = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbNgayMua = new System.Windows.Forms.TextBox();
+            this.tbNgayXuatHoaDon = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.pnlChiTietThuCung.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,10 +71,10 @@ namespace QuanLyThuCung.Views
             this.pnlChiTietThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pnlChiTietThuCung.Controls.Add(this.panel1);
             this.pnlChiTietThuCung.Controls.Add(this.panel3);
-            this.pnlChiTietThuCung.Location = new System.Drawing.Point(232, 51);
+            this.pnlChiTietThuCung.Location = new System.Drawing.Point(236, 27);
             this.pnlChiTietThuCung.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
             this.pnlChiTietThuCung.Name = "pnlChiTietThuCung";
-            this.pnlChiTietThuCung.Size = new System.Drawing.Size(522, 536);
+            this.pnlChiTietThuCung.Size = new System.Drawing.Size(522, 560);
             this.pnlChiTietThuCung.TabIndex = 17;
             // 
             // panel1
@@ -97,6 +99,8 @@ namespace QuanLyThuCung.Views
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.tbNgayXuatHoaDon);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.tbNgayMua);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
@@ -111,10 +115,52 @@ namespace QuanLyThuCung.Views
             this.panel3.Controls.Add(this.txtPrice);
             this.panel3.Controls.Add(this.txtIDPet);
             this.panel3.Controls.Add(this.txtIDCus);
-            this.panel3.Location = new System.Drawing.Point(31, 119);
+            this.panel3.Location = new System.Drawing.Point(19, 119);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(463, 414);
+            this.panel3.Size = new System.Drawing.Size(485, 438);
             this.panel3.TabIndex = 46;
+            // 
+            // tbNgayMua
+            // 
+            this.tbNgayMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgayMua.Location = new System.Drawing.Point(218, 254);
+            this.tbNgayMua.Name = "tbNgayMua";
+            this.tbNgayMua.Size = new System.Drawing.Size(206, 26);
+            this.tbNgayMua.TabIndex = 60;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(56, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 35);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Ngày mua:";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 39);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Loại thú cưng:";
+            // 
+            // tbLoaiThuCung
+            // 
+            this.tbLoaiThuCung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLoaiThuCung.Location = new System.Drawing.Point(218, 150);
+            this.tbLoaiThuCung.Name = "tbLoaiThuCung";
+            this.tbLoaiThuCung.Size = new System.Drawing.Size(163, 26);
+            this.tbLoaiThuCung.TabIndex = 57;
+            // 
+            // tbSoThanhBaoHanh
+            // 
+            this.tbSoThanhBaoHanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSoThanhBaoHanh.Location = new System.Drawing.Point(217, 305);
+            this.tbSoThanhBaoHanh.Name = "tbSoThanhBaoHanh";
+            this.tbSoThanhBaoHanh.Size = new System.Drawing.Size(71, 26);
+            this.tbSoThanhBaoHanh.TabIndex = 55;
             // 
             // lbThang
             // 
@@ -164,7 +210,7 @@ namespace QuanLyThuCung.Views
             // btnTroVe
             // 
             this.btnTroVe.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.Location = new System.Drawing.Point(343, 368);
+            this.btnTroVe.Location = new System.Drawing.Point(366, 392);
             this.btnTroVe.Name = "btnTroVe";
             this.btnTroVe.Size = new System.Drawing.Size(107, 43);
             this.btnTroVe.TabIndex = 13;
@@ -196,47 +242,22 @@ namespace QuanLyThuCung.Views
             this.txtIDCus.Size = new System.Drawing.Size(71, 26);
             this.txtIDCus.TabIndex = 42;
             // 
-            // tbSoThanhBaoHanh
+            // tbNgayXuatHoaDon
             // 
-            this.tbSoThanhBaoHanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSoThanhBaoHanh.Location = new System.Drawing.Point(217, 305);
-            this.tbSoThanhBaoHanh.Name = "tbSoThanhBaoHanh";
-            this.tbSoThanhBaoHanh.Size = new System.Drawing.Size(71, 26);
-            this.tbSoThanhBaoHanh.TabIndex = 55;
+            this.tbNgayXuatHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgayXuatHoaDon.Location = new System.Drawing.Point(217, 353);
+            this.tbNgayXuatHoaDon.Name = "tbNgayXuatHoaDon";
+            this.tbNgayXuatHoaDon.Size = new System.Drawing.Size(223, 26);
+            this.tbNgayXuatHoaDon.TabIndex = 68;
             // 
-            // label5
+            // label7
             // 
-            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 39);
-            this.label5.TabIndex = 58;
-            this.label5.Text = "Loại thú cưng:";
-            // 
-            // tbLoaiThuCung
-            // 
-            this.tbLoaiThuCung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLoaiThuCung.Location = new System.Drawing.Point(218, 150);
-            this.tbLoaiThuCung.Name = "tbLoaiThuCung";
-            this.tbLoaiThuCung.Size = new System.Drawing.Size(163, 26);
-            this.tbLoaiThuCung.TabIndex = 57;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(56, 254);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 35);
-            this.label6.TabIndex = 59;
-            this.label6.Text = "Ngày mua:";
-            // 
-            // tbNgayMua
-            // 
-            this.tbNgayMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNgayMua.Location = new System.Drawing.Point(218, 254);
-            this.tbNgayMua.Name = "tbNgayMua";
-            this.tbNgayMua.Size = new System.Drawing.Size(163, 26);
-            this.tbNgayMua.TabIndex = 60;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 353);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(208, 32);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "Ngày xuất hóa đơn:";
             // 
             // frmHoaDonMuaThuCung
             // 
@@ -277,5 +298,7 @@ namespace QuanLyThuCung.Views
         private System.Windows.Forms.TextBox tbLoaiThuCung;
         private System.Windows.Forms.TextBox tbNgayMua;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbNgayXuatHoaDon;
+        private System.Windows.Forms.Label label7;
     }
 }

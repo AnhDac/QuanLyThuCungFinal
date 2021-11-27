@@ -16,7 +16,7 @@ namespace QuanLyThuCung.Views
     {
         ThuCungEntities db = new ThuCungEntities();
         Controller ctrl = new Controller();
-
+        Form currentChildForm =new Form();
         private int iduser;
         public frmQLDichVuMuaBan()
         {
@@ -97,7 +97,30 @@ namespace QuanLyThuCung.Views
         private void btnMuaDichVu_Click(object sender, EventArgs e)
         {
             int idservic = Convert.ToInt32(dgvShowDVChamSoc.CurrentRow.Cells[0].Value.ToString().Trim());
-            
+            int price = Convert.ToInt32(dgvShowDVChamSoc.CurrentRow.Cells[2].Value.ToString().Trim());
+            string loaidichvu = dgvShowDVChamSoc.CurrentRow.Cells[1].Value.ToString();
+            frmMuaDichVu frm = new frmMuaDichVu();
+            frm.idcus = this.iduser;
+            frm.idser = idservic;
+            frm.price = price;
+            frm.loaidichvu = loaidichvu;
+            OpenChildForm(frm);
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelMainQLDichVu.Controls.Add(childForm);
+           // panelMainQLDichVu.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         #endregion

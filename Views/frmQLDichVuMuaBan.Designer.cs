@@ -38,18 +38,16 @@ namespace QuanLyThuCung.Views
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLDichVuMuaBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLDichVuMuaBan));
             this.tabContracSell = new System.Windows.Forms.TabPage();
             this.dtpTimKiemHDThuCung = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnTimContractSell = new FontAwesome.Sharp.IconButton();
-            this.btnReloadHDThuCung = new FontAwesome.Sharp.IconButton();
             this.btnSell_Xoa = new System.Windows.Forms.Button();
             this.btnSell_Sua = new System.Windows.Forms.Button();
             this.btnSell_Them = new System.Windows.Forms.Button();
@@ -72,9 +70,7 @@ namespace QuanLyThuCung.Views
             this.txtSell_IDCon = new System.Windows.Forms.TextBox();
             this.tabHDDV = new System.Windows.Forms.TabPage();
             this.dtpTimKiemHDDV = new System.Windows.Forms.DateTimePicker();
-            this.btnTimHDDV = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnReloadHDDV = new FontAwesome.Sharp.IconButton();
             this.btnXoaHDDV = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvHDDV = new System.Windows.Forms.DataGridView();
@@ -98,10 +94,8 @@ namespace QuanLyThuCung.Views
             this.tabDV = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dvgDV = new System.Windows.Forms.DataGridView();
-            this.btnReloadDV = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbTimDV = new System.Windows.Forms.TextBox();
-            this.btnTimDV = new FontAwesome.Sharp.IconButton();
             this.btnXoaDV = new System.Windows.Forms.Button();
             this.btnSuaDV = new System.Windows.Forms.Button();
             this.btnThemDV = new System.Windows.Forms.Button();
@@ -113,19 +107,28 @@ namespace QuanLyThuCung.Views
             this.label4 = new System.Windows.Forms.Label();
             this.txtDV_IDSer = new System.Windows.Forms.TextBox();
             this.tabShowDichVuChamSoc = new System.Windows.Forms.TabPage();
-            this.btnMuaDichVu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dgvShowDVChamSoc = new System.Windows.Forms.DataGridView();
             this.tabQL = new System.Windows.Forms.TabControl();
             this.tabDichVuDaMua = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.dgvDichVuDaMua = new System.Windows.Forms.DataGridView();
+            this.panel123 = new System.Windows.Forms.Panel();
+            this.btnMuaDichVu = new System.Windows.Forms.Button();
+            this.dgvShowDVChamSoc = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelMainQLDichVu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnReloadDV = new FontAwesome.Sharp.IconButton();
+            this.btnTimDV = new FontAwesome.Sharp.IconButton();
+            this.btnTimHDDV = new FontAwesome.Sharp.IconButton();
+            this.btnReloadHDDV = new FontAwesome.Sharp.IconButton();
+            this.btnTimContractSell = new FontAwesome.Sharp.IconButton();
+            this.btnReloadHDThuCung = new FontAwesome.Sharp.IconButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabContracSell.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractSell)).BeginInit();
@@ -140,13 +143,16 @@ namespace QuanLyThuCung.Views
             this.panel2.SuspendLayout();
             this.tabShowDichVuChamSoc.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShowDVChamSoc)).BeginInit();
             this.tabQL.SuspendLayout();
             this.tabDichVuDaMua.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuDaMua)).BeginInit();
+            this.panel123.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowDVChamSoc)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panelMainQLDichVu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabContracSell
@@ -154,13 +160,13 @@ namespace QuanLyThuCung.Views
             this.tabContracSell.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabContracSell.Controls.Add(this.dtpTimKiemHDThuCung);
             this.tabContracSell.Controls.Add(this.label13);
-            this.tabContracSell.Controls.Add(this.btnTimContractSell);
-            this.tabContracSell.Controls.Add(this.btnReloadHDThuCung);
             this.tabContracSell.Controls.Add(this.btnSell_Xoa);
             this.tabContracSell.Controls.Add(this.btnSell_Sua);
             this.tabContracSell.Controls.Add(this.btnSell_Them);
             this.tabContracSell.Controls.Add(this.groupBox2);
             this.tabContracSell.Controls.Add(this.panel3);
+            this.tabContracSell.Controls.Add(this.btnTimContractSell);
+            this.tabContracSell.Controls.Add(this.btnReloadHDThuCung);
             this.tabContracSell.Location = new System.Drawing.Point(4, 34);
             this.tabContracSell.Name = "tabContracSell";
             this.tabContracSell.Padding = new System.Windows.Forms.Padding(3);
@@ -186,45 +192,6 @@ namespace QuanLyThuCung.Views
             this.label13.Size = new System.Drawing.Size(115, 23);
             this.label13.TabIndex = 53;
             this.label13.Text = "Tìm Kiếm:";
-            // 
-            // btnTimContractSell
-            // 
-            this.btnTimContractSell.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnTimContractSell.FlatAppearance.BorderSize = 0;
-            this.btnTimContractSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimContractSell.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimContractSell.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnTimContractSell.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnTimContractSell.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTimContractSell.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTimContractSell.IconSize = 42;
-            this.btnTimContractSell.Location = new System.Drawing.Point(436, 52);
-            this.btnTimContractSell.Name = "btnTimContractSell";
-            this.btnTimContractSell.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnTimContractSell.Size = new System.Drawing.Size(53, 43);
-            this.btnTimContractSell.TabIndex = 52;
-            this.btnTimContractSell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTimContractSell.UseVisualStyleBackColor = false;
-            this.btnTimContractSell.Click += new System.EventHandler(this.btnTimContractSell_Click);
-            // 
-            // btnReloadHDThuCung
-            // 
-            this.btnReloadHDThuCung.FlatAppearance.BorderSize = 0;
-            this.btnReloadHDThuCung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReloadHDThuCung.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReloadHDThuCung.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnReloadHDThuCung.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            this.btnReloadHDThuCung.IconColor = System.Drawing.Color.Olive;
-            this.btnReloadHDThuCung.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReloadHDThuCung.IconSize = 42;
-            this.btnReloadHDThuCung.Location = new System.Drawing.Point(941, 6);
-            this.btnReloadHDThuCung.Name = "btnReloadHDThuCung";
-            this.btnReloadHDThuCung.Size = new System.Drawing.Size(126, 48);
-            this.btnReloadHDThuCung.TabIndex = 51;
-            this.btnReloadHDThuCung.Text = "Tải Lại";
-            this.btnReloadHDThuCung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReloadHDThuCung.UseVisualStyleBackColor = true;
-            this.btnReloadHDThuCung.Click += new System.EventHandler(this.btnReloadHDThuCung_Click);
             // 
             // btnSell_Xoa
             // 
@@ -455,14 +422,14 @@ namespace QuanLyThuCung.Views
             // 
             this.tabHDDV.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabHDDV.Controls.Add(this.dtpTimKiemHDDV);
-            this.tabHDDV.Controls.Add(this.btnTimHDDV);
             this.tabHDDV.Controls.Add(this.label7);
-            this.tabHDDV.Controls.Add(this.btnReloadHDDV);
             this.tabHDDV.Controls.Add(this.btnXoaHDDV);
             this.tabHDDV.Controls.Add(this.groupBox1);
             this.tabHDDV.Controls.Add(this.btnSuaHDDV);
             this.tabHDDV.Controls.Add(this.panel1);
             this.tabHDDV.Controls.Add(this.btnThemHDDV);
+            this.tabHDDV.Controls.Add(this.btnTimHDDV);
+            this.tabHDDV.Controls.Add(this.btnReloadHDDV);
             this.tabHDDV.Location = new System.Drawing.Point(4, 34);
             this.tabHDDV.Name = "tabHDDV";
             this.tabHDDV.Padding = new System.Windows.Forms.Padding(3);
@@ -480,26 +447,6 @@ namespace QuanLyThuCung.Views
             this.dtpTimKiemHDDV.Size = new System.Drawing.Size(246, 24);
             this.dtpTimKiemHDDV.TabIndex = 51;
             // 
-            // btnTimHDDV
-            // 
-            this.btnTimHDDV.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnTimHDDV.FlatAppearance.BorderSize = 0;
-            this.btnTimHDDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimHDDV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimHDDV.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnTimHDDV.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnTimHDDV.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTimHDDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTimHDDV.IconSize = 42;
-            this.btnTimHDDV.Location = new System.Drawing.Point(434, 37);
-            this.btnTimHDDV.Name = "btnTimHDDV";
-            this.btnTimHDDV.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnTimHDDV.Size = new System.Drawing.Size(55, 49);
-            this.btnTimHDDV.TabIndex = 44;
-            this.btnTimHDDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTimHDDV.UseVisualStyleBackColor = false;
-            this.btnTimHDDV.Click += new System.EventHandler(this.btnTimHDDV_Click);
-            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -508,25 +455,6 @@ namespace QuanLyThuCung.Views
             this.label7.Size = new System.Drawing.Size(115, 23);
             this.label7.TabIndex = 24;
             this.label7.Text = "Tìm Kiếm:";
-            // 
-            // btnReloadHDDV
-            // 
-            this.btnReloadHDDV.FlatAppearance.BorderSize = 0;
-            this.btnReloadHDDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReloadHDDV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReloadHDDV.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnReloadHDDV.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            this.btnReloadHDDV.IconColor = System.Drawing.Color.Olive;
-            this.btnReloadHDDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReloadHDDV.IconSize = 42;
-            this.btnReloadHDDV.Location = new System.Drawing.Point(933, 8);
-            this.btnReloadHDDV.Name = "btnReloadHDDV";
-            this.btnReloadHDDV.Size = new System.Drawing.Size(139, 45);
-            this.btnReloadHDDV.TabIndex = 43;
-            this.btnReloadHDDV.Text = "Tải Lại";
-            this.btnReloadHDDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReloadHDDV.UseVisualStyleBackColor = true;
-            this.btnReloadHDDV.Click += new System.EventHandler(this.btnReloadHDDV_Click);
             // 
             // btnXoaHDDV
             // 
@@ -758,8 +686,8 @@ namespace QuanLyThuCung.Views
             // 
             this.tabDV.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabDV.Controls.Add(this.groupBox3);
-            this.tabDV.Controls.Add(this.btnReloadDV);
             this.tabDV.Controls.Add(this.panel2);
+            this.tabDV.Controls.Add(this.btnReloadDV);
             this.tabDV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabDV.Location = new System.Drawing.Point(4, 34);
             this.tabDV.Name = "tabDV";
@@ -817,25 +745,6 @@ namespace QuanLyThuCung.Views
             this.dvgDV.TabIndex = 7;
             this.dvgDV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDV_CellClick);
             // 
-            // btnReloadDV
-            // 
-            this.btnReloadDV.FlatAppearance.BorderSize = 0;
-            this.btnReloadDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReloadDV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReloadDV.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnReloadDV.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            this.btnReloadDV.IconColor = System.Drawing.Color.Olive;
-            this.btnReloadDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReloadDV.IconSize = 42;
-            this.btnReloadDV.Location = new System.Drawing.Point(933, 6);
-            this.btnReloadDV.Name = "btnReloadDV";
-            this.btnReloadDV.Size = new System.Drawing.Size(126, 48);
-            this.btnReloadDV.TabIndex = 9;
-            this.btnReloadDV.Text = "Tải Lại";
-            this.btnReloadDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReloadDV.UseVisualStyleBackColor = true;
-            this.btnReloadDV.Click += new System.EventHandler(this.btnReloadDV_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -863,26 +772,6 @@ namespace QuanLyThuCung.Views
             this.tbTimDV.Name = "tbTimDV";
             this.tbTimDV.Size = new System.Drawing.Size(214, 26);
             this.tbTimDV.TabIndex = 41;
-            // 
-            // btnTimDV
-            // 
-            this.btnTimDV.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnTimDV.FlatAppearance.BorderSize = 0;
-            this.btnTimDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimDV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimDV.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnTimDV.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnTimDV.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTimDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTimDV.IconSize = 42;
-            this.btnTimDV.Location = new System.Drawing.Point(317, 50);
-            this.btnTimDV.Name = "btnTimDV";
-            this.btnTimDV.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnTimDV.Size = new System.Drawing.Size(53, 43);
-            this.btnTimDV.TabIndex = 40;
-            this.btnTimDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTimDV.UseVisualStyleBackColor = false;
-            this.btnTimDV.Click += new System.EventHandler(this.btnTimDV_Click);
             // 
             // btnXoaDV
             // 
@@ -980,10 +869,7 @@ namespace QuanLyThuCung.Views
             // tabShowDichVuChamSoc
             // 
             this.tabShowDichVuChamSoc.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tabShowDichVuChamSoc.Controls.Add(this.btnMuaDichVu);
-            this.tabShowDichVuChamSoc.Controls.Add(this.panel4);
-            this.tabShowDichVuChamSoc.Controls.Add(this.label22);
-            this.tabShowDichVuChamSoc.Controls.Add(this.dgvShowDVChamSoc);
+            this.tabShowDichVuChamSoc.Controls.Add(this.panel123);
             this.tabShowDichVuChamSoc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabShowDichVuChamSoc.Location = new System.Drawing.Point(4, 34);
             this.tabShowDichVuChamSoc.Name = "tabShowDichVuChamSoc";
@@ -992,37 +878,15 @@ namespace QuanLyThuCung.Views
             this.tabShowDichVuChamSoc.TabIndex = 3;
             this.tabShowDichVuChamSoc.Text = "Dich Vu ";
             // 
-            // btnMuaDichVu
-            // 
-            this.btnMuaDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuaDichVu.Location = new System.Drawing.Point(789, 454);
-            this.btnMuaDichVu.Name = "btnMuaDichVu";
-            this.btnMuaDichVu.Size = new System.Drawing.Size(126, 42);
-            this.btnMuaDichVu.TabIndex = 38;
-            this.btnMuaDichVu.Text = "Mua";
-            this.btnMuaDichVu.UseVisualStyleBackColor = true;
-            this.btnMuaDichVu.Click += new System.EventHandler(this.btnMuaDichVu_Click);
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Teal;
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.label21);
-            this.panel4.Location = new System.Drawing.Point(8, 6);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(213, 194);
             this.panel4.TabIndex = 12;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(49, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // label21
             // 
@@ -1034,56 +898,6 @@ namespace QuanLyThuCung.Views
             this.label21.Size = new System.Drawing.Size(205, 84);
             this.label21.TabIndex = 9;
             this.label21.Text = "Pet Shop";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label22.Font = new System.Drawing.Font("Comic Sans MS", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label22.Location = new System.Drawing.Point(331, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(677, 64);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "Dịch Vụ Chăm Sóc Thú Cưng";
-            // 
-            // dgvShowDVChamSoc
-            // 
-            this.dgvShowDVChamSoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvShowDVChamSoc.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dgvShowDVChamSoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvShowDVChamSoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvShowDVChamSoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvShowDVChamSoc.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvShowDVChamSoc.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvShowDVChamSoc.Location = new System.Drawing.Point(328, 143);
-            this.dgvShowDVChamSoc.Name = "dgvShowDVChamSoc";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowDVChamSoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvShowDVChamSoc.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvShowDVChamSoc.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvShowDVChamSoc.RowTemplate.Height = 30;
-            this.dgvShowDVChamSoc.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvShowDVChamSoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShowDVChamSoc.Size = new System.Drawing.Size(492, 224);
-            this.dgvShowDVChamSoc.TabIndex = 8;
             // 
             // tabQL
             // 
@@ -1125,17 +939,6 @@ namespace QuanLyThuCung.Views
             this.panel5.Size = new System.Drawing.Size(213, 194);
             this.panel5.TabIndex = 15;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(49, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(107, 80);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
             // label23
             // 
             this.label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1161,7 +964,6 @@ namespace QuanLyThuCung.Views
             // 
             // dgvDichVuDaMua
             // 
-            this.dgvDichVuDaMua.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDichVuDaMua.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgvDichVuDaMua.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDichVuDaMua.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1196,12 +998,242 @@ namespace QuanLyThuCung.Views
             this.dgvDichVuDaMua.Size = new System.Drawing.Size(714, 224);
             this.dgvDichVuDaMua.TabIndex = 13;
             // 
+            // panel123
+            // 
+            this.panel123.Controls.Add(this.panel7);
+            this.panel123.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel123.Location = new System.Drawing.Point(3, 3);
+            this.panel123.Name = "panel123";
+            this.panel123.Size = new System.Drawing.Size(1072, 566);
+            this.panel123.TabIndex = 40;
+            // 
+            // btnMuaDichVu
+            // 
+            this.btnMuaDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMuaDichVu.Location = new System.Drawing.Point(785, 437);
+            this.btnMuaDichVu.Name = "btnMuaDichVu";
+            this.btnMuaDichVu.Size = new System.Drawing.Size(126, 42);
+            this.btnMuaDichVu.TabIndex = 38;
+            this.btnMuaDichVu.Text = "Mua";
+            this.btnMuaDichVu.UseVisualStyleBackColor = true;
+            this.btnMuaDichVu.Click += new System.EventHandler(this.btnMuaDichVu_Click);
+            // 
+            // dgvShowDVChamSoc
+            // 
+            this.dgvShowDVChamSoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShowDVChamSoc.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgvShowDVChamSoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvShowDVChamSoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvShowDVChamSoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvShowDVChamSoc.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShowDVChamSoc.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvShowDVChamSoc.Location = new System.Drawing.Point(321, 154);
+            this.dgvShowDVChamSoc.Name = "dgvShowDVChamSoc";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowDVChamSoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvShowDVChamSoc.RowHeadersVisible = false;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvShowDVChamSoc.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvShowDVChamSoc.RowTemplate.Height = 30;
+            this.dgvShowDVChamSoc.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShowDVChamSoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvShowDVChamSoc.Size = new System.Drawing.Size(492, 224);
+            this.dgvShowDVChamSoc.TabIndex = 8;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label22.Font = new System.Drawing.Font("Comic Sans MS", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label22.Location = new System.Drawing.Point(320, 18);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(677, 64);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Dịch Vụ Chăm Sóc Thú Cưng";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.panel4);
+            this.panel7.Controls.Add(this.btnMuaDichVu);
+            this.panel7.Controls.Add(this.dgvShowDVChamSoc);
+            this.panel7.Controls.Add(this.label22);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1072, 566);
+            this.panel7.TabIndex = 13;
+            // 
+            // panelMainQLDichVu
+            // 
+            this.panelMainQLDichVu.Controls.Add(this.tabQL);
+            this.panelMainQLDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainQLDichVu.Location = new System.Drawing.Point(0, 0);
+            this.panelMainQLDichVu.Name = "panelMainQLDichVu";
+            this.panelMainQLDichVu.Size = new System.Drawing.Size(1086, 610);
+            this.panelMainQLDichVu.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(49, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnReloadDV
+            // 
+            this.btnReloadDV.FlatAppearance.BorderSize = 0;
+            this.btnReloadDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadDV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadDV.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnReloadDV.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.btnReloadDV.IconColor = System.Drawing.Color.Olive;
+            this.btnReloadDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadDV.IconSize = 42;
+            this.btnReloadDV.Location = new System.Drawing.Point(933, 6);
+            this.btnReloadDV.Name = "btnReloadDV";
+            this.btnReloadDV.Size = new System.Drawing.Size(126, 48);
+            this.btnReloadDV.TabIndex = 9;
+            this.btnReloadDV.Text = "Tải Lại";
+            this.btnReloadDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReloadDV.UseVisualStyleBackColor = true;
+            this.btnReloadDV.Click += new System.EventHandler(this.btnReloadDV_Click);
+            // 
+            // btnTimDV
+            // 
+            this.btnTimDV.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnTimDV.FlatAppearance.BorderSize = 0;
+            this.btnTimDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimDV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimDV.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnTimDV.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnTimDV.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTimDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTimDV.IconSize = 42;
+            this.btnTimDV.Location = new System.Drawing.Point(317, 50);
+            this.btnTimDV.Name = "btnTimDV";
+            this.btnTimDV.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.btnTimDV.Size = new System.Drawing.Size(53, 43);
+            this.btnTimDV.TabIndex = 40;
+            this.btnTimDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTimDV.UseVisualStyleBackColor = false;
+            this.btnTimDV.Click += new System.EventHandler(this.btnTimDV_Click);
+            // 
+            // btnTimHDDV
+            // 
+            this.btnTimHDDV.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnTimHDDV.FlatAppearance.BorderSize = 0;
+            this.btnTimHDDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimHDDV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimHDDV.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnTimHDDV.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnTimHDDV.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTimHDDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTimHDDV.IconSize = 42;
+            this.btnTimHDDV.Location = new System.Drawing.Point(434, 37);
+            this.btnTimHDDV.Name = "btnTimHDDV";
+            this.btnTimHDDV.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.btnTimHDDV.Size = new System.Drawing.Size(55, 49);
+            this.btnTimHDDV.TabIndex = 44;
+            this.btnTimHDDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTimHDDV.UseVisualStyleBackColor = false;
+            this.btnTimHDDV.Click += new System.EventHandler(this.btnTimHDDV_Click);
+            // 
+            // btnReloadHDDV
+            // 
+            this.btnReloadHDDV.FlatAppearance.BorderSize = 0;
+            this.btnReloadHDDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadHDDV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadHDDV.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnReloadHDDV.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.btnReloadHDDV.IconColor = System.Drawing.Color.Olive;
+            this.btnReloadHDDV.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadHDDV.IconSize = 42;
+            this.btnReloadHDDV.Location = new System.Drawing.Point(933, 8);
+            this.btnReloadHDDV.Name = "btnReloadHDDV";
+            this.btnReloadHDDV.Size = new System.Drawing.Size(139, 45);
+            this.btnReloadHDDV.TabIndex = 43;
+            this.btnReloadHDDV.Text = "Tải Lại";
+            this.btnReloadHDDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReloadHDDV.UseVisualStyleBackColor = true;
+            this.btnReloadHDDV.Click += new System.EventHandler(this.btnReloadHDDV_Click);
+            // 
+            // btnTimContractSell
+            // 
+            this.btnTimContractSell.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnTimContractSell.FlatAppearance.BorderSize = 0;
+            this.btnTimContractSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimContractSell.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimContractSell.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnTimContractSell.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnTimContractSell.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTimContractSell.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTimContractSell.IconSize = 42;
+            this.btnTimContractSell.Location = new System.Drawing.Point(436, 52);
+            this.btnTimContractSell.Name = "btnTimContractSell";
+            this.btnTimContractSell.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.btnTimContractSell.Size = new System.Drawing.Size(53, 43);
+            this.btnTimContractSell.TabIndex = 52;
+            this.btnTimContractSell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTimContractSell.UseVisualStyleBackColor = false;
+            this.btnTimContractSell.Click += new System.EventHandler(this.btnTimContractSell_Click);
+            // 
+            // btnReloadHDThuCung
+            // 
+            this.btnReloadHDThuCung.FlatAppearance.BorderSize = 0;
+            this.btnReloadHDThuCung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadHDThuCung.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadHDThuCung.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnReloadHDThuCung.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.btnReloadHDThuCung.IconColor = System.Drawing.Color.Olive;
+            this.btnReloadHDThuCung.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadHDThuCung.IconSize = 42;
+            this.btnReloadHDThuCung.Location = new System.Drawing.Point(941, 6);
+            this.btnReloadHDThuCung.Name = "btnReloadHDThuCung";
+            this.btnReloadHDThuCung.Size = new System.Drawing.Size(126, 48);
+            this.btnReloadHDThuCung.TabIndex = 51;
+            this.btnReloadHDThuCung.Text = "Tải Lại";
+            this.btnReloadHDThuCung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReloadHDThuCung.UseVisualStyleBackColor = true;
+            this.btnReloadHDThuCung.Click += new System.EventHandler(this.btnReloadHDThuCung_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(49, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(107, 80);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
             // frmQLDichVuMuaBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 610);
-            this.Controls.Add(this.tabQL);
+            this.Controls.Add(this.panelMainQLDichVu);
             this.Name = "frmQLDichVuMuaBan";
             this.Text = "frmQLDichVuMuaBan";
             this.Load += new System.EventHandler(this.frmQLDichVuMuaBan_Load);
@@ -1221,16 +1253,19 @@ namespace QuanLyThuCung.Views
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabShowDichVuChamSoc.ResumeLayout(false);
-            this.tabShowDichVuChamSoc.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShowDVChamSoc)).EndInit();
             this.tabQL.ResumeLayout(false);
             this.tabDichVuDaMua.ResumeLayout(false);
             this.tabDichVuDaMua.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuDaMua)).EndInit();
+            this.panel123.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowDVChamSoc)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panelMainQLDichVu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1308,8 +1343,6 @@ namespace QuanLyThuCung.Views
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DataGridView dgvShowDVChamSoc;
         private System.Windows.Forms.TabControl tabQL;
         private System.Windows.Forms.TabPage tabDichVuDaMua;
         private System.Windows.Forms.Panel panel5;
@@ -1317,6 +1350,11 @@ namespace QuanLyThuCung.Views
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridView dgvDichVuDaMua;
+        private System.Windows.Forms.Panel panel123;
         private System.Windows.Forms.Button btnMuaDichVu;
+        private System.Windows.Forms.DataGridView dgvShowDVChamSoc;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelMainQLDichVu;
     }
 }
