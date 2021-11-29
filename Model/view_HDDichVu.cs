@@ -15,11 +15,10 @@ namespace QuanLyThuCung.Model
     public partial class view_HDDichVu
     {
         public int ID_ConSer { get; set; }
-        public Nullable<int> ID_Emp { get; set; }
-        public Nullable<int> ID_Cus { get; set; }
+        public string NameEmp { get; set; }
+        public string NameCustomer { get; set; }
         public Nullable<System.DateTime> DateBuy { get; set; }
-        public Nullable<int> ID_Ser { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
+        public string NameServic { get; set; }
+        public Nullable<int> price { get; set; }
     }
 }

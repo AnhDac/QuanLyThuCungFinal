@@ -38,6 +38,85 @@ namespace QuanLyThuCung.Model
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<WarrantyType> WarrantyTypes { get; set; }
         public virtual DbSet<view_HDDichVu> view_HDDichVu { get; set; }
+        public virtual DbSet<view_HDThuCung> view_HDThuCung { get; set; }
+    
+        public virtual int delete_contractSell(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delete_contractSell", idParameter);
+        }
+    
+        public virtual int delete_contractSer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delete_contractSer", idParameter);
+        }
+    
+        public virtual ObjectResult<GetData_contractSell_Result> GetData_contractSell()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetData_contractSell_Result>("GetData_contractSell");
+        }
+    
+        public virtual ObjectResult<GetData_contractSer_Result> GetData_contractSer()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetData_contractSer_Result>("GetData_contractSer");
+        }
+    
+        public virtual int insert_contractSell(string name_NV, string name_Customer, Nullable<int> iD_pet, string name_warr, Nullable<System.DateTime> dateSell, Nullable<int> price)
+        {
+            var name_NVParameter = name_NV != null ?
+                new ObjectParameter("Name_NV", name_NV) :
+                new ObjectParameter("Name_NV", typeof(string));
+    
+            var name_CustomerParameter = name_Customer != null ?
+                new ObjectParameter("Name_Customer", name_Customer) :
+                new ObjectParameter("Name_Customer", typeof(string));
+    
+            var iD_petParameter = iD_pet.HasValue ?
+                new ObjectParameter("ID_pet", iD_pet) :
+                new ObjectParameter("ID_pet", typeof(int));
+    
+            var name_warrParameter = name_warr != null ?
+                new ObjectParameter("Name_warr", name_warr) :
+                new ObjectParameter("Name_warr", typeof(string));
+    
+            var dateSellParameter = dateSell.HasValue ?
+                new ObjectParameter("DateSell", dateSell) :
+                new ObjectParameter("DateSell", typeof(System.DateTime));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_contractSell", name_NVParameter, name_CustomerParameter, iD_petParameter, name_warrParameter, dateSellParameter, priceParameter);
+        }
+    
+        public virtual int insert_contractSer(string nameEmp, string nameCus, Nullable<System.DateTime> dateBuy, string nameSer)
+        {
+            var nameEmpParameter = nameEmp != null ?
+                new ObjectParameter("NameEmp", nameEmp) :
+                new ObjectParameter("NameEmp", typeof(string));
+    
+            var nameCusParameter = nameCus != null ?
+                new ObjectParameter("NameCus", nameCus) :
+                new ObjectParameter("NameCus", typeof(string));
+    
+            var dateBuyParameter = dateBuy.HasValue ?
+                new ObjectParameter("DateBuy", dateBuy) :
+                new ObjectParameter("DateBuy", typeof(System.DateTime));
+    
+            var nameSerParameter = nameSer != null ?
+                new ObjectParameter("NameSer", nameSer) :
+                new ObjectParameter("NameSer", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_contractSer", nameEmpParameter, nameCusParameter, dateBuyParameter, nameSerParameter);
+        }
     
         public virtual ObjectResult<timKiemHDBanThuCung_Result> timKiemHDBanThuCung(Nullable<int> day, Nullable<int> month, Nullable<int> year)
         {
@@ -71,6 +150,64 @@ namespace QuanLyThuCung.Model
                 new ObjectParameter("year", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<timKiemHDDV_Result>("timKiemHDDV", dayParameter, monthParameter, yearParameter);
+        }
+    
+        public virtual int update_contractSell(Nullable<int> id, string name_NV, string name_Customer, Nullable<int> iD_pet, string name_warr, Nullable<System.DateTime> dateSell, Nullable<int> price)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var name_NVParameter = name_NV != null ?
+                new ObjectParameter("Name_NV", name_NV) :
+                new ObjectParameter("Name_NV", typeof(string));
+    
+            var name_CustomerParameter = name_Customer != null ?
+                new ObjectParameter("Name_Customer", name_Customer) :
+                new ObjectParameter("Name_Customer", typeof(string));
+    
+            var iD_petParameter = iD_pet.HasValue ?
+                new ObjectParameter("ID_pet", iD_pet) :
+                new ObjectParameter("ID_pet", typeof(int));
+    
+            var name_warrParameter = name_warr != null ?
+                new ObjectParameter("Name_warr", name_warr) :
+                new ObjectParameter("Name_warr", typeof(string));
+    
+            var dateSellParameter = dateSell.HasValue ?
+                new ObjectParameter("DateSell", dateSell) :
+                new ObjectParameter("DateSell", typeof(System.DateTime));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("update_contractSell", idParameter, name_NVParameter, name_CustomerParameter, iD_petParameter, name_warrParameter, dateSellParameter, priceParameter);
+        }
+    
+        public virtual int update_contractSer(Nullable<int> id, string nameEmp, string nameCus, Nullable<System.DateTime> dateBuy, string nameSer)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameEmpParameter = nameEmp != null ?
+                new ObjectParameter("NameEmp", nameEmp) :
+                new ObjectParameter("NameEmp", typeof(string));
+    
+            var nameCusParameter = nameCus != null ?
+                new ObjectParameter("NameCus", nameCus) :
+                new ObjectParameter("NameCus", typeof(string));
+    
+            var dateBuyParameter = dateBuy.HasValue ?
+                new ObjectParameter("DateBuy", dateBuy) :
+                new ObjectParameter("DateBuy", typeof(System.DateTime));
+    
+            var nameSerParameter = nameSer != null ?
+                new ObjectParameter("NameSer", nameSer) :
+                new ObjectParameter("NameSer", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("update_contractSer", idParameter, nameEmpParameter, nameCusParameter, dateBuyParameter, nameSerParameter);
         }
     
         public virtual ObjectResult<usp_GetContractSellTheoThangVaNam_Result> usp_GetContractSellTheoThangVaNam(Nullable<int> month, Nullable<int> year)

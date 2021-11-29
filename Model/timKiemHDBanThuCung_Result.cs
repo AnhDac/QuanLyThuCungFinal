@@ -14,10 +14,10 @@ namespace QuanLyThuCung.Model
     public partial class timKiemHDBanThuCung_Result
     {
         public int ID_ConSell { get; set; }
-        public Nullable<int> ID_Emp { get; set; }
-        public Nullable<int> ID_Cus { get; set; }
+        public string Name_NV { get; set; }
+        public string Name_Customer { get; set; }
         public Nullable<int> ID_Pet { get; set; }
-        public Nullable<int> CateInsurance { get; set; }
+        public string Name_Warr { get; set; }
         public Nullable<System.DateTime> DateSell { get; set; }
         public Nullable<int> Price { get; set; }
     }

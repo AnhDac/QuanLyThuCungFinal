@@ -11,13 +11,14 @@ namespace QuanLyThuCung.Model
 {
     using System;
     
-    public partial class timKiemHDDV_Result
+    public partial class GetData_contractSell_Result
     {
-        public int ID_ConSer { get; set; }
-        public string NameEmp { get; set; }
-        public string NameCustomer { get; set; }
-        public Nullable<System.DateTime> DateBuy { get; set; }
-        public string NameServic { get; set; }
-        public Nullable<int> price { get; set; }
+        public int ID_ConSell { get; set; }
+        public string Name_NV { get; set; }
+        public string Name_Customer { get; set; }
+        public Nullable<int> ID_Pet { get; set; }
+        public string Name_Warr { get; set; }
+        public Nullable<System.DateTime> DateSell { get; set; }
+        public Nullable<int> Price { get; set; }
     }
 }

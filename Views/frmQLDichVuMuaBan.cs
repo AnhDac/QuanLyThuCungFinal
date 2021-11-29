@@ -271,14 +271,12 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn thêm?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Contract_Ser contract = new Contract_Ser();
-
-                    contract.ID_Emp = Convert.ToInt32(txtHD_IDEmp.Text.ToString().Trim());
-                    contract.ID_Cus = Convert.ToInt32(txtHD_IDCus.Text.ToString().Trim());
-                    contract.DateBuy = Convert.ToDateTime(dtpNgayMuaHDDV.Text);
-                    contract.ID_Ser = Convert.ToInt32(txt_HDSer_MaDichVu.Text.ToString().Trim());
-                    db.Contract_Ser.Add(contract);
-                    db.SaveChanges();
+                    
+                    string Emp = txtHD_IDEmp.Text.ToString().Trim();
+                    string cus = txtHD_IDCus.Text.ToString().Trim();
+                    DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
+                    string tenDV = txtTenDichVuHDSer.Text.ToString().Trim();
+                    db.insert_contractSer(Emp,cus, date, tenDV);
 
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
@@ -297,13 +295,12 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn sửa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(dgvHDDV.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
-                    Contract_Ser contract = db.Contract_Ser.Find(id);
-                    contract.ID_Emp = Convert.ToInt32(txtHD_IDEmp.Text.ToString().Trim());
-                    contract.ID_Cus = Convert.ToInt32(txtHD_IDCus.Text.ToString().Trim());
-                    contract.DateBuy = Convert.ToDateTime(dtpNgayMuaHDDV.Text);
-
-                    db.SaveChanges();
+                    int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
+                    string Emp= txtHD_IDEmp.Text.ToString().Trim();
+                    string cus = txtHD_IDCus.Text.ToString().Trim();
+                    DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
+                    string tenDV=txtTenDichVuHDSer.Text.ToString().Trim();
+                    db.update_contractSer(id, Emp, cus, date, tenDV);
 
                     MessageBox.Show("Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
@@ -324,9 +321,7 @@ namespace QuanLyThuCung.Views
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
-                    Contract_Ser Contrac = db.Contract_Ser.Where(p => p.ID_ConSer == id).SingleOrDefault();
-                    db.Contract_Ser.Remove(Contrac);
-                    db.SaveChanges();
+                    db.delete_contractSer(id);
                     MessageBox.Show("Xóa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
 
@@ -364,20 +359,20 @@ namespace QuanLyThuCung.Views
         //=========Hàm======
         void LoadHopDongDV()
         {
-            var result = db.usp_GetDataHDBanDV().ToList();
+            var result = db.GetData_contractSer().ToList();
             dgvHDDV.DataSource = result.ToList();
             binHopDongDV();
+            
 
         }
         void binHopDongDV()
-        {
+        {    
             txtHD_IDConser.Text = dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim();
             txtHD_IDEmp.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
             txtHD_IDCus.Text = dgvHDDV.CurrentRow.Cells[2].Value.ToString().Trim();
             dtpNgayMuaHDDV.Text = dgvHDDV.CurrentRow.Cells[3].Value.ToString().Trim();
-            txt_HDSer_MaDichVu.Text = dgvHDDV.CurrentRow.Cells[4].Value.ToString().Trim();
-            txtTenDichVuHDSer.Text = dgvHDDV.CurrentRow.Cells[5].Value.ToString().Trim();
-            txtHDSer_Price.Text = dgvHDDV.CurrentRow.Cells[6].Value.ToString().Trim();
+            txtTenDichVuHDSer.Text = dgvHDDV.CurrentRow.Cells[4].Value.ToString().Trim();
+            txtHDSer_Price.Text = dgvHDDV.CurrentRow.Cells[5].Value.ToString().Trim();
 
         }
 
@@ -421,16 +416,16 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn Có Chắc Muốn Thêm?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Contract_Sell contract_sell = new Contract_Sell();
+                    int id = Convert.ToInt32(txtSell_IDCon.Text.ToString());
+                    string NV = txtHD_IDEmp.Text.ToString().Trim();
+                    string cus = txtSell_IDCus.Text.ToString().Trim();
+                    int pet1 = Convert.ToInt32(txtSell_IDPet.Text.ToString());
 
-                    //contract_sell.ID_ConSell = txtSell_IDCon.Text.ToString().Trim();
-                    contract_sell.ID_Emp = Convert.ToInt32(txtSell_IDEmp.Text.ToString().Trim());
-                    contract_sell.ID_Cus = Convert.ToInt32(txtSell_IDCus.Text.ToString().Trim());
-                    contract_sell.ID_Pet = Convert.ToInt32(txtSell_IDPet.Text.ToString().Trim());
-                    contract_sell.CateInsurance = Convert.ToInt32(txtSell_Caltel.Text.ToString().Trim());
-                    contract_sell.DateSell = Convert.ToDateTime(dateSell_DateSell.Text);
-                    contract_sell.Price = Convert.ToInt32(txtSell_Price.Text);
-                    db.Contract_Sell.Add(contract_sell);
+
+                    DateTime date = Convert.ToDateTime(dateSell_DateSell.Text.ToString());
+                    string warr = txtSell_Caltel.Text.ToString().Trim();
+                    int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
+                    db.insert_contractSell( NV, cus, pet1, warr, date, price);
 
                     db.SaveChanges();
 
@@ -452,18 +447,17 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn sửa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(dgvContractSell.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
-                    Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
-
-                    contract_Sell1.ID_Emp = Convert.ToInt32(txtSell_IDEmp.Text.ToString().Trim());
-                    contract_Sell1.ID_Cus = Convert.ToInt32(txtSell_IDCus.Text.ToString().Trim());
-                    contract_Sell1.ID_Pet = Convert.ToInt32(txtSell_IDPet.Text.ToString().Trim());
-                    contract_Sell1.CateInsurance = Convert.ToInt32(txtSell_Caltel.Text.ToString().Trim());
-                    contract_Sell1.DateSell = Convert.ToDateTime(dateSell_DateSell.Text);
-                    contract_Sell1.Price = Convert.ToInt32(txtSell_Price.Text);
-                    db.SaveChanges();
-
-                    MessageBox.Show("Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int id = Convert.ToInt32( txtSell_IDCon.Text.ToString());
+                    string NV = txtHD_IDEmp.Text.ToString().Trim();
+                    string cus = txtSell_IDCus.Text.ToString().Trim();
+                    int pet1 =Convert.ToInt32( txtSell_IDPet.Text.ToString());
+          
+                    
+                    DateTime date = Convert.ToDateTime( dateSell_DateSell.Text.ToString());
+                    string warr = txtSell_Caltel.Text.ToString().Trim();
+                    int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
+                    db.update_contractSell(id, NV, cus, pet1,  warr,date, price);
+                    MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
                 }
             }
@@ -493,6 +487,7 @@ namespace QuanLyThuCung.Views
             {
                 MessageBox.Show("Lỗi Không Xóa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 db = new ThuCungEntities();
+                LoadHopDongThuCung();
             }
         }
 
@@ -510,7 +505,7 @@ namespace QuanLyThuCung.Views
         }
         void LoadHopDongThuCung()
         {
-            var result = db.usp_GetDataHDBanThuCung().ToList();
+            var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();
 

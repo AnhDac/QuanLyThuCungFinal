@@ -11,7 +11,7 @@ namespace QuanLyThuCung.Model
 {
     using System;
     
-    public partial class timKiemHDDV_Result
+    public partial class GetData_contractSer_Result
     {
         public int ID_ConSer { get; set; }
         public string NameEmp { get; set; }
