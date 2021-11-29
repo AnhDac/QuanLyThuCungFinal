@@ -31,7 +31,7 @@ namespace QuanLyThuCung.Views
         }
 
         private void frmQLThuCung_Load(object sender, EventArgs e)
-        {  
+        {
             PhanQuyen();
         }
 
@@ -44,10 +44,12 @@ namespace QuanLyThuCung.Views
             else if (tabQL.SelectedTab == tabQLLoaiThuCung)
             {
                 LoadLoaiThuCung();
-            } else if (tabQL.SelectedTab == tabNhaCungCap)
+            }
+            else if (tabQL.SelectedTab == tabNhaCungCap)
             {
                 LoadTabNhaCungCap();
-            } else if (tabQL.SelectedTab == tabBaoHanh)
+            }
+            else if (tabQL.SelectedTab == tabBaoHanh)
             {
                 LoadTabBaoHanh();
             }
@@ -246,8 +248,8 @@ namespace QuanLyThuCung.Views
                 LoadThuCung();
             }
             else
-                if(flag_check_case==false)
-                     dgvThuCung.DataSource = ms;
+                if (flag_check_case == false)
+                dgvThuCung.DataSource = ms;
         }
 
         private void btnReloadTC_Click(object sender, EventArgs e)
@@ -269,6 +271,117 @@ namespace QuanLyThuCung.Views
 
         #endregion
 
+        #region TAB NHA CUNG CAP
+        void DataBindNhaCungCap()
+        {
+            tbIDNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[0].Value.ToString();
+            tbTenNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[1].Value.ToString();
+            tbSDTNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[2].Value.ToString();
+            tbDiaChiNCC.Text = dgvNhaCungCap.CurrentRow.Cells[3].Value.ToString();
+
+        }
+
+        void LoadTabNhaCungCap()
+        {
+
+            var result = db.usp_GetDataNhaCungCap().ToList();
+            dgvNhaCungCap.DataSource = result.ToList();
+            DataBindNhaCungCap();
+            tbIDNCCTC.ReadOnly = true;
+
+        }
+        private void dgvNhaCungCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            tbIDNCCTC.Show();
+            lbIDNCCTC.Show();
+            DataBindNhaCungCap();
+        }
+
+        private void btThemNCC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Thêm Nhà Cung Cấp Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Supplier sup = new Supplier();
+                    sup.ID_Sup = Convert.ToInt32(tbIDNCCTC.Text.ToString().Trim());
+                    sup.Name = tbTenNCCTC.Text.ToString().Trim();
+                    sup.Phone = tbSDTNCCTC.Text.ToString().Trim();
+                    sup.Address = tbDiaChiNCC.Text.ToString().Trim();
+
+                    db.Suppliers.Add(sup);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Thêm Thành Công!", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabNhaCungCap();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui Lòng Kiểm Tra Lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+            }
+        }
+
+        private void btSuaNCC_Click_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int idspet = Convert.ToInt32(dgvNhaCungCap.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                Supplier sup = db.Suppliers.Find(idspet);
+                sup.Name = tbTenNCCTC.Text.ToString().Trim();
+                sup.Phone = tbSDTNCCTC.Text.ToString().Trim();
+                sup.Address = tbDiaChiNCC.Text.ToString().Trim();
+
+                db.SaveChanges();
+                MessageBox.Show("Chỉnh Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTabNhaCungCap();
+                tbIDNCCTC.Show();
+                lbIDNCCTC.Show();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Chỉnh Sửa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabNhaCungCap();
+            }
+        }
+
+        private void btXoaNCC_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int valueDelete = Convert.ToInt32(tbIDNCCTC.Text.ToString().Trim());
+                    Supplier sup = db.Suppliers.Where(p => p.ID_Sup == valueDelete).SingleOrDefault();
+                    db.Suppliers.Remove(sup);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabNhaCungCap();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Xóa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabNhaCungCap();
+            }
+        }
+
+        private void tbTenNCCTC_Click(object sender, EventArgs e)
+        {
+            tbIDNCCTC.Hide();
+            lbIDNCCTC.Hide();
+        }
+
+
+        #endregion
+
         #region TAB LOAI THU CUNG
         void DataBindLoaiThuCung()
         {
@@ -277,7 +390,7 @@ namespace QuanLyThuCung.Views
         }
 
         void LoadLoaiThuCung()
-        { 
+        {
 
             var result = db.usp_GetLoaiThuCung().ToList();
             dgvLoaiThuCung.DataSource = result.ToList();
@@ -302,6 +415,7 @@ namespace QuanLyThuCung.Views
                     Species spec = new Species();
                     spec.Name = tbTenLoaiTC.Text.ToString().Trim();
 
+
                     db.Species.Add(spec);
                     db.SaveChanges();
 
@@ -324,7 +438,7 @@ namespace QuanLyThuCung.Views
                 int idspet = Convert.ToInt32(dgvLoaiThuCung.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
                 Species spec = db.Species.Find(idspet);
                 spec.Name = tbTenLoaiTC.Text.ToString().Trim();
-              
+
                 db.SaveChanges();
                 MessageBox.Show("Chỉnh Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadLoaiThuCung();
@@ -369,22 +483,101 @@ namespace QuanLyThuCung.Views
         }
         #endregion
 
-        #region TAB NHA CUNG CAP
-        void LoadTabNhaCungCap()
-        {
-            var result = db.usp_GetDataNhaCungCap();
-            dgvNhaCungCap.DataSource = result.ToList();
-        }
-
-        #endregion
-
         #region TAB BAO HANH
         void LoadTabBaoHanh()
         {
             var result = db.usp_GetDataBaoHanh();
             dgvBaoHanh.DataSource = result.ToList();
+            DataBindBaoHanhThuCung();
+            tbIDBaoHanh.ReadOnly = true;
+        }
+        void DataBindBaoHanhThuCung()
+        {
+            tbIDBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[0].Value.ToString();
+            tbTenBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[1].Value.ToString();
+            tbThangBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[2].Value.ToString();
+        }
+        private void dgvBaoHanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbIDBaoHanh.Show();
+            lbIDBaoHanh.Show();
+            DataBindBaoHanhThuCung();
+        }
+        private void btThemBH_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (MessageBox.Show("Thêm Bảo Hành Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    WarrantyType war = new WarrantyType();
+                    war.Name = tbTenBaoHanh.Text.ToString().Trim();
+                    war.Months = tbThangBaoHanh.Text.ToString().Trim();
+
+                    db.WarrantyTypes.Add(war);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Thêm Thành Công!", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabBaoHanh();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui Lòng Kiểm Tra Lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+            }
+        }
+        private void btSuaBH_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int idspet = Convert.ToInt32(dgvBaoHanh.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                WarrantyType war = db.WarrantyTypes.Find(idspet);
+                war.Name = tbTenBaoHanh.Text.ToString().Trim();
+                war.Months = tbThangBaoHanh.Text.ToString().Trim();
+
+                db.SaveChanges();
+                MessageBox.Show("Chỉnh Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTabBaoHanh();
+                tbIDBaoHanh.Show();
+                lbIDBaoHanh.Show();
+                
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Chỉnh Sửa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabBaoHanh();
+            }
+        }
+        private void btXoaBH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int valueDelete = Convert.ToInt32(tbIDBaoHanh.Text.ToString().Trim());
+                    WarrantyType war = db.WarrantyTypes.Where(p => p.ID_Warr == valueDelete).SingleOrDefault();
+                    db.WarrantyTypes.Remove(war);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabBaoHanh();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Xóa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabBaoHanh();
+
+            }
         }
 
+
         #endregion
+
     }
 }
