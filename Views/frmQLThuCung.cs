@@ -370,11 +370,113 @@ namespace QuanLyThuCung.Views
         #endregion
 
         #region TAB NHA CUNG CAP
+        void DataBindNhaCungCap()
+        {
+            tbIDNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[0].Value.ToString();
+            tbTenNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[1].Value.ToString();
+            tbSDTNCCTC.Text = dgvNhaCungCap.CurrentRow.Cells[2].Value.ToString();
+            tbDiaChiNCC.Text = dgvNhaCungCap.CurrentRow.Cells[3].Value.ToString();
+
+        }
+
         void LoadTabNhaCungCap()
         {
-            var result = db.usp_GetDataNhaCungCap();
+
+            var result = db.usp_GetDataNhaCungCap().ToList();
             dgvNhaCungCap.DataSource = result.ToList();
+            DataBindNhaCungCap();
+            tbIDNCCTC.ReadOnly = true;
+
         }
+        private void dgvNhaCungCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            tbIDNCCTC.Show();
+            lbIDNCCTC.Show();
+            DataBindNhaCungCap();
+        }
+
+        private void btThemNCC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Thêm Nhà Cung Cấp Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Supplier sup = new Supplier();
+                    sup.ID_Sup = Convert.ToInt32(tbIDNCCTC.Text.ToString().Trim());
+                    sup.Name = tbTenNCCTC.Text.ToString().Trim();
+                    sup.Phone = tbSDTNCCTC.Text.ToString().Trim();
+                    sup.Address = tbDiaChiNCC.Text.ToString().Trim();
+
+                    db.Suppliers.Add(sup);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Thêm Thành Công!", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabNhaCungCap();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui Lòng Kiểm Tra Lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+            }
+        }
+
+        private void btSuaNCC_Click_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int idspet = Convert.ToInt32(dgvNhaCungCap.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                Supplier sup = db.Suppliers.Find(idspet);
+                sup.Name = tbTenNCCTC.Text.ToString().Trim();
+                sup.Phone = tbSDTNCCTC.Text.ToString().Trim();
+                sup.Address = tbDiaChiNCC.Text.ToString().Trim();
+
+                db.SaveChanges();
+                MessageBox.Show("Chỉnh Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTabNhaCungCap();
+                tbIDNCCTC.Show();
+                lbIDNCCTC.Show();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Chỉnh Sửa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabNhaCungCap();
+            }
+        }
+
+        private void btXoaNCC_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int valueDelete = Convert.ToInt32(tbIDNCCTC.Text.ToString().Trim());
+                    Supplier sup = db.Suppliers.Where(p => p.ID_Sup == valueDelete).SingleOrDefault();
+                    db.Suppliers.Remove(sup);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabNhaCungCap();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Xóa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabNhaCungCap();
+            }
+        }
+
+        private void tbTenNCCTC_Click(object sender, EventArgs e)
+        {
+            tbIDNCCTC.Hide();
+            lbIDNCCTC.Hide();
+        }
+
 
         #endregion
 
