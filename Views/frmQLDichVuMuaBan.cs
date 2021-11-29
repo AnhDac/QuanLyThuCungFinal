@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ThuVienWinform.Report.AsposeWordExtension;
+using Aspose.Words;
 
 namespace QuanLyThuCung.Views
 {
@@ -515,14 +517,29 @@ namespace QuanLyThuCung.Views
             binHopDongThuCung();
 
         }
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            Document c= new Document("Template\\mau_hop_dong.doc");
+            MessageBox.Show("Success");
 
+            //c.MailMerge.Execute(new[] { "day" }, new[] { DateTime.Now.Day.ToString()});
+            //c.MailMerge.Execute(new[] { "month" }, new[] { DateTime.Now.Month.ToString()});
+            //c.MailMerge.Execute(new[] { "year" }, new[] { DateTime.Now.Year.ToString()});
 
+            //c.MailMerge.Execute(new[] { "e_name" }, new[] { db.Employees.Find(int.Parse(txtSell_IDEmp.Text)).Name});
 
+            //c.MailMerge.Execute(new[] { "cus_name" }, new[] { db.Customers.Find(int.Parse(txtSell_IDCus.Text)).Name});
+            //c.MailMerge.Execute(new[] { "phone" }, new[] { db.Customers.Find(int.Parse(txtSell_IDCus.Text)).Phone});
+            //c.MailMerge.Execute(new[] { "cus_age" }, new[] { db.Customers.Find(int.Parse(txtSell_IDCus.Text)).Age + ""});
+            
+            
+            //c.MailMerge.Execute(new[] { "id_pet" }, new[] { txtSell_IDPet.Text});
+            //c.MailMerge.Execute(new[] { "age_pet" }, new[] { db.Pets.Find(int.Parse(txtSell_IDPet.Text.Trim())).Age + ""});
+            //c.MailMerge.Execute(new[] { "weight" }, new[] { db.Pets.Find(int.Parse(txtSell_IDPet.Text.Trim())).Weight + ""});
+            //c.MailMerge.Execute(new[] { "price" }, new[] { db.Pets.Find(int.Parse(txtSell_IDPet.Text.Trim())).PriceImport + ""});
 
-
-
+            //c.SaveAndOpenFile("HopDongMuaBanThuCung.docx");
+        }
         #endregion
-
-     
     }
 }
