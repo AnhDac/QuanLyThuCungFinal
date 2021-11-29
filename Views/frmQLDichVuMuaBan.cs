@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -355,7 +357,6 @@ namespace QuanLyThuCung.Views
         }
 
 
-
         //=========Hàm======
         void LoadHopDongDV()
         {
@@ -375,13 +376,53 @@ namespace QuanLyThuCung.Views
             txtHDSer_Price.Text = dgvHDDV.CurrentRow.Cells[5].Value.ToString().Trim();
 
         }
+        private void printBanDichVu_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Font fontTieuDe = new Font("Arial", 3, FontStyle.Bold);
+            Font fontNoiDung = new Font("Arial", 3, FontStyle.Regular);
+
+            printBanDichVu.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN DỊCH VỤ", 148, 150);
+
+            Contract_Ser c = db.Contract_Ser.Find(int.Parse(txtHD_IDConser.Text));
+            int pos = 0;
+            int theLastPos = 0;
+            int leftMargin = 22;
+            int topMargin = 40;
+            int halfWidthPage = printBanDichVu.DefaultPageSettings.PaperSize.Width / 2;
+            e.Graphics.DrawString("HÓA ĐƠN DỊCH VỤ", new Font("Arial", 5, FontStyle.Bold), Brushes.Black, new Point(halfWidthPage - 30, 10));
+            e.Graphics.DrawString("Người mua hàng : " + txtHD_IDCus.Text, new Font("Arial", 3, FontStyle.Bold), Brushes.Black, new Point(leftMargin, 23));
+            e.Graphics.DrawString("Ngày xuất hóa đơn: " + DateTime.Now.ToString("dd-MM-yyyy"), new Font("Arial", 3, FontStyle.Bold), Brushes.Black, new Point(leftMargin, 30));
+           
+            //In phần tiêu đề hóa đơn
+            e.Graphics.DrawString("Mã dịch vụ", fontTieuDe, Brushes.Black, new Point(leftMargin, topMargin));
+            e.Graphics.DrawString("Tên dịch vụ", fontTieuDe, Brushes.Black, new Point(leftMargin + 25, topMargin));
+            e.Graphics.DrawString("Giá tiên", fontTieuDe, Brushes.Black, new Point(leftMargin + 50, topMargin));
 
 
+            e.Graphics.DrawString(c.ID_ConSer + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 1, topMargin + 10 + pos));
+            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Name + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 25, topMargin + 10 + pos));
+            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Price + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 56, topMargin + 10 + pos));
 
+            theLastPos = topMargin + 10 + pos;
+            pos += 10;
 
+            e.Graphics.DrawString("==========================================", fontNoiDung,
+                Brushes.Black, new Point(leftMargin, theLastPos + 10));
+            e.Graphics.DrawString("Thành tiền : " + txtHDSer_Price.Text + " VNĐ", fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 20));
+            e.Graphics.DrawString("Người bán : " + txtHD_IDEmp.Text, fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 30));
+            e.Graphics.DrawString("Ngày mua : " + dtpNgayMuaHDDV.Text, fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 40));
+            e.Graphics.DrawString("- HẸN GẶP LẠI QUÝ KHÁCH - ", fontTieuDe, Brushes.Black,
+                new Point(leftMargin + 21, theLastPos + 60));
+        }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            printBanDichVu.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN DỊCH VỤ", 148, 150);
+            printPreviewDialogBanDichVu.ShowDialog();
+        }
 
 
         #endregion
@@ -516,8 +557,61 @@ namespace QuanLyThuCung.Views
 
 
 
+
         #endregion
 
-     
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            printBill.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN", 148, 150);
+            printPreviewDialogBill.ShowDialog();
+        }
+
+        private void printBill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font fontTieuDe = new Font("Arial", 3, FontStyle.Bold);
+            Font fontNoiDung = new Font("Arial", 3, FontStyle.Regular);
+
+            printBill.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN", 148, 150);
+
+            Contract_Sell c = db.Contract_Sell.Find(int.Parse(txtSell_IDCon.Text));
+            int pos = 0;
+            int theLastPos = 0;
+            int leftMargin = 22;
+            int topMargin = 40;
+            int halfWidthPage = printBill.DefaultPageSettings.PaperSize.Width / 2;
+            e.Graphics.DrawString("HÓA ĐƠN BÁN LẺ", new Font("Arial", 5, FontStyle.Bold), Brushes.Black, new Point(halfWidthPage - 30, 10));
+            e.Graphics.DrawString("Người mua hàng: " + txtSell_IDCus.Text, new Font("Arial", 3, FontStyle.Bold), Brushes.Black, new Point(leftMargin, 23));
+            e.Graphics.DrawString("Ngày xuất hóa đơn: " + DateTime.Now.ToString("dd-MM-yyyy"), new Font("Arial", 3, FontStyle.Bold), Brushes.Black, new Point(leftMargin, 30));
+
+            //In phần tiêu đề hóa đơn
+            e.Graphics.DrawString("Mã TC", fontTieuDe, Brushes.Black, new Point(leftMargin, topMargin));
+            e.Graphics.DrawString("Loài", fontTieuDe, Brushes.Black, new Point(leftMargin + 25, topMargin));
+            e.Graphics.DrawString("Cân nặng", fontTieuDe, Brushes.Black, new Point(leftMargin + 50, topMargin));
+            e.Graphics.DrawString("Giá tiền", fontTieuDe, Brushes.Black, new Point(leftMargin + 85, topMargin));
+
+
+            e.Graphics.DrawString(c.ID_ConSell + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 1, topMargin + 10 + pos));
+            e.Graphics.DrawString(db.Pets.Find(c.ID_Pet).Species.Name + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 25, topMargin + 10 + pos));
+            e.Graphics.DrawString(db.Pets.Find(c.ID_Pet).Weight + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 56, topMargin + 10 + pos));
+            e.Graphics.DrawString(db.Contract_Sell.Find(c.ID_ConSell).Price + " VNĐ", fontNoiDung, Brushes.Black, new Point(leftMargin + 85, topMargin + 10 + pos));
+
+            theLastPos = topMargin + 10 + pos;
+            pos += 10;
+
+            e.Graphics.DrawString("==========================================", fontNoiDung,
+                Brushes.Black, new Point(leftMargin, theLastPos + 20));
+            e.Graphics.DrawString("Loại bảo hành : " + txtSell_Caltel.Text, fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 30));
+            e.Graphics.DrawString("Thành tiền : " + txtSell_Price.Text + " VNĐ", fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 40));
+            e.Graphics.DrawString("Người bán : " + txtSell_IDEmp.Text, fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 50));
+            e.Graphics.DrawString("Ngày mua : " + dateSell_DateSell.Text, fontTieuDe,
+                Brushes.Black, new Point(leftMargin, theLastPos + 60));
+            e.Graphics.DrawString("- HẸN GẶP LẠI QUÝ KHÁCH - ", fontTieuDe, Brushes.Black,
+                new Point(leftMargin + 21, theLastPos + 70));
+        }
+
+        
     }
 }

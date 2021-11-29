@@ -60,6 +60,8 @@ namespace QuanLyThuCung.Views
             this.label15 = new System.Windows.Forms.Label();
             this.txtSell_Caltel = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtSell_IDPet = new System.Windows.Forms.TextBox();
             this.txtSell_IDCus = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtSell_IDEmp = new System.Windows.Forms.TextBox();
@@ -125,8 +127,12 @@ namespace QuanLyThuCung.Views
             this.label24 = new System.Windows.Forms.Label();
             this.dgvDichVuDaMua = new System.Windows.Forms.DataGridView();
             this.panelMainQLDichVu = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtSell_IDPet = new System.Windows.Forms.TextBox();
+            this.btnInHoaDonTC = new System.Windows.Forms.Button();
+            this.printBill = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
+            this.printBanDichVu = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogBanDichVu = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnInHoaDonDV = new System.Windows.Forms.Button();
             this.tabContracSell.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractSell)).BeginInit();
@@ -158,6 +164,7 @@ namespace QuanLyThuCung.Views
             this.tabContracSell.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabContracSell.Controls.Add(this.dtpTimKiemHDThuCung);
             this.tabContracSell.Controls.Add(this.label13);
+            this.tabContracSell.Controls.Add(this.btnInHoaDonTC);
             this.tabContracSell.Controls.Add(this.btnSell_Xoa);
             this.tabContracSell.Controls.Add(this.btnSell_Sua);
             this.tabContracSell.Controls.Add(this.btnSell_Them);
@@ -196,10 +203,10 @@ namespace QuanLyThuCung.Views
             // btnSell_Xoa
             // 
             this.btnSell_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Xoa.Location = new System.Drawing.Point(1249, 601);
+            this.btnSell_Xoa.Location = new System.Drawing.Point(1153, 602);
             this.btnSell_Xoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Xoa.Name = "btnSell_Xoa";
-            this.btnSell_Xoa.Size = new System.Drawing.Size(136, 57);
+            this.btnSell_Xoa.Size = new System.Drawing.Size(117, 57);
             this.btnSell_Xoa.TabIndex = 50;
             this.btnSell_Xoa.Text = "Xóa";
             this.btnSell_Xoa.UseVisualStyleBackColor = true;
@@ -208,10 +215,10 @@ namespace QuanLyThuCung.Views
             // btnSell_Sua
             // 
             this.btnSell_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Sua.Location = new System.Drawing.Point(1083, 601);
+            this.btnSell_Sua.Location = new System.Drawing.Point(1017, 602);
             this.btnSell_Sua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Sua.Name = "btnSell_Sua";
-            this.btnSell_Sua.Size = new System.Drawing.Size(136, 57);
+            this.btnSell_Sua.Size = new System.Drawing.Size(117, 57);
             this.btnSell_Sua.TabIndex = 49;
             this.btnSell_Sua.Text = "Sửa";
             this.btnSell_Sua.UseVisualStyleBackColor = true;
@@ -220,10 +227,10 @@ namespace QuanLyThuCung.Views
             // btnSell_Them
             // 
             this.btnSell_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Them.Location = new System.Drawing.Point(915, 601);
+            this.btnSell_Them.Location = new System.Drawing.Point(880, 602);
             this.btnSell_Them.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Them.Name = "btnSell_Them";
-            this.btnSell_Them.Size = new System.Drawing.Size(136, 57);
+            this.btnSell_Them.Size = new System.Drawing.Size(117, 57);
             this.btnSell_Them.TabIndex = 48;
             this.btnSell_Them.Text = "Thêm";
             this.btnSell_Them.UseVisualStyleBackColor = true;
@@ -363,6 +370,25 @@ namespace QuanLyThuCung.Views
             this.label16.TabIndex = 45;
             this.label16.Text = "Bảo hành:";
             // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(29, 246);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(180, 28);
+            this.label17.TabIndex = 44;
+            this.label17.Text = "Mã thú cưng:";
+            // 
+            // txtSell_IDPet
+            // 
+            this.txtSell_IDPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSell_IDPet.Location = new System.Drawing.Point(229, 242);
+            this.txtSell_IDPet.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSell_IDPet.Name = "txtSell_IDPet";
+            this.txtSell_IDPet.Size = new System.Drawing.Size(196, 30);
+            this.txtSell_IDPet.TabIndex = 43;
+            // 
             // txtSell_IDCus
             // 
             this.txtSell_IDCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -466,6 +492,7 @@ namespace QuanLyThuCung.Views
             this.tabHDDV.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabHDDV.Controls.Add(this.dtpTimKiemHDDV);
             this.tabHDDV.Controls.Add(this.label7);
+            this.tabHDDV.Controls.Add(this.btnInHoaDonDV);
             this.tabHDDV.Controls.Add(this.btnXoaHDDV);
             this.tabHDDV.Controls.Add(this.groupBox1);
             this.tabHDDV.Controls.Add(this.btnSuaHDDV);
@@ -504,10 +531,10 @@ namespace QuanLyThuCung.Views
             // btnXoaHDDV
             // 
             this.btnXoaHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaHDDV.Location = new System.Drawing.Point(1261, 604);
+            this.btnXoaHDDV.Location = new System.Drawing.Point(1153, 605);
             this.btnXoaHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaHDDV.Name = "btnXoaHDDV";
-            this.btnXoaHDDV.Size = new System.Drawing.Size(143, 57);
+            this.btnXoaHDDV.Size = new System.Drawing.Size(113, 57);
             this.btnXoaHDDV.TabIndex = 42;
             this.btnXoaHDDV.Text = "Xóa";
             this.btnXoaHDDV.UseVisualStyleBackColor = true;
@@ -570,10 +597,10 @@ namespace QuanLyThuCung.Views
             // btnSuaHDDV
             // 
             this.btnSuaHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaHDDV.Location = new System.Drawing.Point(1093, 604);
+            this.btnSuaHDDV.Location = new System.Drawing.Point(1019, 605);
             this.btnSuaHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuaHDDV.Name = "btnSuaHDDV";
-            this.btnSuaHDDV.Size = new System.Drawing.Size(143, 57);
+            this.btnSuaHDDV.Size = new System.Drawing.Size(113, 57);
             this.btnSuaHDDV.TabIndex = 41;
             this.btnSuaHDDV.Text = "Sửa";
             this.btnSuaHDDV.UseVisualStyleBackColor = true;
@@ -718,10 +745,10 @@ namespace QuanLyThuCung.Views
             // btnThemHDDV
             // 
             this.btnThemHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemHDDV.Location = new System.Drawing.Point(921, 604);
+            this.btnThemHDDV.Location = new System.Drawing.Point(885, 605);
             this.btnThemHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemHDDV.Name = "btnThemHDDV";
-            this.btnThemHDDV.Size = new System.Drawing.Size(143, 57);
+            this.btnThemHDDV.Size = new System.Drawing.Size(113, 57);
             this.btnThemHDDV.TabIndex = 40;
             this.btnThemHDDV.Text = "Thêm";
             this.btnThemHDDV.UseVisualStyleBackColor = true;
@@ -1274,24 +1301,59 @@ namespace QuanLyThuCung.Views
             this.panelMainQLDichVu.Size = new System.Drawing.Size(1448, 751);
             this.panelMainQLDichVu.TabIndex = 2;
             // 
-            // label17
+            // btnInHoaDonTC
             // 
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(29, 246);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(180, 28);
-            this.label17.TabIndex = 44;
-            this.label17.Text = "Mã thú cưng:";
+            this.btnInHoaDonTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDonTC.Location = new System.Drawing.Point(1287, 602);
+            this.btnInHoaDonTC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInHoaDonTC.Name = "btnInHoaDonTC";
+            this.btnInHoaDonTC.Size = new System.Drawing.Size(136, 57);
+            this.btnInHoaDonTC.TabIndex = 50;
+            this.btnInHoaDonTC.Text = "In Hóa Đơn";
+            this.btnInHoaDonTC.UseVisualStyleBackColor = true;
+            this.btnInHoaDonTC.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // txtSell_IDPet
+            // printBill
             // 
-            this.txtSell_IDPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_IDPet.Location = new System.Drawing.Point(229, 242);
-            this.txtSell_IDPet.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSell_IDPet.Name = "txtSell_IDPet";
-            this.txtSell_IDPet.Size = new System.Drawing.Size(196, 30);
-            this.txtSell_IDPet.TabIndex = 43;
+            this.printBill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printBill_PrintPage);
+            // 
+            // printPreviewDialogBill
+            // 
+            this.printPreviewDialogBill.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogBill.Document = this.printBill;
+            this.printPreviewDialogBill.Enabled = true;
+            this.printPreviewDialogBill.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBill.Icon")));
+            this.printPreviewDialogBill.Name = "printPreviewDialogBill";
+            this.printPreviewDialogBill.Visible = false;
+            // 
+            // printBanDichVu
+            // 
+            this.printBanDichVu.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printBanDichVu_PrintPage);
+            // 
+            // printPreviewDialogBanDichVu
+            // 
+            this.printPreviewDialogBanDichVu.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBanDichVu.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBanDichVu.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogBanDichVu.Document = this.printBanDichVu;
+            this.printPreviewDialogBanDichVu.Enabled = true;
+            this.printPreviewDialogBanDichVu.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBanDichVu.Icon")));
+            this.printPreviewDialogBanDichVu.Name = "printPreviewDialogBanDichVu";
+            this.printPreviewDialogBanDichVu.Visible = false;
+            // 
+            // btnInHoaDonDV
+            // 
+            this.btnInHoaDonDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDonDV.Location = new System.Drawing.Point(1287, 605);
+            this.btnInHoaDonDV.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInHoaDonDV.Name = "btnInHoaDonDV";
+            this.btnInHoaDonDV.Size = new System.Drawing.Size(149, 57);
+            this.btnInHoaDonDV.TabIndex = 42;
+            this.btnInHoaDonDV.Text = "In Hóa Đơn";
+            this.btnInHoaDonDV.UseVisualStyleBackColor = true;
+            this.btnInHoaDonDV.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmQLDichVuMuaBan
             // 
@@ -1420,5 +1482,11 @@ namespace QuanLyThuCung.Views
         private System.Windows.Forms.Panel panelMainQLDichVu;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSell_IDPet;
+        private System.Windows.Forms.Button btnInHoaDonTC;
+        private System.Drawing.Printing.PrintDocument printBill;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
+        private System.Drawing.Printing.PrintDocument printBanDichVu;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBanDichVu;
+        private System.Windows.Forms.Button btnInHoaDonDV;
     }
 }
