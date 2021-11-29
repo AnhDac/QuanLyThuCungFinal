@@ -388,7 +388,7 @@ namespace QuanLyThuCung.Views
             tbIDNCCTC.ReadOnly = true;
 
         }
-        private void dgvNhaCungCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvNhaCungCap_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
             tbIDNCCTC.Show();
@@ -396,7 +396,7 @@ namespace QuanLyThuCung.Views
             DataBindNhaCungCap();
         }
 
-        private void btThemNCC_Click(object sender, EventArgs e)
+        private void btThemNCC_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -423,7 +423,7 @@ namespace QuanLyThuCung.Views
             }
         }
 
-        private void btSuaNCC_Click_1(object sender, EventArgs e)
+        private void btSuaNCC_Click(object sender, EventArgs e)
         {
 
             try
@@ -449,7 +449,7 @@ namespace QuanLyThuCung.Views
             }
         }
 
-        private void btXoaNCC_Click_1(object sender, EventArgs e)
+        private void btXoaNCC_Click(object sender, EventArgs e)
         {
             try
             {
@@ -494,13 +494,13 @@ namespace QuanLyThuCung.Views
             tbTenBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[1].Value.ToString();
             tbThangBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[2].Value.ToString();
         }
-        private void dgvBaoHanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBaoHanh_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             tbIDBaoHanh.Show();
             lbIDBaoHanh.Show();
             DataBindBaoHanhThuCung();
         }
-        private void btThemBH_Click(object sender, EventArgs e)
+        private void btThemBH_Click_1(object sender, EventArgs e)
         {
 
             try
@@ -525,7 +525,7 @@ namespace QuanLyThuCung.Views
                 db = new ThuCungEntities();
             }
         }
-        private void btSuaBH_Click(object sender, EventArgs e)
+        private void btSuaBH_Click_1(object sender, EventArgs e)
         {
 
             try
@@ -550,7 +550,7 @@ namespace QuanLyThuCung.Views
                 LoadTabBaoHanh();
             }
         }
-        private void btXoaBH_Click(object sender, EventArgs e)
+        private void btXoaBH_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -575,6 +575,13 @@ namespace QuanLyThuCung.Views
 
 
 
+
+
+
+
+
         #endregion
+
+        
     }
 }
