@@ -485,7 +485,95 @@ namespace QuanLyThuCung.Views
         {
             var result = db.usp_GetDataBaoHanh();
             dgvBaoHanh.DataSource = result.ToList();
+            DataBindBaoHanhThuCung();
+            tbIDBaoHanh.ReadOnly = true;
         }
+        void DataBindBaoHanhThuCung()
+        {
+            tbIDBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[0].Value.ToString();
+            tbTenBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[1].Value.ToString();
+            tbThangBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[2].Value.ToString();
+        }
+        private void dgvBaoHanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbIDBaoHanh.Show();
+            lbIDBaoHanh.Show();
+            DataBindBaoHanhThuCung();
+        }
+        private void btThemBH_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (MessageBox.Show("Thêm Bảo Hành Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    WarrantyType war = new WarrantyType();
+                    war.Name = tbTenBaoHanh.Text.ToString().Trim();
+                    war.Months = tbThangBaoHanh.Text.ToString().Trim();
+
+                    db.WarrantyTypes.Add(war);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Thêm Thành Công!", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabBaoHanh();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui Lòng Kiểm Tra Lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+            }
+        }
+        private void btSuaBH_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int idspet = Convert.ToInt32(dgvBaoHanh.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                WarrantyType war = db.WarrantyTypes.Find(idspet);
+                war.Name = tbTenBaoHanh.Text.ToString().Trim();
+                war.Months = tbThangBaoHanh.Text.ToString().Trim();
+
+                db.SaveChanges();
+                MessageBox.Show("Chỉnh Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTabBaoHanh();
+                tbIDBaoHanh.Show();
+                lbIDBaoHanh.Show();
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Chỉnh Sửa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabBaoHanh();
+            }
+        }
+        private void btXoaBH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int valueDelete = Convert.ToInt32(tbIDBaoHanh.Text.ToString().Trim());
+                    WarrantyType war = db.WarrantyTypes.Where(p => p.ID_Warr == valueDelete).SingleOrDefault();
+                    db.WarrantyTypes.Remove(war);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTabBaoHanh();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi Không Xóa Được!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db = new ThuCungEntities();
+                LoadTabBaoHanh();
+
+            }
+        }
+
+
 
         #endregion
     }

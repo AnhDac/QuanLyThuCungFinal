@@ -90,9 +90,6 @@ namespace QuanLyThuCung.Views
             this.lbIDLoaiTC = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabNhaCungCap = new System.Windows.Forms.TabPage();
-            this.dgvNhaCungCap = new System.Windows.Forms.DataGridView();
-            this.tabBaoHanh = new System.Windows.Forms.TabPage();
-            this.dgvBaoHanh = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -108,6 +105,22 @@ namespace QuanLyThuCung.Views
             this.label3 = new System.Windows.Forms.Label();
             this.tbIDNCCTC = new System.Windows.Forms.TextBox();
             this.lbIDNCCTC = new System.Windows.Forms.Label();
+            this.dgvNhaCungCap = new System.Windows.Forms.DataGridView();
+            this.tabBaoHanh = new System.Windows.Forms.TabPage();
+            this.dgvBaoHanh = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btSuaBH = new System.Windows.Forms.Button();
+            this.btXoaBH = new System.Windows.Forms.Button();
+            this.btThemBH = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.tbThangBaoHanh = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbTenBaoHanh = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbIDBaoHanh = new System.Windows.Forms.TextBox();
+            this.lbIDBaoHanh = new System.Windows.Forms.Label();
             this.tabQL.SuspendLayout();
             this.tabQuanLyTC.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,12 +137,15 @@ namespace QuanLyThuCung.Views
             this.panel3.SuspendLayout();
             this.pnlDataBindLTC.SuspendLayout();
             this.tabNhaCungCap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
-            this.tabBaoHanh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoHanh)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
+            this.tabBaoHanh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoHanh)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabQL
@@ -142,7 +158,7 @@ namespace QuanLyThuCung.Views
             this.tabQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabQL.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabQL.Location = new System.Drawing.Point(0, 0);
-            this.tabQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabQL.Margin = new System.Windows.Forms.Padding(4);
             this.tabQL.Name = "tabQL";
             this.tabQL.Padding = new System.Drawing.Point(60, 5);
             this.tabQL.SelectedIndex = 0;
@@ -156,9 +172,9 @@ namespace QuanLyThuCung.Views
             this.tabQuanLyTC.Controls.Add(this.panel2);
             this.tabQuanLyTC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabQuanLyTC.Location = new System.Drawing.Point(4, 36);
-            this.tabQuanLyTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabQuanLyTC.Margin = new System.Windows.Forms.Padding(4);
             this.tabQuanLyTC.Name = "tabQuanLyTC";
-            this.tabQuanLyTC.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabQuanLyTC.Padding = new System.Windows.Forms.Padding(4);
             this.tabQuanLyTC.Size = new System.Drawing.Size(1579, 751);
             this.tabQuanLyTC.TabIndex = 0;
             this.tabQuanLyTC.Text = "Quản Lý Thú Cưng";
@@ -171,7 +187,7 @@ namespace QuanLyThuCung.Views
             this.panel2.Controls.Add(this.dgvThuCung);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1571, 743);
             this.panel2.TabIndex = 4;
@@ -187,7 +203,7 @@ namespace QuanLyThuCung.Views
             this.btnReloadTC.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReloadTC.IconSize = 42;
             this.btnReloadTC.Location = new System.Drawing.Point(43, 21);
-            this.btnReloadTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReloadTC.Margin = new System.Windows.Forms.Padding(4);
             this.btnReloadTC.Name = "btnReloadTC";
             this.btnReloadTC.Size = new System.Drawing.Size(168, 59);
             this.btnReloadTC.TabIndex = 8;
@@ -203,7 +219,7 @@ namespace QuanLyThuCung.Views
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.pnlDataBind);
             this.panel5.Location = new System.Drawing.Point(897, 36);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(619, 631);
             this.panel5.TabIndex = 4;
@@ -216,7 +232,7 @@ namespace QuanLyThuCung.Views
             this.panel6.Controls.Add(this.cbbTimThuCung);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(619, 81);
             this.panel6.TabIndex = 25;
@@ -233,7 +249,7 @@ namespace QuanLyThuCung.Views
             this.btnTim.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTim.IconSize = 42;
             this.btnTim.Location = new System.Drawing.Point(485, 16);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnTim.Name = "btnTim";
             this.btnTim.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnTim.Size = new System.Drawing.Size(71, 53);
@@ -247,7 +263,7 @@ namespace QuanLyThuCung.Views
             this.tbTimThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbTimThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTimThuCung.Location = new System.Drawing.Point(255, 23);
-            this.tbTimThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTimThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbTimThuCung.Name = "tbTimThuCung";
             this.tbTimThuCung.Size = new System.Drawing.Size(181, 36);
             this.tbTimThuCung.TabIndex = 26;
@@ -262,7 +278,7 @@ namespace QuanLyThuCung.Views
             "Giới Tính",
             "Tuổi"});
             this.cbbTimThuCung.Location = new System.Drawing.Point(57, 23);
-            this.cbbTimThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbTimThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTimThuCung.Name = "cbbTimThuCung";
             this.cbbTimThuCung.Size = new System.Drawing.Size(135, 37);
             this.cbbTimThuCung.TabIndex = 25;
@@ -273,7 +289,7 @@ namespace QuanLyThuCung.Views
             this.panel7.Controls.Add(this.btnXoaThuCung);
             this.panel7.Controls.Add(this.btnThemThuCung);
             this.panel7.Location = new System.Drawing.Point(39, 535);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(556, 96);
             this.panel7.TabIndex = 15;
@@ -282,7 +298,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnSuaThuCung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuaThuCung.Location = new System.Drawing.Point(161, 18);
-            this.btnSuaThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuaThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuaThuCung.Name = "btnSuaThuCung";
             this.btnSuaThuCung.Size = new System.Drawing.Size(133, 55);
             this.btnSuaThuCung.TabIndex = 21;
@@ -294,7 +310,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnXoaThuCung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaThuCung.Location = new System.Drawing.Point(316, 18);
-            this.btnXoaThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaThuCung.Name = "btnXoaThuCung";
             this.btnXoaThuCung.Size = new System.Drawing.Size(128, 55);
             this.btnXoaThuCung.TabIndex = 18;
@@ -306,7 +322,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnThemThuCung.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemThuCung.Location = new System.Drawing.Point(25, 18);
-            this.btnThemThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemThuCung.Name = "btnThemThuCung";
             this.btnThemThuCung.Size = new System.Drawing.Size(113, 55);
             this.btnThemThuCung.TabIndex = 16;
@@ -332,7 +348,7 @@ namespace QuanLyThuCung.Views
             this.pnlDataBind.Controls.Add(this.tbIDThuCung);
             this.pnlDataBind.Controls.Add(this.labMaDoUong);
             this.pnlDataBind.Location = new System.Drawing.Point(0, 149);
-            this.pnlDataBind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDataBind.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDataBind.Name = "pnlDataBind";
             this.pnlDataBind.Size = new System.Drawing.Size(619, 379);
             this.pnlDataBind.TabIndex = 9;
@@ -346,7 +362,7 @@ namespace QuanLyThuCung.Views
             "Cái",
             "Đực"});
             this.cbGioitinh.Location = new System.Drawing.Point(432, 228);
-            this.cbGioitinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbGioitinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbGioitinh.Name = "cbGioitinh";
             this.cbGioitinh.Size = new System.Drawing.Size(152, 35);
             this.cbGioitinh.TabIndex = 4;
@@ -356,7 +372,7 @@ namespace QuanLyThuCung.Views
             this.tbGiaNhapThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbGiaNhapThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbGiaNhapThuCung.Location = new System.Drawing.Point(204, 295);
-            this.tbGiaNhapThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbGiaNhapThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbGiaNhapThuCung.Name = "tbGiaNhapThuCung";
             this.tbGiaNhapThuCung.Size = new System.Drawing.Size(177, 36);
             this.tbGiaNhapThuCung.TabIndex = 1;
@@ -390,7 +406,7 @@ namespace QuanLyThuCung.Views
             this.tbCanNangThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbCanNangThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCanNangThuCung.Location = new System.Drawing.Point(208, 229);
-            this.tbCanNangThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCanNangThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbCanNangThuCung.Name = "tbCanNangThuCung";
             this.tbCanNangThuCung.Size = new System.Drawing.Size(84, 36);
             this.tbCanNangThuCung.TabIndex = 1;
@@ -411,7 +427,7 @@ namespace QuanLyThuCung.Views
             this.tbNccThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbNccThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNccThuCung.Location = new System.Drawing.Point(185, 160);
-            this.tbNccThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNccThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbNccThuCung.Name = "tbNccThuCung";
             this.tbNccThuCung.Size = new System.Drawing.Size(272, 36);
             this.tbNccThuCung.TabIndex = 1;
@@ -433,7 +449,7 @@ namespace QuanLyThuCung.Views
             this.tbTuoiThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbTuoiThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTuoiThuCung.Location = new System.Drawing.Point(432, 21);
-            this.tbTuoiThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTuoiThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbTuoiThuCung.Name = "tbTuoiThuCung";
             this.tbTuoiThuCung.Size = new System.Drawing.Size(96, 36);
             this.tbTuoiThuCung.TabIndex = 1;
@@ -455,7 +471,7 @@ namespace QuanLyThuCung.Views
             this.tbLoaiThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbLoaiThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLoaiThuCung.Location = new System.Drawing.Point(185, 86);
-            this.tbLoaiThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLoaiThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbLoaiThuCung.Name = "tbLoaiThuCung";
             this.tbLoaiThuCung.Size = new System.Drawing.Size(272, 36);
             this.tbLoaiThuCung.TabIndex = 3;
@@ -477,7 +493,7 @@ namespace QuanLyThuCung.Views
             this.tbIDThuCung.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbIDThuCung.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIDThuCung.Location = new System.Drawing.Point(183, 21);
-            this.tbIDThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbIDThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tbIDThuCung.Name = "tbIDThuCung";
             this.tbIDThuCung.Size = new System.Drawing.Size(109, 36);
             this.tbIDThuCung.TabIndex = 1;
@@ -512,7 +528,7 @@ namespace QuanLyThuCung.Views
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvThuCung.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvThuCung.Location = new System.Drawing.Point(16, 102);
-            this.dgvThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.dgvThuCung.Name = "dgvThuCung";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -540,9 +556,9 @@ namespace QuanLyThuCung.Views
             this.tabDanhDachThuCungDaMua.Controls.Add(this.label22);
             this.tabDanhDachThuCungDaMua.Controls.Add(this.dgvDSThuCungDaMua);
             this.tabDanhDachThuCungDaMua.Location = new System.Drawing.Point(4, 36);
-            this.tabDanhDachThuCungDaMua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabDanhDachThuCungDaMua.Margin = new System.Windows.Forms.Padding(4);
             this.tabDanhDachThuCungDaMua.Name = "tabDanhDachThuCungDaMua";
-            this.tabDanhDachThuCungDaMua.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabDanhDachThuCungDaMua.Padding = new System.Windows.Forms.Padding(4);
             this.tabDanhDachThuCungDaMua.Size = new System.Drawing.Size(1579, 751);
             this.tabDanhDachThuCungDaMua.TabIndex = 1;
             this.tabDanhDachThuCungDaMua.Text = "Thú Cưng Đã Mua";
@@ -578,7 +594,7 @@ namespace QuanLyThuCung.Views
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDSThuCungDaMua.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDSThuCungDaMua.Location = new System.Drawing.Point(136, 174);
-            this.dgvDSThuCungDaMua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDSThuCungDaMua.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDSThuCungDaMua.Name = "dgvDSThuCungDaMua";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -596,7 +612,7 @@ namespace QuanLyThuCung.Views
             this.dgvDSThuCungDaMua.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDSThuCungDaMua.RowTemplate.Height = 30;
             this.dgvDSThuCungDaMua.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDSThuCungDaMua.Size = new System.Drawing.Size(1164, 453);
+            this.dgvDSThuCungDaMua.Size = new System.Drawing.Size(293, 453);
             this.dgvDSThuCungDaMua.TabIndex = 4;
             // 
             // tabQLLoaiThuCung
@@ -606,9 +622,9 @@ namespace QuanLyThuCung.Views
             this.tabQLLoaiThuCung.Controls.Add(this.panel1);
             this.tabQLLoaiThuCung.Controls.Add(this.label1);
             this.tabQLLoaiThuCung.Location = new System.Drawing.Point(4, 36);
-            this.tabQLLoaiThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabQLLoaiThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.tabQLLoaiThuCung.Name = "tabQLLoaiThuCung";
-            this.tabQLLoaiThuCung.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabQLLoaiThuCung.Padding = new System.Windows.Forms.Padding(4);
             this.tabQLLoaiThuCung.Size = new System.Drawing.Size(1579, 751);
             this.tabQLLoaiThuCung.TabIndex = 2;
             this.tabQLLoaiThuCung.Text = "Quản Lý Loại Thú Cưng";
@@ -631,7 +647,7 @@ namespace QuanLyThuCung.Views
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLoaiThuCung.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLoaiThuCung.Location = new System.Drawing.Point(243, 162);
-            this.dgvLoaiThuCung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLoaiThuCung.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLoaiThuCung.Name = "dgvLoaiThuCung";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
@@ -659,7 +675,7 @@ namespace QuanLyThuCung.Views
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.pnlDataBindLTC);
             this.panel1.Location = new System.Drawing.Point(871, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(527, 405);
             this.panel1.TabIndex = 14;
@@ -670,7 +686,7 @@ namespace QuanLyThuCung.Views
             this.panel3.Controls.Add(this.btnXoaLoaiTC);
             this.panel3.Controls.Add(this.btnThemLoaiTC);
             this.panel3.Location = new System.Drawing.Point(19, 273);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(484, 96);
             this.panel3.TabIndex = 15;
@@ -679,7 +695,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnSuaLoaiTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuaLoaiTC.Location = new System.Drawing.Point(181, 18);
-            this.btnSuaLoaiTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuaLoaiTC.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuaLoaiTC.Name = "btnSuaLoaiTC";
             this.btnSuaLoaiTC.Size = new System.Drawing.Size(113, 55);
             this.btnSuaLoaiTC.TabIndex = 21;
@@ -691,7 +707,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnXoaLoaiTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaLoaiTC.Location = new System.Drawing.Point(339, 18);
-            this.btnXoaLoaiTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaLoaiTC.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaLoaiTC.Name = "btnXoaLoaiTC";
             this.btnXoaLoaiTC.Size = new System.Drawing.Size(113, 55);
             this.btnXoaLoaiTC.TabIndex = 18;
@@ -703,7 +719,7 @@ namespace QuanLyThuCung.Views
             // 
             this.btnThemLoaiTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemLoaiTC.Location = new System.Drawing.Point(25, 18);
-            this.btnThemLoaiTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemLoaiTC.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemLoaiTC.Name = "btnThemLoaiTC";
             this.btnThemLoaiTC.Size = new System.Drawing.Size(113, 55);
             this.btnThemLoaiTC.TabIndex = 16;
@@ -720,7 +736,7 @@ namespace QuanLyThuCung.Views
             this.pnlDataBindLTC.Controls.Add(this.lbIDLoaiTC);
             this.pnlDataBindLTC.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDataBindLTC.Location = new System.Drawing.Point(0, 0);
-            this.pnlDataBindLTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDataBindLTC.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDataBindLTC.Name = "pnlDataBindLTC";
             this.pnlDataBindLTC.Size = new System.Drawing.Size(527, 234);
             this.pnlDataBindLTC.TabIndex = 9;
@@ -730,7 +746,7 @@ namespace QuanLyThuCung.Views
             this.tbTenLoaiTC.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbTenLoaiTC.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTenLoaiTC.Location = new System.Drawing.Point(149, 126);
-            this.tbTenLoaiTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTenLoaiTC.Margin = new System.Windows.Forms.Padding(4);
             this.tbTenLoaiTC.Name = "tbTenLoaiTC";
             this.tbTenLoaiTC.Size = new System.Drawing.Size(309, 36);
             this.tbTenLoaiTC.TabIndex = 1;
@@ -753,7 +769,7 @@ namespace QuanLyThuCung.Views
             this.tbIDLoaiTC.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbIDLoaiTC.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIDLoaiTC.Location = new System.Drawing.Point(149, 48);
-            this.tbIDLoaiTC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbIDLoaiTC.Margin = new System.Windows.Forms.Padding(4);
             this.tbIDLoaiTC.Name = "tbIDLoaiTC";
             this.tbIDLoaiTC.Size = new System.Drawing.Size(77, 36);
             this.tbIDLoaiTC.TabIndex = 1;
@@ -790,102 +806,12 @@ namespace QuanLyThuCung.Views
             this.tabNhaCungCap.Controls.Add(this.panel4);
             this.tabNhaCungCap.Controls.Add(this.dgvNhaCungCap);
             this.tabNhaCungCap.Location = new System.Drawing.Point(4, 36);
-            this.tabNhaCungCap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabNhaCungCap.Margin = new System.Windows.Forms.Padding(4);
             this.tabNhaCungCap.Name = "tabNhaCungCap";
-            this.tabNhaCungCap.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabNhaCungCap.Padding = new System.Windows.Forms.Padding(4);
             this.tabNhaCungCap.Size = new System.Drawing.Size(1579, 751);
             this.tabNhaCungCap.TabIndex = 3;
             this.tabNhaCungCap.Text = "Nhà Cung Cấp";
-            // 
-            // dgvNhaCungCap
-            // 
-            this.dgvNhaCungCap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNhaCungCap.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dgvNhaCungCap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvNhaCungCap.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvNhaCungCap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvNhaCungCap.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvNhaCungCap.Location = new System.Drawing.Point(39, 118);
-            this.dgvNhaCungCap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvNhaCungCap.Name = "dgvNhaCungCap";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvNhaCungCap.RowHeadersVisible = false;
-            this.dgvNhaCungCap.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvNhaCungCap.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvNhaCungCap.RowTemplate.Height = 30;
-            this.dgvNhaCungCap.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhaCungCap.Size = new System.Drawing.Size(764, 476);
-            this.dgvNhaCungCap.TabIndex = 5;
-            // 
-            // tabBaoHanh
-            // 
-            this.tabBaoHanh.Controls.Add(this.dgvBaoHanh);
-            this.tabBaoHanh.Location = new System.Drawing.Point(4, 36);
-            this.tabBaoHanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabBaoHanh.Name = "tabBaoHanh";
-            this.tabBaoHanh.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabBaoHanh.Size = new System.Drawing.Size(1579, 751);
-            this.tabBaoHanh.TabIndex = 4;
-            this.tabBaoHanh.Text = "Bảo Hành";
-            this.tabBaoHanh.UseVisualStyleBackColor = true;
-            // 
-            // dgvBaoHanh
-            // 
-            this.dgvBaoHanh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBaoHanh.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dgvBaoHanh.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBaoHanh.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvBaoHanh.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvBaoHanh.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBaoHanh.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvBaoHanh.Location = new System.Drawing.Point(297, 143);
-            this.dgvBaoHanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvBaoHanh.Name = "dgvBaoHanh";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBaoHanh.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvBaoHanh.RowHeadersVisible = false;
-            this.dgvBaoHanh.RowHeadersWidth = 51;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvBaoHanh.RowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvBaoHanh.RowTemplate.Height = 30;
-            this.dgvBaoHanh.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBaoHanh.Size = new System.Drawing.Size(559, 223);
-            this.dgvBaoHanh.TabIndex = 6;
             // 
             // label10
             // 
@@ -991,9 +917,9 @@ namespace QuanLyThuCung.Views
             this.label11.Location = new System.Drawing.Point(27, 294);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 28);
+            this.label11.Size = new System.Drawing.Size(105, 28);
             this.label11.TabIndex = 12;
-            this.label11.Text = "Địa_Chỉ:";
+            this.label11.Text = "Địa Chỉ:";
             // 
             // tbSDTNCCTC
             // 
@@ -1061,13 +987,255 @@ namespace QuanLyThuCung.Views
             this.lbIDNCCTC.TabIndex = 0;
             this.lbIDNCCTC.Text = "ID:";
             // 
+            // dgvNhaCungCap
+            // 
+            this.dgvNhaCungCap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNhaCungCap.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvNhaCungCap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNhaCungCap.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvNhaCungCap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvNhaCungCap.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvNhaCungCap.Location = new System.Drawing.Point(39, 118);
+            this.dgvNhaCungCap.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvNhaCungCap.Name = "dgvNhaCungCap";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvNhaCungCap.RowHeadersVisible = false;
+            this.dgvNhaCungCap.RowHeadersWidth = 51;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvNhaCungCap.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvNhaCungCap.RowTemplate.Height = 30;
+            this.dgvNhaCungCap.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhaCungCap.Size = new System.Drawing.Size(764, 476);
+            this.dgvNhaCungCap.TabIndex = 5;
+            // 
+            // tabBaoHanh
+            // 
+            this.tabBaoHanh.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tabBaoHanh.Controls.Add(this.label13);
+            this.tabBaoHanh.Controls.Add(this.panel10);
+            this.tabBaoHanh.Controls.Add(this.dgvBaoHanh);
+            this.tabBaoHanh.Location = new System.Drawing.Point(4, 36);
+            this.tabBaoHanh.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBaoHanh.Name = "tabBaoHanh";
+            this.tabBaoHanh.Padding = new System.Windows.Forms.Padding(4);
+            this.tabBaoHanh.Size = new System.Drawing.Size(1579, 751);
+            this.tabBaoHanh.TabIndex = 4;
+            this.tabBaoHanh.Text = "Bảo Hành";
+            // 
+            // dgvBaoHanh
+            // 
+            this.dgvBaoHanh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBaoHanh.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvBaoHanh.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBaoHanh.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvBaoHanh.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBaoHanh.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBaoHanh.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvBaoHanh.Location = new System.Drawing.Point(27, 114);
+            this.dgvBaoHanh.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBaoHanh.Name = "dgvBaoHanh";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaoHanh.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvBaoHanh.RowHeadersVisible = false;
+            this.dgvBaoHanh.RowHeadersWidth = 51;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvBaoHanh.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvBaoHanh.RowTemplate.Height = 30;
+            this.dgvBaoHanh.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBaoHanh.Size = new System.Drawing.Size(718, 496);
+            this.dgvBaoHanh.TabIndex = 6;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label13.Location = new System.Drawing.Point(593, 16);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(407, 55);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Bảo Hành Thú Cưng";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Controls.Add(this.panel12);
+            this.panel10.Location = new System.Drawing.Point(845, 128);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(527, 466);
+            this.panel10.TabIndex = 17;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btSuaBH);
+            this.panel11.Controls.Add(this.btXoaBH);
+            this.panel11.Controls.Add(this.btThemBH);
+            this.panel11.Location = new System.Drawing.Point(19, 342);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(484, 96);
+            this.panel11.TabIndex = 15;
+            // 
+            // btSuaBH
+            // 
+            this.btSuaBH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSuaBH.Location = new System.Drawing.Point(181, 18);
+            this.btSuaBH.Margin = new System.Windows.Forms.Padding(4);
+            this.btSuaBH.Name = "btSuaBH";
+            this.btSuaBH.Size = new System.Drawing.Size(113, 55);
+            this.btSuaBH.TabIndex = 21;
+            this.btSuaBH.Text = "Sửa";
+            this.btSuaBH.UseVisualStyleBackColor = true;
+            // 
+            // btXoaBH
+            // 
+            this.btXoaBH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoaBH.Location = new System.Drawing.Point(339, 18);
+            this.btXoaBH.Margin = new System.Windows.Forms.Padding(4);
+            this.btXoaBH.Name = "btXoaBH";
+            this.btXoaBH.Size = new System.Drawing.Size(113, 55);
+            this.btXoaBH.TabIndex = 18;
+            this.btXoaBH.Text = "Xóa";
+            this.btXoaBH.UseVisualStyleBackColor = true;
+            // 
+            // btThemBH
+            // 
+            this.btThemBH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThemBH.Location = new System.Drawing.Point(25, 18);
+            this.btThemBH.Margin = new System.Windows.Forms.Padding(4);
+            this.btThemBH.Name = "btThemBH";
+            this.btThemBH.Size = new System.Drawing.Size(113, 55);
+            this.btThemBH.TabIndex = 16;
+            this.btThemBH.Text = "Thêm";
+            this.btThemBH.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(70)))), ((int)(((byte)(99)))));
+            this.panel12.Controls.Add(this.tbThangBaoHanh);
+            this.panel12.Controls.Add(this.label14);
+            this.panel12.Controls.Add(this.tbTenBaoHanh);
+            this.panel12.Controls.Add(this.label7);
+            this.panel12.Controls.Add(this.tbIDBaoHanh);
+            this.panel12.Controls.Add(this.lbIDBaoHanh);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(527, 300);
+            this.panel12.TabIndex = 9;
+            // 
+            // tbThangBaoHanh
+            // 
+            this.tbThangBaoHanh.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbThangBaoHanh.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbThangBaoHanh.Location = new System.Drawing.Point(149, 203);
+            this.tbThangBaoHanh.Margin = new System.Windows.Forms.Padding(4);
+            this.tbThangBaoHanh.Name = "tbThangBaoHanh";
+            this.tbThangBaoHanh.Size = new System.Drawing.Size(309, 36);
+            this.tbThangBaoHanh.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label14.Location = new System.Drawing.Point(27, 211);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 28);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Tháng:";
+            // 
+            // tbTenBaoHanh
+            // 
+            this.tbTenBaoHanh.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbTenBaoHanh.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenBaoHanh.Location = new System.Drawing.Point(149, 126);
+            this.tbTenBaoHanh.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTenBaoHanh.Name = "tbTenBaoHanh";
+            this.tbTenBaoHanh.Size = new System.Drawing.Size(309, 36);
+            this.tbTenBaoHanh.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(27, 126);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 28);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Tên:";
+            // 
+            // tbIDBaoHanh
+            // 
+            this.tbIDBaoHanh.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbIDBaoHanh.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbIDBaoHanh.Location = new System.Drawing.Point(149, 48);
+            this.tbIDBaoHanh.Margin = new System.Windows.Forms.Padding(4);
+            this.tbIDBaoHanh.Name = "tbIDBaoHanh";
+            this.tbIDBaoHanh.Size = new System.Drawing.Size(77, 36);
+            this.tbIDBaoHanh.TabIndex = 1;
+            // 
+            // lbIDBaoHanh
+            // 
+            this.lbIDBaoHanh.AutoSize = true;
+            this.lbIDBaoHanh.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDBaoHanh.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbIDBaoHanh.Location = new System.Drawing.Point(27, 48);
+            this.lbIDBaoHanh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbIDBaoHanh.Name = "lbIDBaoHanh";
+            this.lbIDBaoHanh.Size = new System.Drawing.Size(43, 28);
+            this.lbIDBaoHanh.TabIndex = 0;
+            this.lbIDBaoHanh.Text = "ID:";
+            // 
             // frmQLThuCung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1587, 791);
             this.Controls.Add(this.tabQL);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmQLThuCung";
             this.Text = "frmQLThuCung";
             this.Load += new System.EventHandler(this.frmQLThuCung_Load);
@@ -1093,13 +1261,18 @@ namespace QuanLyThuCung.Views
             this.pnlDataBindLTC.PerformLayout();
             this.tabNhaCungCap.ResumeLayout(false);
             this.tabNhaCungCap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
-            this.tabBaoHanh.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoHanh)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
+            this.tabBaoHanh.ResumeLayout(false);
+            this.tabBaoHanh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoHanh)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1170,5 +1343,18 @@ namespace QuanLyThuCung.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbIDNCCTC;
         private System.Windows.Forms.Label lbIDNCCTC;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btSuaBH;
+        private System.Windows.Forms.Button btXoaBH;
+        private System.Windows.Forms.Button btThemBH;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox tbThangBaoHanh;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbTenBaoHanh;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbIDBaoHanh;
+        private System.Windows.Forms.Label lbIDBaoHanh;
     }
 }
