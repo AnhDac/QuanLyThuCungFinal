@@ -20,6 +20,19 @@ namespace QuanLyThuCung.Views
         Controller ctrl = new Controller();
         Form currentChildForm =new Form();
         private int iduser;
+        
+        private int ser_IDNV;
+        private int ser_IDCus;
+        private int ser_IDServic;
+
+        string tam = "bin";
+
+
+        private int Sell_id_emp;
+        private int Sell_id_cus;
+        private int Sell_id_BaoHanh;
+        string tam2 = "bin";
+
         public frmQLDichVuMuaBan()
         {
             this.iduser = 0;
@@ -273,12 +286,25 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn thêm?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
-                    string Emp = txtHD_IDEmp.Text.ToString().Trim();
-                    string cus = txtHD_IDCus.Text.ToString().Trim();
-                    DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
-                    string tenDV = txtTenDichVuHDSer.Text.ToString().Trim();
-                    db.insert_contractSer(Emp,cus, date, tenDV);
+
+
+
+                    Contract_Ser contract_Ser = new Contract_Ser();
+
+                    //contract_sell.ID_ConSell = txtSell_IDCon.Text.ToString().Trim();
+                    contract_Ser.ID_Emp = ser_IDNV;
+                    contract_Ser.ID_Cus = ser_IDCus;
+                    contract_Ser.DateBuy = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString().Trim());
+                    contract_Ser.ID_Ser = ser_IDServic;
+                    db.Contract_Ser.Add(contract_Ser);
+                    db.SaveChanges();
+
+
+                    // string Emp = txtHD_IDEmp.Text.ToString().Trim();
+                    // string cus = txtHD_IDCus.Text.ToString().Trim();
+                   // DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
+                   // string tenDV = txtTenDichVuHDSer.Text.ToString().Trim();
+                   // db.insert_contractSer(Emp,cus, date, tenDV);
 
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
@@ -297,12 +323,23 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn sửa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+
+
                     int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
-                    string Emp= txtHD_IDEmp.Text.ToString().Trim();
-                    string cus = txtHD_IDCus.Text.ToString().Trim();
-                    DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
-                    string tenDV=txtTenDichVuHDSer.Text.ToString().Trim();
-                    db.update_contractSer(id, Emp, cus, date, tenDV);
+                    Contract_Ser contract_Ser = db.Contract_Ser.Find(id);
+                    contract_Ser.ID_Emp = ser_IDNV;
+                    contract_Ser.ID_Cus = ser_IDCus;
+                    contract_Ser.DateBuy = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString().Trim());
+                    contract_Ser.ID_Ser = ser_IDServic;
+                    db.SaveChanges();
+
+
+                    // int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
+                    //string Emp= txtHD_IDEmp.Text.ToString().Trim();
+                   // string cus = txtHD_IDCus.Text.ToString().Trim();
+                   // DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
+                   // string tenDV=txtTenDichVuHDSer.Text.ToString().Trim();
+                    //db.update_contractSer(id, Emp, cus, date, tenDV);
 
                     MessageBox.Show("Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
@@ -363,17 +400,20 @@ namespace QuanLyThuCung.Views
             var result = db.GetData_contractSer().ToList();
             dgvHDDV.DataSource = result.ToList();
             binHopDongDV();
-            
+            btnSer_chon.Visible = false;
 
         }
         void binHopDongDV()
-        {    
-            txtHD_IDConser.Text = dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim();
-            txtHD_IDEmp.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
-            txtHD_IDCus.Text = dgvHDDV.CurrentRow.Cells[2].Value.ToString().Trim();
-            dtpNgayMuaHDDV.Text = dgvHDDV.CurrentRow.Cells[3].Value.ToString().Trim();
-            txtTenDichVuHDSer.Text = dgvHDDV.CurrentRow.Cells[4].Value.ToString().Trim();
-            txtHDSer_Price.Text = dgvHDDV.CurrentRow.Cells[5].Value.ToString().Trim();
+        {
+            if (tam == "bin")
+            {
+                txtHD_IDConser.Text = dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim();
+                txtHD_IDEmp.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
+                txtHD_IDCus.Text = dgvHDDV.CurrentRow.Cells[2].Value.ToString().Trim();
+                dtpNgayMuaHDDV.Text = dgvHDDV.CurrentRow.Cells[3].Value.ToString().Trim();
+                txtTenDichVuHDSer.Text = dgvHDDV.CurrentRow.Cells[4].Value.ToString().Trim();
+                txtHDSer_Price.Text = dgvHDDV.CurrentRow.Cells[5].Value.ToString().Trim();
+            }
 
         }
         private void printBanDichVu_PrintPage(object sender, PrintPageEventArgs e)
@@ -423,7 +463,68 @@ namespace QuanLyThuCung.Views
             printBanDichVu.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN DỊCH VỤ", 148, 150);
             printPreviewDialogBanDichVu.ShowDialog();
         }
+        private void btnSer_IDNV_Click(object sender, EventArgs e)
+        {
 
+            btnSuaHDDV.Visible = false;
+            btnXoaHDDV.Visible = false;
+            btnThemHDDV.Visible = false;
+            btnInHoaDonDV.Visible = false;
+            tam = "NV";
+            btnSer_chon.Visible = true;
+            dgvHDDV.DataSource = db.usp_GetDataNV();
+
+        }
+
+        private void btnSer_IDKH_Click(object sender, EventArgs e)
+        {
+            dgvHDDV.DataSource = db.usp_GetDataCustomer();
+            btnSuaHDDV.Visible = false;
+            btnXoaHDDV.Visible = false;
+            btnThemHDDV.Visible = false;
+            btnInHoaDonDV.Visible = false;
+            tam = "KH";
+            btnSer_chon.Visible = true;
+
+        }
+
+        private void btnSer_IDDV_Click(object sender, EventArgs e)
+        {
+            dgvHDDV.DataSource = db.usp_GetDataDichVu();
+            btnSuaHDDV.Visible = false;
+            btnXoaHDDV.Visible = false;
+            btnThemHDDV.Visible = false;
+            btnInHoaDonDV.Visible = false;
+            tam = "NameDV";
+            btnSer_chon.Visible = true;
+
+        }
+
+        private void btnSer_chon_Click(object sender, EventArgs e)
+        {
+            if (tam == "NameDV")
+            {
+                ser_IDServic = Convert.ToInt32(dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtTenDichVuHDSer.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            if (tam == "KH")
+            {
+                ser_IDCus = Convert.ToInt32(dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtHD_IDCus.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            if (tam == "NV")
+            {
+                ser_IDNV = Convert.ToInt32(dgvHDDV.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtHD_IDEmp.Text = dgvHDDV.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            tam = "bin";
+            btnSuaHDDV.Visible = true;
+            btnXoaHDDV.Visible = true;
+            btnThemHDDV.Visible = true;
+            btnInHoaDonDV.Visible = true;
+            btnSer_chon.Visible = false;
+            dgvHDDV.DataSource = db.GetData_contractSer().ToList();
+        }
 
         #endregion
 
@@ -457,18 +558,36 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn Có Chắc Muốn Thêm?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(txtSell_IDCon.Text.ToString());
-                    string NV = txtHD_IDEmp.Text.ToString().Trim();
-                    string cus = txtSell_IDCus.Text.ToString().Trim();
-                    int pet1 = Convert.ToInt32(txtSell_IDPet.Text.ToString());
 
 
-                    DateTime date = Convert.ToDateTime(dateSell_DateSell.Text.ToString());
-                    string warr = txtSell_Caltel.Text.ToString().Trim();
-                    int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
-                    db.insert_contractSell( NV, cus, pet1, warr, date, price);
+                    Contract_Sell contract_sell = new Contract_Sell();
+
+                    contract_sell.ID_Emp = Sell_id_emp;
+                    contract_sell.ID_Cus = Sell_id_cus;
+                    contract_sell.ID_Pet = Convert.ToInt32(txtSell_IDPet.Text.ToString().Trim());
+                    contract_sell.CateInsurance = Sell_id_BaoHanh;
+                    contract_sell.DateSell = Convert.ToDateTime(dateSell_DateSell.Text);
+                    contract_sell.Price = Convert.ToInt32(txtSell_Price.Text);
+                    db.Contract_Sell.Add(contract_sell);
 
                     db.SaveChanges();
+
+
+
+
+
+                    //int id = Convert.ToInt32(txtSell_IDCon.Text.ToString());
+                    //string NV = txtHD_IDEmp.Text.ToString().Trim();
+                   // string cus = txtSell_IDCus.Text.ToString().Trim();
+                    //int pet1 = Convert.ToInt32(txtSell_IDPet.Text.ToString());
+
+
+                   // DateTime date = Convert.ToDateTime(dateSell_DateSell.Text.ToString());
+                   // string warr = txtSell_Caltel.Text.ToString().Trim();
+                   // int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
+                   // db.insert_contractSell( NV, cus, pet1, warr, date, price);
+
+                    //db.SaveChanges();
 
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
@@ -488,16 +607,31 @@ namespace QuanLyThuCung.Views
             {
                 if (MessageBox.Show("Bạn có chắc muốn sửa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32( txtSell_IDCon.Text.ToString());
-                    string NV = txtHD_IDEmp.Text.ToString().Trim();
-                    string cus = txtSell_IDCus.Text.ToString().Trim();
-                    int pet1 =Convert.ToInt32( txtSell_IDPet.Text.ToString());
+
+
+                    int id = Convert.ToInt32(txtSell_IDCon.Text.ToString().Trim());
+                    Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
+
+                    contract_Sell1.ID_Emp = Sell_id_emp;
+                    contract_Sell1.ID_Cus = Sell_id_cus;
+                    contract_Sell1.ID_Pet = Convert.ToInt32(txtSell_IDPet.Text.ToString().Trim());
+                    contract_Sell1.CateInsurance = Sell_id_BaoHanh;
+                    contract_Sell1.DateSell = Convert.ToDateTime(dateSell_DateSell.Text);
+                    contract_Sell1.Price = Convert.ToInt32(txtSell_Price.Text);
+                    db.SaveChanges();
+
+
+
+                    //int id = Convert.ToInt32( txtSell_IDCon.Text.ToString());
+                    //string NV = txtHD_IDEmp.Text.ToString().Trim();
+                    //string cus = txtSell_IDCus.Text.ToString().Trim();
+                    //int pet1 =Convert.ToInt32( txtSell_IDPet.Text.ToString());
           
                     
-                    DateTime date = Convert.ToDateTime( dateSell_DateSell.Text.ToString());
-                    string warr = txtSell_Caltel.Text.ToString().Trim();
-                    int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
-                    db.update_contractSell(id, NV, cus, pet1,  warr,date, price);
+                    //DateTime date = Convert.ToDateTime( dateSell_DateSell.Text.ToString());
+                    //string warr = txtSell_Caltel.Text.ToString().Trim();
+                   // int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
+                    //db.update_contractSell(id, NV, cus, pet1,  warr,date, price);
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
                 }
@@ -536,28 +670,25 @@ namespace QuanLyThuCung.Views
         //=========Hàm======
         void binHopDongThuCung()
         {
-            txtSell_IDCon.Text = dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim();
-            txtSell_IDEmp.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
-            txtSell_IDCus.Text = dgvContractSell.CurrentRow.Cells[2].Value.ToString().Trim();
-            txtSell_IDPet.Text = dgvContractSell.CurrentRow.Cells[3].Value.ToString().Trim();
-            txtSell_Caltel.Text = dgvContractSell.CurrentRow.Cells[4].Value.ToString().Trim();
-            dateSell_DateSell.Text = dgvContractSell.CurrentRow.Cells[5].Value.ToString().Trim();
-            txtSell_Price.Text = dgvContractSell.CurrentRow.Cells[6].Value.ToString().Trim();
+            if (tam2 == "bin")
+            {
+                txtSell_IDCon.Text = dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim();
+                txtSell_IDEmp.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
+                txtSell_IDCus.Text = dgvContractSell.CurrentRow.Cells[2].Value.ToString().Trim();
+                txtSell_IDPet.Text = dgvContractSell.CurrentRow.Cells[3].Value.ToString().Trim();
+                txtSell_Caltel.Text = dgvContractSell.CurrentRow.Cells[4].Value.ToString().Trim();
+                dateSell_DateSell.Text = dgvContractSell.CurrentRow.Cells[5].Value.ToString().Trim();
+                txtSell_Price.Text = dgvContractSell.CurrentRow.Cells[6].Value.ToString().Trim();
+            }
         }
         void LoadHopDongThuCung()
         {
             var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();
+            btnSell_chon.Visible = false;
 
         }
-
-
-
-
-
-
-
         #endregion
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -612,6 +743,64 @@ namespace QuanLyThuCung.Views
                 new Point(leftMargin + 21, theLastPos + 70));
         }
 
-        
+        private void btnSell_NV_Click(object sender, EventArgs e)
+        {
+            dgvContractSell.DataSource = db.usp_GetDataNV();
+            btnSell_chon.Visible = true;
+            btnSell_Sua.Visible = false;
+            btnSell_Them.Visible = false;
+            btnSell_Xoa.Visible = false;
+            btnInHoaDonTC.Visible = false;
+            tam2 = "NV";
+        }
+
+        private void btnSell_KH_Click(object sender, EventArgs e)
+        {
+            dgvContractSell.DataSource = db.usp_GetDataCustomer();
+            btnSell_chon.Visible = true;
+            btnSell_Sua.Visible = false;
+            btnSell_Them.Visible = false;
+            btnSell_Xoa.Visible = false;
+            btnInHoaDonTC.Visible = false;
+            tam2 = "KH";
+        }
+
+        private void btnSell_baoHanh_Click(object sender, EventArgs e)
+        {
+            dgvContractSell.DataSource = db.usp_GetDataBaoHanh();
+            btnSell_chon.Visible = true;
+            btnSell_Sua.Visible = false;
+            btnSell_Them.Visible = false;
+            btnSell_Xoa.Visible = false;
+            btnInHoaDonTC.Visible = false;
+            tam2 = "BaoHanh";
+        }
+
+        private void btnSell_chon_Click(object sender, EventArgs e)
+        {
+            if (tam2 == "NV")
+            {
+                Sell_id_emp = Convert.ToInt32(dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtSell_IDEmp.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            if (tam2 == "BaoHanh")
+            {
+                Sell_id_BaoHanh = Convert.ToInt32(dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtSell_Caltel.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            if (tam2 == "KH")
+            {
+                Sell_id_cus = Convert.ToInt32(dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim());
+                txtSell_IDCus.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            tam2 = "bin";
+            btnSell_chon.Visible = false;
+            btnSell_Sua.Visible = true;
+            btnSell_Them.Visible = true;
+            btnSell_Xoa.Visible = true;
+            btnInHoaDonTC.Visible = true;
+            tam2 = "bin";
+            dgvContractSell.DataSource = db.GetData_contractSell();
+        }
     }
 }

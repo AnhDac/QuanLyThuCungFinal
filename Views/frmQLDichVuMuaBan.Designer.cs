@@ -29,25 +29,26 @@ namespace QuanLyThuCung.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLDichVuMuaBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabContracSell = new System.Windows.Forms.TabPage();
             this.dtpTimKiemHDThuCung = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnInHoaDonTC = new System.Windows.Forms.Button();
             this.btnSell_Xoa = new System.Windows.Forms.Button();
             this.btnSell_Sua = new System.Windows.Forms.Button();
             this.btnSell_Them = new System.Windows.Forms.Button();
@@ -71,13 +72,18 @@ namespace QuanLyThuCung.Views
             this.btnTimContractSell = new FontAwesome.Sharp.IconButton();
             this.btnReloadHDThuCung = new FontAwesome.Sharp.IconButton();
             this.tabHDDV = new System.Windows.Forms.TabPage();
+            this.btnSer_chon = new System.Windows.Forms.Button();
             this.dtpTimKiemHDDV = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnInHoaDonDV = new System.Windows.Forms.Button();
             this.btnXoaHDDV = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvHDDV = new System.Windows.Forms.DataGridView();
             this.btnSuaHDDV = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSer_IDDV = new System.Windows.Forms.Button();
+            this.btnSer_IDKH = new System.Windows.Forms.Button();
+            this.btnSer_IDNV = new System.Windows.Forms.Button();
             this.dtpNgayMuaHDDV = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.txtHDSer_Price = new System.Windows.Forms.TextBox();
@@ -127,12 +133,14 @@ namespace QuanLyThuCung.Views
             this.label24 = new System.Windows.Forms.Label();
             this.dgvDichVuDaMua = new System.Windows.Forms.DataGridView();
             this.panelMainQLDichVu = new System.Windows.Forms.Panel();
-            this.btnInHoaDonTC = new System.Windows.Forms.Button();
             this.printBill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.printBanDichVu = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBanDichVu = new System.Windows.Forms.PrintPreviewDialog();
-            this.btnInHoaDonDV = new System.Windows.Forms.Button();
+            this.btnSell_NV = new System.Windows.Forms.Button();
+            this.btnSell_KH = new System.Windows.Forms.Button();
+            this.btnSell_baoHanh = new System.Windows.Forms.Button();
+            this.btnSell_chon = new System.Windows.Forms.Button();
             this.tabContracSell.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractSell)).BeginInit();
@@ -162,6 +170,7 @@ namespace QuanLyThuCung.Views
             // tabContracSell
             // 
             this.tabContracSell.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabContracSell.Controls.Add(this.btnSell_chon);
             this.tabContracSell.Controls.Add(this.dtpTimKiemHDThuCung);
             this.tabContracSell.Controls.Add(this.label13);
             this.tabContracSell.Controls.Add(this.btnInHoaDonTC);
@@ -176,7 +185,7 @@ namespace QuanLyThuCung.Views
             this.tabContracSell.Margin = new System.Windows.Forms.Padding(4);
             this.tabContracSell.Name = "tabContracSell";
             this.tabContracSell.Padding = new System.Windows.Forms.Padding(4);
-            this.tabContracSell.Size = new System.Drawing.Size(1440, 711);
+            this.tabContracSell.Size = new System.Drawing.Size(1481, 711);
             this.tabContracSell.TabIndex = 2;
             this.tabContracSell.Text = "Quản Lý Bán Thú Cưng";
             // 
@@ -200,13 +209,25 @@ namespace QuanLyThuCung.Views
             this.label13.TabIndex = 53;
             this.label13.Text = "Tìm Kiếm:";
             // 
+            // btnInHoaDonTC
+            // 
+            this.btnInHoaDonTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDonTC.Location = new System.Drawing.Point(1327, 602);
+            this.btnInHoaDonTC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInHoaDonTC.Name = "btnInHoaDonTC";
+            this.btnInHoaDonTC.Size = new System.Drawing.Size(136, 57);
+            this.btnInHoaDonTC.TabIndex = 50;
+            this.btnInHoaDonTC.Text = "In Hóa Đơn";
+            this.btnInHoaDonTC.UseVisualStyleBackColor = true;
+            this.btnInHoaDonTC.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // btnSell_Xoa
             // 
             this.btnSell_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Xoa.Location = new System.Drawing.Point(1153, 602);
+            this.btnSell_Xoa.Location = new System.Drawing.Point(1224, 602);
             this.btnSell_Xoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Xoa.Name = "btnSell_Xoa";
-            this.btnSell_Xoa.Size = new System.Drawing.Size(117, 57);
+            this.btnSell_Xoa.Size = new System.Drawing.Size(95, 57);
             this.btnSell_Xoa.TabIndex = 50;
             this.btnSell_Xoa.Text = "Xóa";
             this.btnSell_Xoa.UseVisualStyleBackColor = true;
@@ -215,10 +236,10 @@ namespace QuanLyThuCung.Views
             // btnSell_Sua
             // 
             this.btnSell_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Sua.Location = new System.Drawing.Point(1017, 602);
+            this.btnSell_Sua.Location = new System.Drawing.Point(1113, 602);
             this.btnSell_Sua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Sua.Name = "btnSell_Sua";
-            this.btnSell_Sua.Size = new System.Drawing.Size(117, 57);
+            this.btnSell_Sua.Size = new System.Drawing.Size(103, 57);
             this.btnSell_Sua.TabIndex = 49;
             this.btnSell_Sua.Text = "Sửa";
             this.btnSell_Sua.UseVisualStyleBackColor = true;
@@ -227,10 +248,10 @@ namespace QuanLyThuCung.Views
             // btnSell_Them
             // 
             this.btnSell_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell_Them.Location = new System.Drawing.Point(880, 602);
+            this.btnSell_Them.Location = new System.Drawing.Point(991, 602);
             this.btnSell_Them.Margin = new System.Windows.Forms.Padding(4);
             this.btnSell_Them.Name = "btnSell_Them";
-            this.btnSell_Them.Size = new System.Drawing.Size(117, 57);
+            this.btnSell_Them.Size = new System.Drawing.Size(102, 57);
             this.btnSell_Them.TabIndex = 48;
             this.btnSell_Them.Text = "Thêm";
             this.btnSell_Them.UseVisualStyleBackColor = true;
@@ -257,32 +278,32 @@ namespace QuanLyThuCung.Views
             this.dgvContractSell.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvContractSell.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvContractSell.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvContractSell.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle46.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvContractSell.DefaultCellStyle = dataGridViewCellStyle46;
             this.dgvContractSell.Location = new System.Drawing.Point(8, 32);
             this.dgvContractSell.Margin = new System.Windows.Forms.Padding(4);
             this.dgvContractSell.Name = "dgvContractSell";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContractSell.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle47.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContractSell.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.dgvContractSell.RowHeadersVisible = false;
             this.dgvContractSell.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvContractSell.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvContractSell.RowsDefaultCellStyle = dataGridViewCellStyle48;
             this.dgvContractSell.RowTemplate.Height = 30;
             this.dgvContractSell.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvContractSell.Size = new System.Drawing.Size(791, 517);
@@ -292,6 +313,9 @@ namespace QuanLyThuCung.Views
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel3.Controls.Add(this.btnSell_baoHanh);
+            this.panel3.Controls.Add(this.btnSell_KH);
+            this.panel3.Controls.Add(this.btnSell_NV);
             this.panel3.Controls.Add(this.dateSell_DateSell);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.txtSell_Price);
@@ -309,17 +333,17 @@ namespace QuanLyThuCung.Views
             this.panel3.Location = new System.Drawing.Point(872, 145);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(557, 437);
+            this.panel3.Size = new System.Drawing.Size(580, 437);
             this.panel3.TabIndex = 45;
             // 
             // dateSell_DateSell
             // 
             this.dateSell_DateSell.CalendarMonthBackground = System.Drawing.Color.White;
             this.dateSell_DateSell.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateSell_DateSell.Location = new System.Drawing.Point(229, 191);
+            this.dateSell_DateSell.Location = new System.Drawing.Point(210, 191);
             this.dateSell_DateSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateSell_DateSell.Name = "dateSell_DateSell";
-            this.dateSell_DateSell.Size = new System.Drawing.Size(299, 28);
+            this.dateSell_DateSell.Size = new System.Drawing.Size(295, 28);
             this.dateSell_DateSell.TabIndex = 50;
             // 
             // label14
@@ -335,7 +359,7 @@ namespace QuanLyThuCung.Views
             // txtSell_Price
             // 
             this.txtSell_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_Price.Location = new System.Drawing.Point(229, 347);
+            this.txtSell_Price.Location = new System.Drawing.Point(210, 345);
             this.txtSell_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_Price.Name = "txtSell_Price";
             this.txtSell_Price.Size = new System.Drawing.Size(215, 30);
@@ -354,10 +378,10 @@ namespace QuanLyThuCung.Views
             // txtSell_Caltel
             // 
             this.txtSell_Caltel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_Caltel.Location = new System.Drawing.Point(229, 289);
+            this.txtSell_Caltel.Location = new System.Drawing.Point(210, 291);
             this.txtSell_Caltel.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_Caltel.Name = "txtSell_Caltel";
-            this.txtSell_Caltel.Size = new System.Drawing.Size(260, 30);
+            this.txtSell_Caltel.Size = new System.Drawing.Size(246, 30);
             this.txtSell_Caltel.TabIndex = 46;
             // 
             // label16
@@ -383,25 +407,25 @@ namespace QuanLyThuCung.Views
             // txtSell_IDPet
             // 
             this.txtSell_IDPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_IDPet.Location = new System.Drawing.Point(229, 242);
+            this.txtSell_IDPet.Location = new System.Drawing.Point(210, 244);
             this.txtSell_IDPet.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_IDPet.Name = "txtSell_IDPet";
-            this.txtSell_IDPet.Size = new System.Drawing.Size(196, 30);
+            this.txtSell_IDPet.Size = new System.Drawing.Size(246, 30);
             this.txtSell_IDPet.TabIndex = 43;
             // 
             // txtSell_IDCus
             // 
             this.txtSell_IDCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_IDCus.Location = new System.Drawing.Point(229, 134);
+            this.txtSell_IDCus.Location = new System.Drawing.Point(210, 134);
             this.txtSell_IDCus.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_IDCus.Name = "txtSell_IDCus";
-            this.txtSell_IDCus.Size = new System.Drawing.Size(215, 30);
+            this.txtSell_IDCus.Size = new System.Drawing.Size(246, 30);
             this.txtSell_IDCus.TabIndex = 42;
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(29, 138);
+            this.label18.Location = new System.Drawing.Point(14, 136);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(180, 28);
@@ -411,16 +435,16 @@ namespace QuanLyThuCung.Views
             // txtSell_IDEmp
             // 
             this.txtSell_IDEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_IDEmp.Location = new System.Drawing.Point(229, 75);
+            this.txtSell_IDEmp.Location = new System.Drawing.Point(210, 75);
             this.txtSell_IDEmp.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_IDEmp.Name = "txtSell_IDEmp";
-            this.txtSell_IDEmp.Size = new System.Drawing.Size(260, 30);
+            this.txtSell_IDEmp.Size = new System.Drawing.Size(246, 30);
             this.txtSell_IDEmp.TabIndex = 40;
             // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(41, 79);
+            this.label19.Location = new System.Drawing.Point(18, 77);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(153, 28);
@@ -430,7 +454,7 @@ namespace QuanLyThuCung.Views
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(29, 28);
+            this.label20.Location = new System.Drawing.Point(14, 28);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(180, 28);
@@ -440,10 +464,10 @@ namespace QuanLyThuCung.Views
             // txtSell_IDCon
             // 
             this.txtSell_IDCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSell_IDCon.Location = new System.Drawing.Point(229, 28);
+            this.txtSell_IDCon.Location = new System.Drawing.Point(210, 26);
             this.txtSell_IDCon.Margin = new System.Windows.Forms.Padding(4);
             this.txtSell_IDCon.Name = "txtSell_IDCon";
-            this.txtSell_IDCon.Size = new System.Drawing.Size(196, 30);
+            this.txtSell_IDCon.Size = new System.Drawing.Size(215, 30);
             this.txtSell_IDCon.TabIndex = 37;
             // 
             // btnTimContractSell
@@ -490,6 +514,7 @@ namespace QuanLyThuCung.Views
             // tabHDDV
             // 
             this.tabHDDV.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabHDDV.Controls.Add(this.btnSer_chon);
             this.tabHDDV.Controls.Add(this.dtpTimKiemHDDV);
             this.tabHDDV.Controls.Add(this.label7);
             this.tabHDDV.Controls.Add(this.btnInHoaDonDV);
@@ -504,9 +529,21 @@ namespace QuanLyThuCung.Views
             this.tabHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.tabHDDV.Name = "tabHDDV";
             this.tabHDDV.Padding = new System.Windows.Forms.Padding(4);
-            this.tabHDDV.Size = new System.Drawing.Size(1440, 711);
+            this.tabHDDV.Size = new System.Drawing.Size(1481, 711);
             this.tabHDDV.TabIndex = 1;
             this.tabHDDV.Text = "Quản Lý Bán Dịch Vụ";
+            // 
+            // btnSer_chon
+            // 
+            this.btnSer_chon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSer_chon.Location = new System.Drawing.Point(885, 605);
+            this.btnSer_chon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSer_chon.Name = "btnSer_chon";
+            this.btnSer_chon.Size = new System.Drawing.Size(95, 57);
+            this.btnSer_chon.TabIndex = 52;
+            this.btnSer_chon.Text = "Chọn";
+            this.btnSer_chon.UseVisualStyleBackColor = true;
+            this.btnSer_chon.Click += new System.EventHandler(this.btnSer_chon_Click);
             // 
             // dtpTimKiemHDDV
             // 
@@ -528,13 +565,25 @@ namespace QuanLyThuCung.Views
             this.label7.TabIndex = 24;
             this.label7.Text = "Tìm Kiếm:";
             // 
+            // btnInHoaDonDV
+            // 
+            this.btnInHoaDonDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDonDV.Location = new System.Drawing.Point(1320, 605);
+            this.btnInHoaDonDV.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInHoaDonDV.Name = "btnInHoaDonDV";
+            this.btnInHoaDonDV.Size = new System.Drawing.Size(149, 57);
+            this.btnInHoaDonDV.TabIndex = 42;
+            this.btnInHoaDonDV.Text = "In Hóa Đơn";
+            this.btnInHoaDonDV.UseVisualStyleBackColor = true;
+            this.btnInHoaDonDV.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnXoaHDDV
             // 
             this.btnXoaHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaHDDV.Location = new System.Drawing.Point(1153, 605);
+            this.btnXoaHDDV.Location = new System.Drawing.Point(1208, 605);
             this.btnXoaHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaHDDV.Name = "btnXoaHDDV";
-            this.btnXoaHDDV.Size = new System.Drawing.Size(113, 57);
+            this.btnXoaHDDV.Size = new System.Drawing.Size(104, 57);
             this.btnXoaHDDV.TabIndex = 42;
             this.btnXoaHDDV.Text = "Xóa";
             this.btnXoaHDDV.UseVisualStyleBackColor = true;
@@ -561,33 +610,33 @@ namespace QuanLyThuCung.Views
             this.dgvHDDV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvHDDV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHDDV.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHDDV.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle49.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHDDV.DefaultCellStyle = dataGridViewCellStyle49;
             this.dgvHDDV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHDDV.Location = new System.Drawing.Point(4, 29);
             this.dgvHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHDDV.Name = "dgvHDDV";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHDDV.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle50.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHDDV.RowHeadersDefaultCellStyle = dataGridViewCellStyle50;
             this.dgvHDDV.RowHeadersVisible = false;
             this.dgvHDDV.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvHDDV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle51.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvHDDV.RowsDefaultCellStyle = dataGridViewCellStyle51;
             this.dgvHDDV.RowTemplate.Height = 30;
             this.dgvHDDV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHDDV.Size = new System.Drawing.Size(841, 502);
@@ -597,10 +646,10 @@ namespace QuanLyThuCung.Views
             // btnSuaHDDV
             // 
             this.btnSuaHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaHDDV.Location = new System.Drawing.Point(1019, 605);
+            this.btnSuaHDDV.Location = new System.Drawing.Point(1103, 605);
             this.btnSuaHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuaHDDV.Name = "btnSuaHDDV";
-            this.btnSuaHDDV.Size = new System.Drawing.Size(113, 57);
+            this.btnSuaHDDV.Size = new System.Drawing.Size(97, 57);
             this.btnSuaHDDV.TabIndex = 41;
             this.btnSuaHDDV.Text = "Sửa";
             this.btnSuaHDDV.UseVisualStyleBackColor = true;
@@ -609,6 +658,9 @@ namespace QuanLyThuCung.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.btnSer_IDDV);
+            this.panel1.Controls.Add(this.btnSer_IDKH);
+            this.panel1.Controls.Add(this.btnSer_IDNV);
             this.panel1.Controls.Add(this.dtpNgayMuaHDDV);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.txtHDSer_Price);
@@ -624,8 +676,38 @@ namespace QuanLyThuCung.Views
             this.panel1.Location = new System.Drawing.Point(885, 129);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(548, 454);
+            this.panel1.Size = new System.Drawing.Size(575, 454);
             this.panel1.TabIndex = 7;
+            // 
+            // btnSer_IDDV
+            // 
+            this.btnSer_IDDV.Location = new System.Drawing.Point(435, 251);
+            this.btnSer_IDDV.Name = "btnSer_IDDV";
+            this.btnSer_IDDV.Size = new System.Drawing.Size(98, 32);
+            this.btnSer_IDDV.TabIndex = 53;
+            this.btnSer_IDDV.Text = "Chọn";
+            this.btnSer_IDDV.UseVisualStyleBackColor = true;
+            this.btnSer_IDDV.Click += new System.EventHandler(this.btnSer_IDDV_Click);
+            // 
+            // btnSer_IDKH
+            // 
+            this.btnSer_IDKH.Location = new System.Drawing.Point(435, 137);
+            this.btnSer_IDKH.Name = "btnSer_IDKH";
+            this.btnSer_IDKH.Size = new System.Drawing.Size(98, 32);
+            this.btnSer_IDKH.TabIndex = 52;
+            this.btnSer_IDKH.Text = "Chọn";
+            this.btnSer_IDKH.UseVisualStyleBackColor = true;
+            this.btnSer_IDKH.Click += new System.EventHandler(this.btnSer_IDKH_Click);
+            // 
+            // btnSer_IDNV
+            // 
+            this.btnSer_IDNV.Location = new System.Drawing.Point(435, 78);
+            this.btnSer_IDNV.Name = "btnSer_IDNV";
+            this.btnSer_IDNV.Size = new System.Drawing.Size(98, 32);
+            this.btnSer_IDNV.TabIndex = 51;
+            this.btnSer_IDNV.Text = "Chọn";
+            this.btnSer_IDNV.UseVisualStyleBackColor = true;
+            this.btnSer_IDNV.Click += new System.EventHandler(this.btnSer_IDNV_Click);
             // 
             // dtpNgayMuaHDDV
             // 
@@ -653,7 +735,7 @@ namespace QuanLyThuCung.Views
             this.txtHDSer_Price.Location = new System.Drawing.Point(185, 317);
             this.txtHDSer_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtHDSer_Price.Name = "txtHDSer_Price";
-            this.txtHDSer_Price.Size = new System.Drawing.Size(215, 30);
+            this.txtHDSer_Price.Size = new System.Drawing.Size(235, 30);
             this.txtHDSer_Price.TabIndex = 48;
             // 
             // label9
@@ -672,7 +754,7 @@ namespace QuanLyThuCung.Views
             this.txtTenDichVuHDSer.Location = new System.Drawing.Point(185, 251);
             this.txtTenDichVuHDSer.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenDichVuHDSer.Name = "txtTenDichVuHDSer";
-            this.txtTenDichVuHDSer.Size = new System.Drawing.Size(260, 30);
+            this.txtTenDichVuHDSer.Size = new System.Drawing.Size(235, 30);
             this.txtTenDichVuHDSer.TabIndex = 46;
             // 
             // label10
@@ -691,7 +773,7 @@ namespace QuanLyThuCung.Views
             this.txtHD_IDCus.Location = new System.Drawing.Point(185, 137);
             this.txtHD_IDCus.Margin = new System.Windows.Forms.Padding(4);
             this.txtHD_IDCus.Name = "txtHD_IDCus";
-            this.txtHD_IDCus.Size = new System.Drawing.Size(215, 30);
+            this.txtHD_IDCus.Size = new System.Drawing.Size(235, 30);
             this.txtHD_IDCus.TabIndex = 42;
             // 
             // label1
@@ -710,7 +792,7 @@ namespace QuanLyThuCung.Views
             this.txtHD_IDEmp.Location = new System.Drawing.Point(185, 78);
             this.txtHD_IDEmp.Margin = new System.Windows.Forms.Padding(4);
             this.txtHD_IDEmp.Name = "txtHD_IDEmp";
-            this.txtHD_IDEmp.Size = new System.Drawing.Size(260, 30);
+            this.txtHD_IDEmp.Size = new System.Drawing.Size(235, 30);
             this.txtHD_IDEmp.TabIndex = 40;
             // 
             // label2
@@ -739,16 +821,16 @@ namespace QuanLyThuCung.Views
             this.txtHD_IDConser.Location = new System.Drawing.Point(185, 31);
             this.txtHD_IDConser.Margin = new System.Windows.Forms.Padding(4);
             this.txtHD_IDConser.Name = "txtHD_IDConser";
-            this.txtHD_IDConser.Size = new System.Drawing.Size(196, 30);
+            this.txtHD_IDConser.Size = new System.Drawing.Size(235, 30);
             this.txtHD_IDConser.TabIndex = 37;
             // 
             // btnThemHDDV
             // 
             this.btnThemHDDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemHDDV.Location = new System.Drawing.Point(885, 605);
+            this.btnThemHDDV.Location = new System.Drawing.Point(1000, 605);
             this.btnThemHDDV.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemHDDV.Name = "btnThemHDDV";
-            this.btnThemHDDV.Size = new System.Drawing.Size(113, 57);
+            this.btnThemHDDV.Size = new System.Drawing.Size(95, 57);
             this.btnThemHDDV.TabIndex = 40;
             this.btnThemHDDV.Text = "Thêm";
             this.btnThemHDDV.UseVisualStyleBackColor = true;
@@ -806,7 +888,7 @@ namespace QuanLyThuCung.Views
             this.tabDV.Margin = new System.Windows.Forms.Padding(4);
             this.tabDV.Name = "tabDV";
             this.tabDV.Padding = new System.Windows.Forms.Padding(4);
-            this.tabDV.Size = new System.Drawing.Size(1440, 711);
+            this.tabDV.Size = new System.Drawing.Size(1481, 711);
             this.tabDV.TabIndex = 0;
             this.tabDV.Text = "Quản Lý Dịch Vụ";
             // 
@@ -831,32 +913,32 @@ namespace QuanLyThuCung.Views
             this.dvgDV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dvgDV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvgDV.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgDV.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle52.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgDV.DefaultCellStyle = dataGridViewCellStyle52;
             this.dvgDV.Location = new System.Drawing.Point(44, 54);
             this.dvgDV.Margin = new System.Windows.Forms.Padding(4);
             this.dvgDV.Name = "dvgDV";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDV.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle53.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDV.RowHeadersDefaultCellStyle = dataGridViewCellStyle53;
             this.dvgDV.RowHeadersVisible = false;
             this.dvgDV.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dvgDV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dvgDV.RowsDefaultCellStyle = dataGridViewCellStyle54;
             this.dvgDV.RowTemplate.Height = 30;
             this.dvgDV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgDV.Size = new System.Drawing.Size(615, 340);
@@ -1046,7 +1128,7 @@ namespace QuanLyThuCung.Views
             this.tabShowDichVuChamSoc.Margin = new System.Windows.Forms.Padding(4);
             this.tabShowDichVuChamSoc.Name = "tabShowDichVuChamSoc";
             this.tabShowDichVuChamSoc.Padding = new System.Windows.Forms.Padding(4);
-            this.tabShowDichVuChamSoc.Size = new System.Drawing.Size(1440, 711);
+            this.tabShowDichVuChamSoc.Size = new System.Drawing.Size(1481, 711);
             this.tabShowDichVuChamSoc.TabIndex = 3;
             this.tabShowDichVuChamSoc.Text = "Dich Vu ";
             // 
@@ -1057,7 +1139,7 @@ namespace QuanLyThuCung.Views
             this.panel123.Location = new System.Drawing.Point(4, 4);
             this.panel123.Margin = new System.Windows.Forms.Padding(4);
             this.panel123.Name = "panel123";
-            this.panel123.Size = new System.Drawing.Size(1432, 703);
+            this.panel123.Size = new System.Drawing.Size(1473, 703);
             this.panel123.TabIndex = 40;
             // 
             // panel7
@@ -1070,7 +1152,7 @@ namespace QuanLyThuCung.Views
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1432, 703);
+            this.panel7.Size = new System.Drawing.Size(1473, 703);
             this.panel7.TabIndex = 13;
             // 
             // panel4
@@ -1128,32 +1210,32 @@ namespace QuanLyThuCung.Views
             this.dgvShowDVChamSoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvShowDVChamSoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvShowDVChamSoc.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvShowDVChamSoc.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle55.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShowDVChamSoc.DefaultCellStyle = dataGridViewCellStyle55;
             this.dgvShowDVChamSoc.Location = new System.Drawing.Point(428, 190);
             this.dgvShowDVChamSoc.Margin = new System.Windows.Forms.Padding(4);
             this.dgvShowDVChamSoc.Name = "dgvShowDVChamSoc";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowDVChamSoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle56.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle56.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowDVChamSoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle56;
             this.dgvShowDVChamSoc.RowHeadersVisible = false;
             this.dgvShowDVChamSoc.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvShowDVChamSoc.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvShowDVChamSoc.RowsDefaultCellStyle = dataGridViewCellStyle57;
             this.dgvShowDVChamSoc.RowTemplate.Height = 30;
             this.dgvShowDVChamSoc.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvShowDVChamSoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1187,7 +1269,7 @@ namespace QuanLyThuCung.Views
             this.tabQL.Name = "tabQL";
             this.tabQL.Padding = new System.Drawing.Point(60, 5);
             this.tabQL.SelectedIndex = 0;
-            this.tabQL.Size = new System.Drawing.Size(1448, 751);
+            this.tabQL.Size = new System.Drawing.Size(1489, 751);
             this.tabQL.TabIndex = 1;
             this.tabQL.Click += new System.EventHandler(this.tabQL_Click);
             // 
@@ -1200,7 +1282,7 @@ namespace QuanLyThuCung.Views
             this.tabDichVuDaMua.Margin = new System.Windows.Forms.Padding(4);
             this.tabDichVuDaMua.Name = "tabDichVuDaMua";
             this.tabDichVuDaMua.Padding = new System.Windows.Forms.Padding(4);
-            this.tabDichVuDaMua.Size = new System.Drawing.Size(1440, 711);
+            this.tabDichVuDaMua.Size = new System.Drawing.Size(1481, 711);
             this.tabDichVuDaMua.TabIndex = 4;
             this.tabDichVuDaMua.Text = "Dịch Vụ Đã Mua";
             this.tabDichVuDaMua.UseVisualStyleBackColor = true;
@@ -1260,32 +1342,32 @@ namespace QuanLyThuCung.Views
             this.dgvDichVuDaMua.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvDichVuDaMua.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDichVuDaMua.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDichVuDaMua.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle58.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDichVuDaMua.DefaultCellStyle = dataGridViewCellStyle58;
             this.dgvDichVuDaMua.Location = new System.Drawing.Point(323, 273);
             this.dgvDichVuDaMua.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDichVuDaMua.Name = "dgvDichVuDaMua";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDichVuDaMua.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle59.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDichVuDaMua.RowHeadersDefaultCellStyle = dataGridViewCellStyle59;
             this.dgvDichVuDaMua.RowHeadersVisible = false;
             this.dgvDichVuDaMua.RowHeadersWidth = 51;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dgvDichVuDaMua.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.dgvDichVuDaMua.RowsDefaultCellStyle = dataGridViewCellStyle60;
             this.dgvDichVuDaMua.RowTemplate.Height = 30;
             this.dgvDichVuDaMua.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDichVuDaMua.Size = new System.Drawing.Size(952, 276);
@@ -1298,20 +1380,8 @@ namespace QuanLyThuCung.Views
             this.panelMainQLDichVu.Location = new System.Drawing.Point(0, 0);
             this.panelMainQLDichVu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMainQLDichVu.Name = "panelMainQLDichVu";
-            this.panelMainQLDichVu.Size = new System.Drawing.Size(1448, 751);
+            this.panelMainQLDichVu.Size = new System.Drawing.Size(1489, 751);
             this.panelMainQLDichVu.TabIndex = 2;
-            // 
-            // btnInHoaDonTC
-            // 
-            this.btnInHoaDonTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInHoaDonTC.Location = new System.Drawing.Point(1287, 602);
-            this.btnInHoaDonTC.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInHoaDonTC.Name = "btnInHoaDonTC";
-            this.btnInHoaDonTC.Size = new System.Drawing.Size(136, 57);
-            this.btnInHoaDonTC.TabIndex = 50;
-            this.btnInHoaDonTC.Text = "In Hóa Đơn";
-            this.btnInHoaDonTC.UseVisualStyleBackColor = true;
-            this.btnInHoaDonTC.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // printBill
             // 
@@ -1343,23 +1413,53 @@ namespace QuanLyThuCung.Views
             this.printPreviewDialogBanDichVu.Name = "printPreviewDialogBanDichVu";
             this.printPreviewDialogBanDichVu.Visible = false;
             // 
-            // btnInHoaDonDV
+            // btnSell_NV
             // 
-            this.btnInHoaDonDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInHoaDonDV.Location = new System.Drawing.Point(1287, 605);
-            this.btnInHoaDonDV.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInHoaDonDV.Name = "btnInHoaDonDV";
-            this.btnInHoaDonDV.Size = new System.Drawing.Size(149, 57);
-            this.btnInHoaDonDV.TabIndex = 42;
-            this.btnInHoaDonDV.Text = "In Hóa Đơn";
-            this.btnInHoaDonDV.UseVisualStyleBackColor = true;
-            this.btnInHoaDonDV.Click += new System.EventHandler(this.button1_Click);
+            this.btnSell_NV.Location = new System.Drawing.Point(478, 75);
+            this.btnSell_NV.Name = "btnSell_NV";
+            this.btnSell_NV.Size = new System.Drawing.Size(90, 30);
+            this.btnSell_NV.TabIndex = 51;
+            this.btnSell_NV.Text = "chọn";
+            this.btnSell_NV.UseVisualStyleBackColor = true;
+            this.btnSell_NV.Click += new System.EventHandler(this.btnSell_NV_Click);
+            // 
+            // btnSell_KH
+            // 
+            this.btnSell_KH.Location = new System.Drawing.Point(478, 136);
+            this.btnSell_KH.Name = "btnSell_KH";
+            this.btnSell_KH.Size = new System.Drawing.Size(90, 30);
+            this.btnSell_KH.TabIndex = 52;
+            this.btnSell_KH.Text = "chọn";
+            this.btnSell_KH.UseVisualStyleBackColor = true;
+            this.btnSell_KH.Click += new System.EventHandler(this.btnSell_KH_Click);
+            // 
+            // btnSell_baoHanh
+            // 
+            this.btnSell_baoHanh.Location = new System.Drawing.Point(478, 291);
+            this.btnSell_baoHanh.Name = "btnSell_baoHanh";
+            this.btnSell_baoHanh.Size = new System.Drawing.Size(90, 30);
+            this.btnSell_baoHanh.TabIndex = 54;
+            this.btnSell_baoHanh.Text = "chọn";
+            this.btnSell_baoHanh.UseVisualStyleBackColor = true;
+            this.btnSell_baoHanh.Click += new System.EventHandler(this.btnSell_baoHanh_Click);
+            // 
+            // btnSell_chon
+            // 
+            this.btnSell_chon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSell_chon.Location = new System.Drawing.Point(872, 602);
+            this.btnSell_chon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSell_chon.Name = "btnSell_chon";
+            this.btnSell_chon.Size = new System.Drawing.Size(96, 57);
+            this.btnSell_chon.TabIndex = 55;
+            this.btnSell_chon.Text = "Chọn";
+            this.btnSell_chon.UseVisualStyleBackColor = true;
+            this.btnSell_chon.Click += new System.EventHandler(this.btnSell_chon_Click);
             // 
             // frmQLDichVuMuaBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1448, 751);
+            this.ClientSize = new System.Drawing.Size(1489, 751);
             this.Controls.Add(this.panelMainQLDichVu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmQLDichVuMuaBan";
@@ -1488,5 +1588,13 @@ namespace QuanLyThuCung.Views
         private System.Drawing.Printing.PrintDocument printBanDichVu;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBanDichVu;
         private System.Windows.Forms.Button btnInHoaDonDV;
+        private System.Windows.Forms.Button btnSer_chon;
+        private System.Windows.Forms.Button btnSer_IDDV;
+        private System.Windows.Forms.Button btnSer_IDKH;
+        private System.Windows.Forms.Button btnSer_IDNV;
+        private System.Windows.Forms.Button btnSell_chon;
+        private System.Windows.Forms.Button btnSell_baoHanh;
+        private System.Windows.Forms.Button btnSell_KH;
+        private System.Windows.Forms.Button btnSell_NV;
     }
 }
