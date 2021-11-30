@@ -388,14 +388,12 @@ namespace QuanLyThuCung.Views
             tbIDNCCTC.ReadOnly = true;
 
         }
-        private void dgvNhaCungCap_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvNhaCungCap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             tbIDNCCTC.Show();
             lbIDNCCTC.Show();
             DataBindNhaCungCap();
         }
-
         private void btThemNCC_Click_1(object sender, EventArgs e)
         {
             try
@@ -494,7 +492,7 @@ namespace QuanLyThuCung.Views
             tbTenBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[1].Value.ToString();
             tbThangBaoHanh.Text = dgvBaoHanh.CurrentRow.Cells[2].Value.ToString();
         }
-        private void dgvBaoHanh_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvBaoHanh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             tbIDBaoHanh.Show();
             lbIDBaoHanh.Show();
@@ -580,8 +578,9 @@ namespace QuanLyThuCung.Views
 
 
 
+
         #endregion
 
-        
+    
     }
 }
