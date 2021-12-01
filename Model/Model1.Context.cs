@@ -39,6 +39,7 @@ namespace QuanLyThuCung.Model
         public virtual DbSet<WarrantyType> WarrantyTypes { get; set; }
         public virtual DbSet<view_HDDichVu> view_HDDichVu { get; set; }
         public virtual DbSet<view_HDThuCung> view_HDThuCung { get; set; }
+        public virtual DbSet<view_Pet> view_Pet { get; set; }
     
         public virtual int delete_contractSell(Nullable<int> id)
         {
@@ -495,6 +496,82 @@ namespace QuanLyThuCung.Model
                 new ObjectParameter("name", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_TimUserTheoUsername_Result>("usp_TimUserTheoUsername", nameParameter);
+        }
+    
+        public virtual int delete_pet(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("delete_pet", idParameter);
+        }
+    
+        public virtual ObjectResult<GetData_pet_Result> GetData_pet()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetData_pet_Result>("GetData_pet");
+        }
+    
+        public virtual int insert_pet(string nameSpec, string sex, Nullable<int> priceImport, string nameSup, Nullable<double> weight, Nullable<int> age)
+        {
+            var nameSpecParameter = nameSpec != null ?
+                new ObjectParameter("NameSpec", nameSpec) :
+                new ObjectParameter("NameSpec", typeof(string));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("Sex", sex) :
+                new ObjectParameter("Sex", typeof(string));
+    
+            var priceImportParameter = priceImport.HasValue ?
+                new ObjectParameter("PriceImport", priceImport) :
+                new ObjectParameter("PriceImport", typeof(int));
+    
+            var nameSupParameter = nameSup != null ?
+                new ObjectParameter("NameSup", nameSup) :
+                new ObjectParameter("NameSup", typeof(string));
+    
+            var weightParameter = weight.HasValue ?
+                new ObjectParameter("Weight", weight) :
+                new ObjectParameter("Weight", typeof(double));
+    
+            var ageParameter = age.HasValue ?
+                new ObjectParameter("Age", age) :
+                new ObjectParameter("Age", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_pet", nameSpecParameter, sexParameter, priceImportParameter, nameSupParameter, weightParameter, ageParameter);
+        }
+    
+        public virtual int update_pet(Nullable<int> id, string nameSpec, string sex, Nullable<int> priceImport, string nameSup, Nullable<double> weight, Nullable<int> age)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameSpecParameter = nameSpec != null ?
+                new ObjectParameter("NameSpec", nameSpec) :
+                new ObjectParameter("NameSpec", typeof(string));
+    
+            var sexParameter = sex != null ?
+                new ObjectParameter("Sex", sex) :
+                new ObjectParameter("Sex", typeof(string));
+    
+            var priceImportParameter = priceImport.HasValue ?
+                new ObjectParameter("PriceImport", priceImport) :
+                new ObjectParameter("PriceImport", typeof(int));
+    
+            var nameSupParameter = nameSup != null ?
+                new ObjectParameter("NameSup", nameSup) :
+                new ObjectParameter("NameSup", typeof(string));
+    
+            var weightParameter = weight.HasValue ?
+                new ObjectParameter("Weight", weight) :
+                new ObjectParameter("Weight", typeof(double));
+    
+            var ageParameter = age.HasValue ?
+                new ObjectParameter("Age", age) :
+                new ObjectParameter("Age", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("update_pet", idParameter, nameSpecParameter, sexParameter, priceImportParameter, nameSupParameter, weightParameter, ageParameter);
         }
     }
 }

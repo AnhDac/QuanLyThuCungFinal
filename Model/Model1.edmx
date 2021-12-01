@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CNPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CNPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contract_Sell">
           <Key>
             <PropertyRef Name="ID_ConSell" />
@@ -128,6 +128,20 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
           <Property Name="Name_Warr" Type="nvarchar" MaxLength="50" />
           <Property Name="DateSell" Type="date" />
           <Property Name="Price" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_Pet">
+          <Key>
+            <PropertyRef Name="ID_Pet" />
+          </Key>
+          <Property Name="ID_Pet" Type="int" Nullable="false" />
+          <Property Name="NameSpec" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="PriceImport" Type="int" />
+          <Property Name="NameSup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="Age" Type="int" />
         </EntityType>
         <Association Name="FK_IDCus_ConSell_IDCus_Custom">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
@@ -261,8 +275,12 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
         <Function Name="delete_contractSer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="delete_pet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetData_contractSell" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetData_contractSer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetData_pet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="insert_contractSell" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name_NV" Type="nvarchar" Mode="In" />
           <Parameter Name="Name_Customer" Type="nvarchar" Mode="In" />
@@ -276,6 +294,14 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
           <Parameter Name="NameCus" Type="nvarchar" Mode="In" />
           <Parameter Name="DateBuy" Type="date" Mode="In" />
           <Parameter Name="NameSer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insert_pet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NameSpec" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sex" Type="nvarchar" Mode="In" />
+          <Parameter Name="PriceImport" Type="int" Mode="In" />
+          <Parameter Name="NameSup" Type="nvarchar" Mode="In" />
+          <Parameter Name="Weight" Type="float" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
         </Function>
         <Function Name="timKiemHDBanThuCung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="day" Type="int" Mode="In" />
@@ -302,6 +328,15 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
           <Parameter Name="NameCus" Type="nvarchar" Mode="In" />
           <Parameter Name="DateBuy" Type="date" Mode="In" />
           <Parameter Name="NameSer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="update_pet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="NameSpec" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sex" Type="nvarchar" Mode="In" />
+          <Parameter Name="PriceImport" Type="int" Mode="In" />
+          <Parameter Name="NameSup" Type="nvarchar" Mode="In" />
+          <Parameter Name="Weight" Type="float" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_GetContractSellTheoThangVaNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="month" Type="int" Mode="In" />
@@ -426,6 +461,17 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
     [view_HDThuCung].[Price] AS [Price]
     FROM [dbo].[view_HDThuCung] AS [view_HDThuCung]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="view_Pet" EntityType="Self.view_Pet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_Pet].[ID_Pet] AS [ID_Pet], 
+    [view_Pet].[NameSpec] AS [NameSpec], 
+    [view_Pet].[Sex] AS [Sex], 
+    [view_Pet].[PriceImport] AS [PriceImport], 
+    [view_Pet].[NameSup] AS [NameSup], 
+    [view_Pet].[Weight] AS [Weight], 
+    [view_Pet].[Age] AS [Age]
+    FROM [dbo].[view_Pet] AS [view_Pet]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_IDCus_ConSell_IDCus_Custom" Association="Self.FK_IDCus_ConSell_IDCus_Custom">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Contract_Sell" EntitySet="Contract_Sell" />
@@ -463,8 +509,7 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
             <End Role="Contract_Sell" EntitySet="Contract_Sell" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CNPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -782,10 +827,10 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
             <End Role="Pet" EntitySet="Pets" />
           </AssociationSet>
           <FunctionImport Name="delete_contractSell">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="delete_contractSer">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetData_contractSell" ReturnType="Collection(CNPMModel.GetData_contractSell_Result)" />
           <FunctionImport Name="GetData_contractSer" ReturnType="Collection(CNPMModel.GetData_contractSer_Result)" />
@@ -838,7 +883,7 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
             <Parameter Name="year" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetDanhSachDichVuDaMua" ReturnType="Collection(CNPMModel.usp_GetDanhSachDichVuDaMua_Result)">
-            <Parameter Name="idkh" Mode="In" Type="Int32" />
+          <Parameter Name="idkh" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetDataBaoHanh" ReturnType="Collection(CNPMModel.usp_GetDataBaoHanh_Result)" />
           <FunctionImport Name="usp_GetDataCustomer" ReturnType="Collection(CNPMModel.usp_GetDataCustomer_Result)" />
@@ -855,21 +900,21 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
             <Parameter Name="total" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetSumSalaryOfEmp">
-            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          <Parameter Name="total" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetThuCung" ReturnType="Collection(CNPMModel.usp_GetThuCung_Result)" />
           <FunctionImport Name="usp_GetThuCungChuaBan" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBan_Result)" />
           <FunctionImport Name="usp_GetThuCungChuaBanTheoGioiTinh" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoGioiTinh_Result)">
-            <Parameter Name="sex" Mode="In" Type="String" />
+          <Parameter Name="sex" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_GetThuCungChuaBanTheoLoai" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoLoai_Result)">
-            <Parameter Name="tenloai" Mode="In" Type="String" />
+          <Parameter Name="tenloai" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_GetThuCungChuaBanTheoTuoi" ReturnType="Collection(CNPMModel.usp_GetThuCungChuaBanTheoTuoi_Result)">
-            <Parameter Name="age" Mode="In" Type="Int32" />
+          <Parameter Name="age" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetThuCungDaMua" ReturnType="Collection(CNPMModel.usp_GetThuCungDaMua_Result)">
-            <Parameter Name="idkh" Mode="In" Type="Int32" />
+          <Parameter Name="idkh" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GetTotalMoneyTransactionContractSellTheoThangVaNam">
             <Parameter Name="month" Mode="In" Type="Int32" />
@@ -882,43 +927,65 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
             <Parameter Name="total" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimDVTheoTen" ReturnType="Collection(CNPMModel.usp_TimDVTheoTen_Result)">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimKHTheoSDT" ReturnType="Collection(CNPMModel.usp_TimKHTheoSDT_Result)">
-            <Parameter Name="sdt" Mode="In" Type="String" />
+          <Parameter Name="sdt" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimKHTheoTen" ReturnType="Collection(CNPMModel.usp_TimKHTheoTen_Result)">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimKHTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimKHTheoTuoi_Result)">
-            <Parameter Name="age" Mode="In" Type="Int32" />
+          <Parameter Name="age" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimNVTheoLuong" ReturnType="Collection(CNPMModel.usp_TimNVTheoLuong_Result)">
-            <Parameter Name="salary" Mode="In" Type="Int32" />
+          <Parameter Name="salary" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimNVTheoSDT" ReturnType="Collection(CNPMModel.usp_TimNVTheoSDT_Result)">
-            <Parameter Name="sdt" Mode="In" Type="String" />
+          <Parameter Name="sdt" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimNVTheoTen" ReturnType="Collection(CNPMModel.usp_TimNVTheoTen_Result)">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimNVTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimNVTheoTuoi_Result)">
-            <Parameter Name="age" Mode="In" Type="Int32" />
+          <Parameter Name="age" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimTCTheoGioiTinh" ReturnType="Collection(CNPMModel.usp_TimTCTheoGioiTinh_Result)">
-            <Parameter Name="sex" Mode="In" Type="String" />
+          <Parameter Name="sex" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimTCTheoLoai" ReturnType="Collection(CNPMModel.usp_TimTCTheoLoai_Result)">
-            <Parameter Name="loai" Mode="In" Type="Int32" />
+          <Parameter Name="loai" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimTCTheoTuoi" ReturnType="Collection(CNPMModel.usp_TimTCTheoTuoi_Result)">
-            <Parameter Name="tuoi" Mode="In" Type="Int32" />
+          <Parameter Name="tuoi" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TimUserTheoTen" ReturnType="Collection(CNPMModel.usp_TimUserTheoTen_Result)">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TimUserTheoUsername" ReturnType="Collection(CNPMModel.usp_TimUserTheoUsername_Result)">
-            <Parameter Name="name" Mode="In" Type="String" />
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="view_Pet" EntityType="CNPMModel.view_Pet" />
+          <FunctionImport Name="delete_pet">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetData_pet" ReturnType="Collection(CNPMModel.GetData_pet_Result)" />
+          <FunctionImport Name="insert_pet">
+            <Parameter Name="NameSpec" Mode="In" Type="String" />
+            <Parameter Name="Sex" Mode="In" Type="String" />
+            <Parameter Name="PriceImport" Mode="In" Type="Int32" />
+            <Parameter Name="NameSup" Mode="In" Type="String" />
+            <Parameter Name="Weight" Mode="In" Type="Double" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="update_pet">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="NameSpec" Mode="In" Type="String" />
+            <Parameter Name="Sex" Mode="In" Type="String" />
+            <Parameter Name="PriceImport" Mode="In" Type="Int32" />
+            <Parameter Name="NameSup" Mode="In" Type="String" />
+            <Parameter Name="Weight" Mode="In" Type="Double" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetData_contractSell_Result">
@@ -1193,6 +1260,27 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
           <Property Type="String" Name="Tài_Khoản" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Mật_Khẩu" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Quyền" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <EntityType Name="view_Pet">
+          <Key>
+            <PropertyRef Name="ID_Pet" />
+          </Key>
+          <Property Name="ID_Pet" Type="Int32" Nullable="false" />
+          <Property Name="NameSpec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PriceImport" Type="Int32" />
+          <Property Name="NameSup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="GetData_pet_Result">
+          <Property Type="Int32" Name="ID_Pet" Nullable="false" />
+          <Property Type="String" Name="NameSpec" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="PriceImport" Nullable="true" />
+          <Property Type="String" Name="NameSup" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Weight" Nullable="true" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1755,6 +1843,35 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="view_Pet">
+            <EntityTypeMapping TypeName="CNPMModel.view_Pet">
+              <MappingFragment StoreEntitySet="view_Pet">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="NameSup" ColumnName="NameSup" />
+                <ScalarProperty Name="PriceImport" ColumnName="PriceImport" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="NameSpec" ColumnName="NameSpec" />
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="delete_pet" FunctionName="CNPMModel.Store.delete_pet" />
+          <FunctionImportMapping FunctionImportName="GetData_pet" FunctionName="CNPMModel.Store.GetData_pet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CNPMModel.GetData_pet_Result">
+                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
+                <ScalarProperty Name="NameSpec" ColumnName="NameSpec" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PriceImport" ColumnName="PriceImport" />
+                <ScalarProperty Name="NameSup" ColumnName="NameSup" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insert_pet" FunctionName="CNPMModel.Store.insert_pet" />
+          <FunctionImportMapping FunctionImportName="update_pet" FunctionName="CNPMModel.Store.update_pet" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -17,6 +17,11 @@ namespace QuanLyThuCung.Views
         ThuCungEntities db = new ThuCungEntities();
         private int iduser;
         Controller ctrl = new Controller();
+        Form currentChildForm = new Form();
+        private int pt_IDLoai;
+        private int pt_IDNCC;
+
+        string tam = "bin";
 
         public frmQLThuCung()
         {
@@ -83,15 +88,17 @@ namespace QuanLyThuCung.Views
         //======================Start THU CUNG============================
         void DataBindThuCung()
         {
-
-            tbIDThuCung.Text = dgvThuCung.CurrentRow.Cells[0].Value.ToString();
-            tbLoaiThuCung.Text = dgvThuCung.CurrentRow.Cells[1].Value.ToString();
-            //cbLoaiThuCung.SelectedIndex = cbLoaiThuCung.FindStringExact("");
-            cbGioitinh.SelectedItem = dgvThuCung.CurrentRow.Cells[2].Value.ToString();
-            tbGiaNhapThuCung.Text = dgvThuCung.CurrentRow.Cells[3].Value.ToString();
-            tbNccThuCung.Text = dgvThuCung.CurrentRow.Cells[4].Value.ToString();
-            tbCanNangThuCung.Text = dgvThuCung.CurrentRow.Cells[5].Value.ToString();
-            tbTuoiThuCung.Text = dgvThuCung.CurrentRow.Cells[6].Value.ToString();
+            if (tam == "bin")
+            {
+                tbIDThuCung.Text = dgvThuCung.CurrentRow.Cells[0].Value.ToString();
+                tbLoaiThuCung.Text = dgvThuCung.CurrentRow.Cells[1].Value.ToString();
+                //cbLoaiThuCung.SelectedIndex = cbLoaiThuCung.FindStringExact("");
+                cbGioitinh.SelectedItem = dgvThuCung.CurrentRow.Cells[2].Value.ToString();
+                tbGiaNhapThuCung.Text = dgvThuCung.CurrentRow.Cells[3].Value.ToString();
+                tbNccThuCung.Text = dgvThuCung.CurrentRow.Cells[4].Value.ToString();
+                tbCanNangThuCung.Text = dgvThuCung.CurrentRow.Cells[5].Value.ToString();
+                tbTuoiThuCung.Text = dgvThuCung.CurrentRow.Cells[6].Value.ToString();
+            }
         }
 
         void LoadThuCung()
@@ -108,11 +115,12 @@ namespace QuanLyThuCung.Views
             dgvThuCung.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dgvThuCung.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-            var result = db.usp_GetThuCung().ToList();
+            var result = db.GetData_pet().ToList();
             dgvThuCung.DataSource = result.ToList();
             DataBindThuCung();
             cbbTimThuCung.SelectedItem = "Loại";
             tbIDThuCung.ReadOnly = true;
+            btnPt_chon.Visible = false;
 
         }
 
@@ -129,15 +137,15 @@ namespace QuanLyThuCung.Views
                 if (MessageBox.Show("Thêm Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    Pet pet = new Pet();
-                    pet.ID_Spec = Convert.ToInt32(tbLoaiThuCung.Text.ToString().Trim());
+                    view_Pet pet = new view_Pet();
+                    pet.NameSpec = tbLoaiThuCung.Text.ToString().Trim();
                     pet.Sex = cbGioitinh.Text.ToString().Trim();
                     pet.PriceImport = Convert.ToInt32(tbGiaNhapThuCung.Text);
-                    pet.ID_Sup = Convert.ToInt32(tbNccThuCung.Text.ToString().Trim());
+                    pet.NameSup = tbNccThuCung.Text.ToString().Trim();
                     pet.Weight = Convert.ToDouble(tbCanNangThuCung.Text);
                     pet.Age = Convert.ToInt32(tbTuoiThuCung.Text);
 
-                    db.Pets.Add(pet);
+                    db.view_Pet.Add(pet);
                     db.SaveChanges();
 
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,11 +165,11 @@ namespace QuanLyThuCung.Views
             try
             {
                 int idpet = Convert.ToInt32(dgvThuCung.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
-                Pet pet = db.Pets.Find(idpet);
-                pet.ID_Spec = Convert.ToInt32(tbLoaiThuCung.Text.ToString().Trim());
+                view_Pet pet = db.view_Pet.Find(idpet);
+                pet.NameSpec = tbLoaiThuCung.Text.ToString().Trim();
                 pet.Sex = cbGioitinh.Text.ToString().Trim();
                 pet.PriceImport = Convert.ToInt32(tbGiaNhapThuCung.Text);
-                pet.ID_Sup = Convert.ToInt32(tbNccThuCung.Text.ToString().Trim());
+                pet.NameSup = tbNccThuCung.Text.ToString().Trim();
                 pet.Weight = Convert.ToDouble(tbCanNangThuCung.Text);
                 pet.Age = Convert.ToInt32(tbTuoiThuCung.Text);
 
@@ -184,8 +192,8 @@ namespace QuanLyThuCung.Views
                 if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int valueDelete = Convert.ToInt32(tbIDThuCung.Text.ToString().Trim());
-                    Pet pet = db.Pets.Where(p => p.ID_Pet == valueDelete).SingleOrDefault();
-                    db.Pets.Remove(pet);
+                    view_Pet pet = db.view_Pet.Where(p => p.ID_Pet == valueDelete).SingleOrDefault();
+                    db.view_Pet.Remove(pet);
                     db.SaveChanges();
                     MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadThuCung();
@@ -246,13 +254,57 @@ namespace QuanLyThuCung.Views
                 LoadThuCung();
             }
             else
-                if(flag_check_case==false)
-                     dgvThuCung.DataSource = ms;
+                if (flag_check_case == false)
+                dgvThuCung.DataSource = ms;
         }
 
         private void btnReloadTC_Click(object sender, EventArgs e)
         {
             LoadThuCung();
+        }
+        private void btnPt_Loai_Click_1(object sender, EventArgs e)
+        {
+            btnSuaThuCung.Visible = false;
+            btnXoaThuCung.Visible = false;
+            btnThemThuCung.Visible = false;
+
+            tam = "Loai";
+            btnPt_chon.Visible = true;
+
+            dgvThuCung.DataSource = db.usp_GetLoaiThuCung();
+        }
+        private void btnPt_NCC_Click_1(object sender, EventArgs e)
+        {
+            dgvThuCung.DataSource = db.usp_GetDataNhaCungCap();
+
+            btnSuaThuCung.Visible = false;
+            btnXoaThuCung.Visible = false;
+            btnThemThuCung.Visible = false;
+
+            tam = "NCC";
+
+            btnPt_chon.Visible = true;
+        }
+        private void btnPt_chon_Click_1(object sender, EventArgs e)
+        {
+            if (tam == "Loai")
+            {
+                pt_IDLoai = Convert.ToInt32(dgvThuCung.CurrentRow.Cells[0].Value.ToString().Trim());
+                tbLoaiThuCung.Text = dgvThuCung.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+            if (tam == "NCC")
+            {
+                pt_IDNCC = Convert.ToInt32(dgvThuCung.CurrentRow.Cells[0].Value.ToString().Trim());
+                tbNccThuCung.Text = dgvThuCung.CurrentRow.Cells[1].Value.ToString().Trim();
+            }
+
+            tam = "bin";
+            btnSuaThuCung.Visible = true;
+            btnXoaThuCung.Visible = true;
+            btnThemThuCung.Visible = true;
+
+            btnPt_chon.Visible = false;
+            dgvThuCung.DataSource = db.GetData_pet().ToList();
         }
 
         //======================End THU CUNG============================
@@ -579,8 +631,10 @@ namespace QuanLyThuCung.Views
 
 
 
+
+
         #endregion
 
-    
+      
     }
 }
