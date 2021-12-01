@@ -26,7 +26,6 @@
         <AssociationConnector Association="CNPMModel.FK_IDSer_ConSer_IDSer_Service" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMModel.FK_IDSpec_Pet_IDSpec_Spec" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMModel.FK_IDSup_Pet_IDSup_Sup" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CNPMModel.view_Pet" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

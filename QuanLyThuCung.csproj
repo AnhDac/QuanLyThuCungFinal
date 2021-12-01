@@ -230,9 +230,6 @@
     <Compile Include="Model\view_HDThuCung.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\view_Pet.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\WarrantyType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -39,7 +39,6 @@ namespace QuanLyThuCung.Model
         public virtual DbSet<WarrantyType> WarrantyTypes { get; set; }
         public virtual DbSet<view_HDDichVu> view_HDDichVu { get; set; }
         public virtual DbSet<view_HDThuCung> view_HDThuCung { get; set; }
-        public virtual DbSet<view_Pet> view_Pet { get; set; }
     
         public virtual int delete_contractSell(Nullable<int> id)
         {

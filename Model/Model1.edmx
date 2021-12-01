@@ -131,18 +131,6 @@ warning 6002: The table/view 'CNPM.dbo.view_HDThuCung' does not have a primary k
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="view_Pet">
-          <Key>
-            <PropertyRef Name="ID_Pet" />
-          </Key>
-          <Property Name="ID_Pet" Type="int" Nullable="false" />
-          <Property Name="NameSpec" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sex" Type="nvarchar" MaxLength="10" />
-          <Property Name="PriceImport" Type="int" />
-          <Property Name="NameSup" Type="nvarchar" MaxLength="50" />
-          <Property Name="Weight" Type="float" />
-          <Property Name="Age" Type="int" />
-        </EntityType>
         <Association Name="FK_IDCus_ConSell_IDCus_Custom">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -460,17 +448,6 @@ warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key def
     [view_HDThuCung].[DateSell] AS [DateSell], 
     [view_HDThuCung].[Price] AS [Price]
     FROM [dbo].[view_HDThuCung] AS [view_HDThuCung]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="view_Pet" EntityType="Self.view_Pet" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [view_Pet].[ID_Pet] AS [ID_Pet], 
-    [view_Pet].[NameSpec] AS [NameSpec], 
-    [view_Pet].[Sex] AS [Sex], 
-    [view_Pet].[PriceImport] AS [PriceImport], 
-    [view_Pet].[NameSup] AS [NameSup], 
-    [view_Pet].[Weight] AS [Weight], 
-    [view_Pet].[Age] AS [Age]
-    FROM [dbo].[view_Pet] AS [view_Pet]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_IDCus_ConSell_IDCus_Custom" Association="Self.FK_IDCus_ConSell_IDCus_Custom">
             <End Role="Customer" EntitySet="Customer" />
@@ -965,7 +942,6 @@ warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key def
           <FunctionImport Name="usp_TimUserTheoUsername" ReturnType="Collection(CNPMModel.usp_TimUserTheoUsername_Result)">
           <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="view_Pet" EntityType="CNPMModel.view_Pet" />
           <FunctionImport Name="delete_pet">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1261,18 +1237,6 @@ warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key def
           <Property Type="String" Name="Mật_Khẩu" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Quyền" Nullable="false" MaxLength="15" />
         </ComplexType>
-        <EntityType Name="view_Pet">
-          <Key>
-            <PropertyRef Name="ID_Pet" />
-          </Key>
-          <Property Name="ID_Pet" Type="Int32" Nullable="false" />
-          <Property Name="NameSpec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PriceImport" Type="Int32" />
-          <Property Name="NameSup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Weight" Type="Double" />
-          <Property Name="Age" Type="Int32" />
-        </EntityType>
         <ComplexType Name="GetData_pet_Result">
           <Property Type="Int32" Name="ID_Pet" Nullable="false" />
           <Property Type="String" Name="NameSpec" Nullable="true" MaxLength="50" />
@@ -1843,19 +1807,6 @@ warning 6002: The table/view 'CNPM.dbo.view_Pet' does not have a primary key def
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="view_Pet">
-            <EntityTypeMapping TypeName="CNPMModel.view_Pet">
-              <MappingFragment StoreEntitySet="view_Pet">
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="NameSup" ColumnName="NameSup" />
-                <ScalarProperty Name="PriceImport" ColumnName="PriceImport" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
-                <ScalarProperty Name="NameSpec" ColumnName="NameSpec" />
-                <ScalarProperty Name="ID_Pet" ColumnName="ID_Pet" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="delete_pet" FunctionName="CNPMModel.Store.delete_pet" />
           <FunctionImportMapping FunctionImportName="GetData_pet" FunctionName="CNPMModel.Store.GetData_pet">
             <ResultMapping>
