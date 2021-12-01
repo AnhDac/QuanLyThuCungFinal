@@ -137,15 +137,15 @@ namespace QuanLyThuCung.Views
                 if (MessageBox.Show("Thêm Thú Cưng ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    view_Pet pet = new view_Pet();
-                    pet.NameSpec = tbLoaiThuCung.Text.ToString().Trim();
+                    Pet pet = new Pet();
+                    pet.ID_Spec = pt_IDLoai;
                     pet.Sex = cbGioitinh.Text.ToString().Trim();
                     pet.PriceImport = Convert.ToInt32(tbGiaNhapThuCung.Text);
-                    pet.NameSup = tbNccThuCung.Text.ToString().Trim();
+                    pet.ID_Sup = pt_IDNCC;
                     pet.Weight = Convert.ToDouble(tbCanNangThuCung.Text);
                     pet.Age = Convert.ToInt32(tbTuoiThuCung.Text);
 
-                    db.view_Pet.Add(pet);
+                    db.Pets.Add(pet);
                     db.SaveChanges();
 
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -165,11 +165,11 @@ namespace QuanLyThuCung.Views
             try
             {
                 int idpet = Convert.ToInt32(dgvThuCung.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
-                view_Pet pet = db.view_Pet.Find(idpet);
-                pet.NameSpec = tbLoaiThuCung.Text.ToString().Trim();
+                Pet pet = db.Pets.Find(idpet);
+                pet.ID_Spec = pt_IDLoai;
                 pet.Sex = cbGioitinh.Text.ToString().Trim();
                 pet.PriceImport = Convert.ToInt32(tbGiaNhapThuCung.Text);
-                pet.NameSup = tbNccThuCung.Text.ToString().Trim();
+                pet.ID_Sup = pt_IDNCC;
                 pet.Weight = Convert.ToDouble(tbCanNangThuCung.Text);
                 pet.Age = Convert.ToInt32(tbTuoiThuCung.Text);
 
@@ -192,8 +192,8 @@ namespace QuanLyThuCung.Views
                 if (MessageBox.Show("Bạn Có Chắc Muốn Xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int valueDelete = Convert.ToInt32(tbIDThuCung.Text.ToString().Trim());
-                    view_Pet pet = db.view_Pet.Where(p => p.ID_Pet == valueDelete).SingleOrDefault();
-                    db.view_Pet.Remove(pet);
+                    Pet pet = db.Pets.Where(p => p.ID_Pet == valueDelete).SingleOrDefault();
+                    db.Pets.Remove(pet);
                     db.SaveChanges();
                     MessageBox.Show("Xóa Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadThuCung();
