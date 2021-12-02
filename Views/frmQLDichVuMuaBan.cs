@@ -437,10 +437,9 @@ namespace QuanLyThuCung.Views
             Font fontTieuDe = new Font("Arial", 3, FontStyle.Bold);
             Font fontNoiDung = new Font("Arial", 3, FontStyle.Regular);
 
-            printBanDichVu.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN DỊCH VỤ", 148, 150);
+            printBanDichVu.DefaultPageSettings.PaperSize = new PaperSize("HÓA ĐƠN DỊCH VỤ", 148, 150);//Tạo 1 paper size và tiêu đề
 
             Contract_Ser c = db.Contract_Ser.Find(int.Parse(txtHD_IDConser.Text));
-            int pos = 0;
             int theLastPos = 0;
             int leftMargin = 22;
             int topMargin = 40;
@@ -452,15 +451,14 @@ namespace QuanLyThuCung.Views
             //In phần tiêu đề hóa đơn
             e.Graphics.DrawString("Mã dịch vụ", fontTieuDe, Brushes.Black, new Point(leftMargin, topMargin));
             e.Graphics.DrawString("Tên dịch vụ", fontTieuDe, Brushes.Black, new Point(leftMargin + 25, topMargin));
-            e.Graphics.DrawString("Giá tiên", fontTieuDe, Brushes.Black, new Point(leftMargin + 50, topMargin));
+            e.Graphics.DrawString("Giá tiền", fontTieuDe, Brushes.Black, new Point(leftMargin + 50, topMargin));
 
 
-            e.Graphics.DrawString(c.ID_ConSer + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 1, topMargin + 10 + pos));
-            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Name + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 25, topMargin + 10 + pos));
-            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Price + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 56, topMargin + 10 + pos));
+            e.Graphics.DrawString(c.ID_ConSer + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 1, topMargin + 10));
+            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Name + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 25, topMargin + 10 ));
+            e.Graphics.DrawString(db.Contract_Ser.Find(c.ID_ConSer).Servic.Price + "", fontNoiDung, Brushes.Black, new Point(leftMargin + 56, topMargin + 10 ));
 
-            theLastPos = topMargin + 10 + pos;
-            pos += 10;
+            theLastPos = topMargin + 10 ;
 
             e.Graphics.DrawString("==========================================", fontNoiDung,
                 Brushes.Black, new Point(leftMargin, theLastPos + 10));
@@ -594,22 +592,6 @@ namespace QuanLyThuCung.Views
                     db.SaveChanges();
 
 
-
-
-
-                    //int id = Convert.ToInt32(txtSell_IDCon.Text.ToString());
-                    //string NV = txtHD_IDEmp.Text.ToString().Trim();
-                   // string cus = txtSell_IDCus.Text.ToString().Trim();
-                    //int pet1 = Convert.ToInt32(txtSell_IDPet.Text.ToString());
-
-
-                   // DateTime date = Convert.ToDateTime(dateSell_DateSell.Text.ToString());
-                   // string warr = txtSell_Caltel.Text.ToString().Trim();
-                   // int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
-                   // db.insert_contractSell( NV, cus, pet1, warr, date, price);
-
-                    //db.SaveChanges();
-
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
                 }
@@ -641,18 +623,6 @@ namespace QuanLyThuCung.Views
                     contract_Sell1.Price = Convert.ToInt32(txtSell_Price.Text);
                     db.SaveChanges();
 
-
-
-                    //int id = Convert.ToInt32( txtSell_IDCon.Text.ToString());
-                    //string NV = txtHD_IDEmp.Text.ToString().Trim();
-                    //string cus = txtSell_IDCus.Text.ToString().Trim();
-                    //int pet1 =Convert.ToInt32( txtSell_IDPet.Text.ToString());
-          
-                    
-                    //DateTime date = Convert.ToDateTime( dateSell_DateSell.Text.ToString());
-                    //string warr = txtSell_Caltel.Text.ToString().Trim();
-                   // int price = Convert.ToInt32(txtSell_Price.Text.ToString().Trim());
-                    //db.update_contractSell(id, NV, cus, pet1,  warr,date, price);
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
                 }
