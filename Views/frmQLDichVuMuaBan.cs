@@ -56,6 +56,7 @@ namespace QuanLyThuCung.Views
             if (tabQL.SelectedTab == tabHDDV)
             {
                 LoadHopDongDV();
+
             }else if (tabQL.SelectedTab == tabContracSell)
             {
                 LoadHopDongThuCung();
@@ -391,12 +392,19 @@ namespace QuanLyThuCung.Views
         private void dgvHDDV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             binHopDongDV();
+            int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
+            Contract_Ser contract_Ser = db.Contract_Ser.Find(id);
+            ser_IDNV = contract_Ser.ID_Emp.Value;
+            ser_IDCus = contract_Ser.ID_Cus.Value;
+            ser_IDServic = contract_Ser.ID_Ser.Value;
+
         }
 
 
         //=========Hàm======
         void LoadHopDongDV()
         {
+            tam = "bin";
             var result = db.GetData_contractSer().ToList();
             dgvHDDV.DataSource = result.ToList();
             binHopDongDV();
@@ -544,6 +552,11 @@ namespace QuanLyThuCung.Views
         private void dgvContractSell_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             binHopDongThuCung();
+            int id = Convert.ToInt32(txtSell_IDCon.Text.ToString().Trim());
+            Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
+            Sell_id_emp = contract_Sell1.ID_Emp.Value;
+            Sell_id_cus = contract_Sell1.ID_Cus.Value;
+            Sell_id_BaoHanh = contract_Sell1.CateInsurance.Value;
         }
 
         private void btnTimContractSell_Click(object sender, EventArgs e)
@@ -692,6 +705,7 @@ namespace QuanLyThuCung.Views
         
         void LoadHopDongThuCung()
         {
+            tam = "bin";
             var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();

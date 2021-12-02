@@ -103,6 +103,7 @@ namespace QuanLyThuCung.Views
 
         void LoadThuCung()
         {
+            tam = "bin";
             //Chinh sua style dgv
             dgvThuCung.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dgvThuCung.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -131,6 +132,11 @@ namespace QuanLyThuCung.Views
         private void dgvThuCung_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataBindThuCung();
+            int id = Convert.ToInt32(tbIDThuCung.Text.ToString().Trim());
+            Pet pet = db.Pets.Find(id);
+            pt_IDNCC = pet.ID_Sup.Value;
+            pt_IDLoai = pet.ID_Spec.Value;
+
         }
 
 
