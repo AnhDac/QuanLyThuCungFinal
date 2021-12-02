@@ -121,6 +121,10 @@ namespace QuanLyThuCung.Views
             cbbTimThuCung.SelectedItem = "Loại";
             tbIDThuCung.ReadOnly = true;
             btnPt_chon.Visible = false;
+            int id = Convert.ToInt32(tbIDThuCung.Text.ToString().Trim());
+            Pet pet = db.Pets.Find(id);
+            pt_IDNCC = pet.ID_Sup.Value;
+            pt_IDLoai = pet.ID_Spec.Value;
 
         }
 
@@ -164,7 +168,8 @@ namespace QuanLyThuCung.Views
 
             try
             {
-                int idpet = Convert.ToInt32(dgvThuCung.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                //int idpet = Convert.ToInt32(dgvThuCung.SelectedCells[0].OwningRow.Cells[0].Value.ToString().Trim());
+                int idpet = Convert.ToInt32(tbIDThuCung.Text.ToString().Trim());
                 Pet pet = db.Pets.Find(idpet);
                 pet.ID_Spec = pt_IDLoai;
                 pet.Sex = cbGioitinh.Text.ToString().Trim();

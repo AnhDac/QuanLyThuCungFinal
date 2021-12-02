@@ -819,7 +819,8 @@ namespace QuanLyThuCung.Views
             btnSell_Them.Visible = true;
             btnSell_Xoa.Visible = true;
             btnInHoaDonTC.Visible = true;
-            dgvContractSell.DataSource = db.GetData_contractSell();
+            dgvContractSell.DataSource = null;
+            dgvContractSell.DataSource = db.GetData_contractSell().ToList();
         }
 
         private void btnSell_Pet_Click(object sender, EventArgs e)
