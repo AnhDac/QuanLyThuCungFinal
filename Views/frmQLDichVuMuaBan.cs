@@ -400,6 +400,14 @@ namespace QuanLyThuCung.Views
             var result = db.GetData_contractSer().ToList();
             dgvHDDV.DataSource = result.ToList();
             binHopDongDV();
+
+
+            int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
+            Contract_Ser contract_Ser = db.Contract_Ser.Find(id);
+            ser_IDNV = contract_Ser.ID_Emp.Value;
+            ser_IDCus = contract_Ser.ID_Cus.Value;
+            ser_IDServic = contract_Ser.ID_Ser.Value;
+
             btnSer_chon.Visible = false;
 
         }
@@ -681,13 +689,21 @@ namespace QuanLyThuCung.Views
                 txtSell_Price.Text = dgvContractSell.CurrentRow.Cells[6].Value.ToString().Trim();
             }
         }
+        
         void LoadHopDongThuCung()
         {
             var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();
+
+            int id = Convert.ToInt32(txtSell_IDCon.Text.ToString().Trim());
+            Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
+            Sell_id_emp = contract_Sell1.ID_Emp.Value;
+            Sell_id_cus = contract_Sell1.ID_Cus.Value;
+            Sell_id_BaoHanh = contract_Sell1.CateInsurance.Value;
             btnSell_chon.Visible = false;
 
+           
         }
         #endregion
 
@@ -793,14 +809,28 @@ namespace QuanLyThuCung.Views
                 Sell_id_cus = Convert.ToInt32(dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim());
                 txtSell_IDCus.Text = dgvContractSell.CurrentRow.Cells[1].Value.ToString().Trim();
             }
+            if(tam2=="PET")
+            {
+                txtSell_IDPet.Text= dgvContractSell.CurrentRow.Cells[0].Value.ToString().Trim();
+            }    
             tam2 = "bin";
             btnSell_chon.Visible = false;
             btnSell_Sua.Visible = true;
             btnSell_Them.Visible = true;
             btnSell_Xoa.Visible = true;
             btnInHoaDonTC.Visible = true;
-            tam2 = "bin";
             dgvContractSell.DataSource = db.GetData_contractSell();
+        }
+
+        private void btnSell_Pet_Click(object sender, EventArgs e)
+        {
+            dgvContractSell.DataSource = db.usp_GetThuCungChuaBan();
+            btnSell_chon.Visible = true;
+            btnSell_Sua.Visible = false;
+            btnSell_Them.Visible = false;
+            btnSell_Xoa.Visible = false;
+            btnInHoaDonTC.Visible = false;
+            tam2 = "PET";
         }
     }
 }
