@@ -300,13 +300,6 @@ namespace QuanLyThuCung.Views
                     db.Contract_Ser.Add(contract_Ser);
                     db.SaveChanges();
 
-
-                    // string Emp = txtHD_IDEmp.Text.ToString().Trim();
-                    // string cus = txtHD_IDCus.Text.ToString().Trim();
-                   // DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
-                   // string tenDV = txtTenDichVuHDSer.Text.ToString().Trim();
-                   // db.insert_contractSer(Emp,cus, date, tenDV);
-
                     MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
                 }
@@ -334,13 +327,6 @@ namespace QuanLyThuCung.Views
                     contract_Ser.ID_Ser = ser_IDServic;
                     db.SaveChanges();
 
-
-                    // int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
-                    //string Emp= txtHD_IDEmp.Text.ToString().Trim();
-                   // string cus = txtHD_IDCus.Text.ToString().Trim();
-                   // DateTime date = Convert.ToDateTime(dtpNgayMuaHDDV.Text.ToString());
-                   // string tenDV=txtTenDichVuHDSer.Text.ToString().Trim();
-                    //db.update_contractSer(id, Emp, cus, date, tenDV);
 
                     MessageBox.Show("Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongDV();
@@ -392,12 +378,14 @@ namespace QuanLyThuCung.Views
         private void dgvHDDV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             binHopDongDV();
-            int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
-            Contract_Ser contract_Ser = db.Contract_Ser.Find(id);
-            ser_IDNV = contract_Ser.ID_Emp.Value;
-            ser_IDCus = contract_Ser.ID_Cus.Value;
-            ser_IDServic = contract_Ser.ID_Ser.Value;
-
+            if (tam2 == "bin")
+            {
+                int id = Convert.ToInt32(txtHD_IDConser.Text.ToString().Trim());
+                Contract_Ser contract_Ser = db.Contract_Ser.Find(id);
+                ser_IDNV = contract_Ser.ID_Emp.Value;
+                ser_IDCus = contract_Ser.ID_Cus.Value;
+                ser_IDServic = contract_Ser.ID_Ser.Value;
+            }
         }
 
 
@@ -555,11 +543,14 @@ namespace QuanLyThuCung.Views
         private void dgvContractSell_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             binHopDongThuCung();
-            int id = Convert.ToInt32(txtSell_IDCon.Text.ToString().Trim());
-            Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
-            Sell_id_emp = contract_Sell1.ID_Emp.Value;
-            Sell_id_cus = contract_Sell1.ID_Cus.Value;
-            Sell_id_BaoHanh = contract_Sell1.CateInsurance.Value;
+            if(tam2 == "bin")
+            {
+                int id = Convert.ToInt32(txtSell_IDCon.Text.ToString().Trim());
+                Contract_Sell contract_Sell1 = db.Contract_Sell.Find(id);
+                Sell_id_emp = contract_Sell1.ID_Emp.Value;
+                Sell_id_cus = contract_Sell1.ID_Cus.Value;
+                Sell_id_BaoHanh = contract_Sell1.CateInsurance.Value;
+            }
         }
 
         private void btnTimContractSell_Click(object sender, EventArgs e)
@@ -628,7 +619,7 @@ namespace QuanLyThuCung.Views
                     contract_Sell1.Price = Convert.ToInt32(txtSell_Price.Text);
                     db.SaveChanges();
 
-                    MessageBox.Show("Thêm Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sửa Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadHopDongThuCung();
                 }
             }
