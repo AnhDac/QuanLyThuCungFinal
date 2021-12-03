@@ -104,6 +104,10 @@ namespace QuanLyThuCung.Views
         void LoadThuCung()
         {
             tam = "bin";
+            btnSuaThuCung.Visible = true;
+            btnXoaThuCung.Visible = true;
+            btnThemThuCung.Visible = true;
+
             //Chinh sua style dgv
             dgvThuCung.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dgvThuCung.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

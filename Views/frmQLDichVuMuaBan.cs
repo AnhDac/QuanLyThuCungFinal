@@ -405,6 +405,13 @@ namespace QuanLyThuCung.Views
         void LoadHopDongDV()
         {
             tam = "bin";
+            btnSuaHDDV.Visible = true;
+            btnXoaHDDV.Visible = true;
+            btnThemHDDV.Visible = true;
+            btnInHoaDonDV.Visible = true;
+            btnSer_chon.Visible = false;
+
+
             var result = db.GetData_contractSer().ToList();
             dgvHDDV.DataSource = result.ToList();
             binHopDongDV();
@@ -415,8 +422,6 @@ namespace QuanLyThuCung.Views
             ser_IDNV = contract_Ser.ID_Emp.Value;
             ser_IDCus = contract_Ser.ID_Cus.Value;
             ser_IDServic = contract_Ser.ID_Ser.Value;
-
-            btnSer_chon.Visible = false;
 
         }
         void binHopDongDV()
@@ -676,6 +681,13 @@ namespace QuanLyThuCung.Views
         void LoadHopDongThuCung()
         {
             tam2 = "bin";
+            btnSell_Sua.Visible = true;
+            btnSell_Them.Visible = true;
+            btnSell_Xoa.Visible = true;
+            btnInHoaDonTC.Visible = true;
+            btnSell_chon.Visible = false;
+            dgvContractSell.DataSource = null;
+
             var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();
@@ -685,7 +697,6 @@ namespace QuanLyThuCung.Views
             Sell_id_emp = contract_Sell1.ID_Emp.Value;
             Sell_id_cus = contract_Sell1.ID_Cus.Value;
             Sell_id_BaoHanh = contract_Sell1.CateInsurance.Value;
-            btnSell_chon.Visible = false;
 
            
         }
