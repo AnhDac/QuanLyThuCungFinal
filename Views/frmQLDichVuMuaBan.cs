@@ -80,6 +80,7 @@ namespace QuanLyThuCung.Views
                     tabQL.TabPages.Remove(tabHDDV);
                     tabQL.TabPages.Remove(tabDV);
                     tabQL.TabPages.Remove(tabContracSell);
+                    tabQL.TabPages.Remove(tabDichVuDaMua);
 
                     break;
                 case "customer":
