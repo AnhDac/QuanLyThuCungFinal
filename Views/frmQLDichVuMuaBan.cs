@@ -675,7 +675,7 @@ namespace QuanLyThuCung.Views
         
         void LoadHopDongThuCung()
         {
-            tam = "bin";
+            tam2 = "bin";
             var result = db.GetData_contractSell().ToList();
             dgvContractSell.DataSource = result.ToList();
             binHopDongThuCung();
